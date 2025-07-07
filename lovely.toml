@@ -1,0 +1,61 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+# the patch below is mostly from Maximus
+
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''G.SPLASH_BACK = Sprite(-30, -6, G.ROOM.T.w+60, G.ROOM.T.h+12, G.ASSET_ATLAS["ui_1"], {x = 2, y = 0})'''
+position = "before"
+payload = '''
+    self.jud_pills_W = G.CARD_W*1.1
+    self.jud_pills_H = 0.95*G.CARD_H
+
+    self.jud_pill = CardArea(
+        G.consumeables.T.x + 2.25,
+        G.consumeables.T.y + G.consumeables.T.h + 3, 
+        self.jud_pills_W, 
+        self.jud_pills_H, 
+        {card_limit = 1, type = 'joker', highlight_limit = 1}
+    )
+    '''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''G.SPLASH_BACK = Sprite(-30, -6, G.ROOM.T.w+60, G.ROOM.T.h+12, G.ASSET_ATLAS["ui_1"], {x = 2, y = 0})'''
+position = "before"
+payload = '''
+    self.jud_boons_W = 1
+    self.jud_boons_H = 1
+
+    self.jud_boons = CardArea(
+        G.consumeables.T.x + 5,
+        G.consumeables.T.y + G.consumeables.T.h + -2, 
+        self.jud_boons_W, 
+        self.jud_boons_H, 
+        {card_limit = 1, type = 'joker', highlight_limit = 1}
+    )
+    '''
+match_indent = true
+
+# 
+
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '-- TARGET: add your own CardAreas for joker evaluation'
+position = "after"
+payload = '''
+table.insert(t, 1, G.jud_pill)
+table.insert(t, 2, G.jud_boons)
+'''
+match_indent = true
+
+

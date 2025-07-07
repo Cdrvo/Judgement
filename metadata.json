@@ -1,0 +1,14 @@
+{
+	"id": "Judgement",
+	"name": "Judgement",
+	"display_name": "Judgement",
+	"author": ["CodeRevo"],
+	"description": "Judgement is an addon for the Cryptid mod that aims to add new mechanics, cards, consumables and all of the fun content that we can think of. Ideally, it is compatible and fun to use alongside other Cryptid addons or mods.",
+	"prefix": "jud",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_text_colour": "ae7700",
+	"badge_colour": "6700bd",
+	"version": "0.0.0",
+	"dependencies": ["Steamodded (>=1.0.0~ALPHA-0309c)","Cryptid (>=0.5.9)"]
+}
