@@ -36,7 +36,8 @@ SMODS.Enhancement({
 
 SMODS.Enhancement({
 	key = "celestial",
-	pos = { x = 0, y = 3 },
+	atlas = "enh",
+	pos = { x = 0, y = 0 },
 	discovered = true,
 	unlocked = true,
 	replace_base_card = false,
@@ -50,9 +51,16 @@ SMODS.Enhancement({
 	end,
 	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
+			local _hand, _tally = nil, -1
+			for k, v in ipairs(G.handlist) do
+				if G.GAME.hands[v].visible and G.GAME.hands[v].played > _tally then
+					_hand = v
+					_tally = G.GAME.hands[v].played
+				end
+			end
 			return {
-				chips = G.GAME.hands[G.GAME.current_round.most_played_poker_hand].chips,
-				mult = G.GAME.hands[G.GAME.current_round.most_played_poker_hand].mult,
+				chips = G.GAME.hands[_hand].chips,
+				mult = G.GAME.hands[_hand].mult,
 			}
 		end
 	end,

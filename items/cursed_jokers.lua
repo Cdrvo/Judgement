@@ -8,6 +8,7 @@ SMODS.Joker({
 	rarity = "cry_cursed",
 	blueprint_compat = false,
 	discovered = false,
+	no_collection = true,
 	pos = {
 		x = 1,
 		y = 0,
@@ -38,7 +39,6 @@ SMODS.Joker({
 		end
 	end,
 })
-
 
 SMODS.Joker({
 	key = "chrometophobia",

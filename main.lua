@@ -4,6 +4,7 @@ to_big = to_big or function(x)
 	return x
 end
 
+SMODS.load_file("items/misc.lua")()
 SMODS.load_file("items/common_jokers.lua")()
 SMODS.load_file("items/uncommon_jokers.lua")()
 SMODS.load_file("items/rare_jokers.lua")()
@@ -20,6 +21,11 @@ SMODS.load_file("items/enhancements.lua")()
 SMODS.load_file("items/stickers.lua")()
 SMODS.load_file("items/seals.lua")()
 SMODS.load_file("items/editions.lua")()
+SMODS.load_file("items/tarots.lua")()
+SMODS.load_file("items/hands.lua")()
+SMODS.load_file("items/planets.lua")()
+SMODS.load_file("items/spectrals.lua")()
+SMODS.load_file("items/cryptics.lua")()
 
 SMODS.current_mod.optional_features = function()
 	return {
@@ -104,12 +110,70 @@ end
 
 local isfaceold = Card.is_face
 function Card:is_face(from_boss)
-    if self.debuff and not from_boss then return end
-    if self.ability.seal == "jud_reversal" then
-        return true
-    end
+	if self.debuff and not from_boss then
+		return
+	end
+	if self.ability.seal == "jud_reversal" or (#SMODS.find_card("c_jud_mannaz") >= 1) then
+		return true
+	end
 	return isfaceold(self, from_boss)
 end
+
+local gcp = get_current_pool
+function get_current_pool(_type, _rarity, _legendary, _append, override_equilibrium_effect)
+	if
+		(#SMODS.find_card("c_jud_thurisaz") >= 1)
+		and not G.GAME.modifiers.cry_equilibrium
+		and not G.GAME.jud_reroll
+		and (_append == "sho" or _type == "Voucher" or _type == "Booster")
+	then
+		if
+			_type ~= "Enhanced"
+			and _type ~= "Edition"
+			and _type ~= "Back"
+			and _type ~= "Tag"
+			and _type ~= "Seal"
+			and _type ~= "Stake"
+		then
+			-- we're regenerating the pool every time because of banned keys but it's fine tbh
+			P_CRY_ITEMS = {}
+			local valid_pools = { "Joker", "Consumeables", "Voucher", "Booster" }
+			for _, id in ipairs(valid_pools) do
+				for k, v in pairs(G.P_CENTER_POOLS[id]) do
+					if
+						v.unlocked == true
+						and not Cryptid.no(v, "doe", k)
+						and not (G.GAME.banned_keys[v.key] or G.GAME.cry_banished_keys[v.key])
+					then
+						P_CRY_ITEMS[#P_CRY_ITEMS + 1] = v.key
+					end
+				end
+			end
+			if #P_CRY_ITEMS <= 0 then
+				P_CRY_ITEMS[#P_CRY_ITEMS + 1] = "v_blank"
+			end
+			return P_CRY_ITEMS, "anva_directer" .. G.GAME.round_resets.ante
+		end
+	end
+	return gcp(_type, _rarity, _legendary, _append)
+end
+
+local alwaysscoreold = SMODS.always_scores
+function SMODS.always_scores(card)
+	if #SMODS.find_card("c_jud_isa") >= 1 then
+		return true
+	end
+	return alwaysscoreold(card)
+end
+
+local suitsold = Card.is_suit
+function Card:is_suit(suit, bypass_debuff, flush_calc)
+	if (#SMODS.find_card("c_jud_love") >= 1) then
+		return true
+	end
+	return suitsold(self, suit, bypass_debuff, flush_calc)
+end
+
 
 local igo = Game.init_game_object
 Game.init_game_object = function(self)
@@ -118,5 +182,7 @@ Game.init_game_object = function(self)
 	ret.jokersdestroyed = 0
 	ret.jud_curse = 100
 	ret.jud_destroyed = {}
+	ret.jud_reroll = false
+	ret.jud_skip_tag = nil
 	return ret
 end
