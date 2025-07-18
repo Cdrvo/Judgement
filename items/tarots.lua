@@ -17,3 +17,18 @@ SMODS.Consumable({
 		return { vars = { self.config.max_highlighted } }
 	end,
 })
+
+SMODS.Consumable({
+	key = "pilgrimage",
+	set = "Tarot",
+	config = { max_highlighted = 1 },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.max_highlighted } }
+	end,
+	use = function(self, card, area, copier)
+		for i = 1, #G.hand.highlighted do
+			G.hand.highlighted[i]:juice_up()
+			Judgement.random_post(G.hand.highlighted[i])
+		end
+	end,
+})

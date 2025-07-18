@@ -171,12 +171,13 @@ SMODS.Joker({
 	config = {
 		extra = {},
 	},
+	atlas = "cursj",
 	rarity = "cry_cursed",
 	blueprint_compat = false,
 	discovered = false,
 	no_collection = true,
 	pos = {
-		x = 1,
+		x = 0,
 		y = 0,
 	},
 	cost = 5,
@@ -188,17 +189,11 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
-		local jokers = {}
-		if context.setting_blind and not context.blueprint then
-			for i = 1, #G.jokers.cards do
-				jokers[#jokers + 1] = G.jokers.cards[i]
-			end
-			local choosenone = pseudorandom_element(jokers, pseudoseed("bananaphobia"))
+			local choosenone = Judgement.random_joker(G.jokers.cards)
 			if choosenone == card then
 				card:start_dissolve(nil, 1.6)
 			else
 				SMODS.Stickers["banana"]:apply(choosenone, true)
 			end
-		end
 	end,
 })

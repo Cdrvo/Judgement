@@ -1,9 +1,9 @@
 SMODS.ConsumableType({
 	key = "boons",
 	collection_rows = { 4, 5 },
-	primary_colour = G.C.YELLOW,
-	secondary_colour = G.C.YELLOW,
-	shop_rate = 0.01,
+	primary_colour = Judgement.C.BOONSB,
+	secondary_colour = Judgement.C.BOONSB,
+	shop_rate = 0,
 })
 
 local card_highlighted_ref = Card.highlight
@@ -16,7 +16,7 @@ function Card:highlight(is_highlighted)
 		end
 
 		self.children.use_button = UIBox({
-			definition = Judgement.create_sell_and_switch_buttons(self, {
+			definition = Judgement.create_sell_and_switch_buttonsb(self, {
 				use = true,
 			}),
 			config = {
@@ -33,9 +33,56 @@ function Card:highlight(is_highlighted)
 	end
 end
 
+Judgement.create_sell_and_switch_buttonsb = function(card, args)
+	local args = args or {}
+	local sell = nil
+	local use = nil
+
+	return {
+		n = G.UIT.ROOT,
+		config = {
+			align = "cr",
+			padding = 0,
+			colour = G.C.CLEAR,
+		},
+		nodes = {
+			{
+				n = G.UIT.C,
+				config = {
+					padding = 0.15,
+					align = "cl",
+				},
+				nodes = {
+					sell and {
+						n = G.UIT.R,
+						config = {
+							align = "cl",
+						},
+						nodes = { sell },
+					} or nil,
+					use and {
+						n = G.UIT.R,
+						config = {
+							align = "cl",
+						},
+						nodes = { use },
+					} or nil,
+				},
+			},
+		},
+	}
+end
+
 SMODS.Consumable({
 	key = "knowledge",
 	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+	end,
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
@@ -58,6 +105,13 @@ SMODS.Consumable{
 SMODS.Consumable({
 	key = "health",
 	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+	end,
 	calculate = function(self, card, context)
 		for k, v in ipairs(G.play.cards) do
 			if v.debuff then
@@ -70,15 +124,32 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "wealth",
 	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+	end,
 	config = {
 		extra = {
+			give = 1,
 			blinds = 0,
 		},
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {
+				card.ability.extra.blinds,
+				jud.give,
+			},
+		}
+	end,
 	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval then
 			local jud = card.ability.extra
-			jud.blinds = jud.blinds + 1
+			jud.blinds = jud.blinds + jud.give
 			return {
 				dollars = jud.blinds,
 			}
@@ -89,6 +160,13 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "power",
 	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+	end,
 	config = {
 		extra = {},
 	},
@@ -112,8 +190,20 @@ SMODS.Consumable({
 			setsize = 0,
 		},
 	},
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.setsize,
+			},
+		}
+	end,
 	add_to_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
 		jud.setsize = G.GAME.round_resets.discards
 		SMODS.change_discard_limit(G.GAME.round_resets.discards)
 	end,
@@ -142,6 +232,11 @@ SMODS.Consumable({
 	end,
 	cost = 5,
 	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
 		card.ability.extra.defaults = card.ability.extra.defaults or {}
 		card.ability.extra.defaults["cry_epic"] = G.GAME[("cry_epic"):lower() .. "_mod"]
 		G.GAME[("cry_epic"):lower() .. "_mod"] = 10
@@ -165,11 +260,16 @@ SMODS.Consumable({
 	},
 	loc_vars = function(self, info_queue, card)
 		return {
-			vars = {},
+			vars = { card.ability.extra.original },
 		}
 	end,
 	cost = 5,
 	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
 		card.ability.extra.original = SMODS.ObjectTypes["Joker"].rarities[1].weight
 		SMODS.ObjectTypes["Joker"].rarities[1].weight = SMODS.ObjectTypes["Joker"].rarities[3].weight
 	end,
@@ -181,6 +281,13 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "leadership",
 	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+	end,
 	pos = {
 		x = 0,
 		y = 0,
@@ -192,7 +299,7 @@ SMODS.Consumable({
 	},
 	loc_vars = function(self, info_queue, card)
 		return {
-			vars = {},
+			vars = { card.ability.extra.xchips },
 		}
 	end,
 	cost = 5,
@@ -215,14 +322,19 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "opportunity",
 	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+	end,
 	pos = {
 		x = 0,
 		y = 0,
 	},
 	config = {
-		extra = {
-			xchips = 1.2,
-		},
+		extra = {},
 	},
 	loc_vars = function(self, info_queue, card)
 		return {
@@ -232,42 +344,13 @@ SMODS.Consumable({
 	cost = 5,
 	calculate = function(self, card, context)
 		local _tag = G.GAME.jud_skip_tag
-	if context.end_of_round and not G.GAME.blind.boss and G.GAME.current_round.hands_played <= 1 then
-		if _tag and _tag.config and _tag.config.ref_table then
-			add_tag(_tag.config.ref_table)
-			G.GAME.jud_skip_tag = ""
+		if context.end_of_round and not G.GAME.blind.boss and G.GAME.current_round.hands_played <= 1 then
+			if _tag and _tag.config and _tag.config.ref_table then
+				add_tag(_tag.config.ref_table)
+				G.GAME.jud_skip_tag = ""
+			end
 		end
-	end
-end
-})
-
-SMODS.Consumable({
-	key = "opportunity",
-	set = "boons",
-	pos = {
-		x = 0,
-		y = 0,
-	},
-	config = {
-		extra = {
-			xchips = 1.2,
-		},
-	},
-	loc_vars = function(self, info_queue, card)
-		return {
-			vars = {},
-		}
 	end,
-	cost = 5,
-	calculate = function(self, card, context)
-		local _tag = G.GAME.jud_skip_tag
-	if context.end_of_round and not G.GAME.blind.boss and G.GAME.current_round.hands_played <= 1 then
-		if _tag and _tag.config and _tag.config.ref_table then
-			add_tag(_tag.config.ref_table)
-			G.GAME.jud_skip_tag = ""
-		end
-	end
-end
 })
 
 --CHOICE
@@ -275,14 +358,19 @@ end
 SMODS.Consumable({
 	key = "love",
 	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+	end,
 	pos = {
 		x = 0,
 		y = 0,
 	},
 	config = {
-		extra = {
-			xchips = 1.2,
-		},
+		extra = {},
 	},
 	loc_vars = function(self, info_queue, card)
 		return {
@@ -291,5 +379,3 @@ SMODS.Consumable({
 	end,
 	cost = 5,
 })
-
-

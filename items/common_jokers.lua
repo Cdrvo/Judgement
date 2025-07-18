@@ -32,13 +32,15 @@ SMODS.Joker({
 	config = {
 		extra = {
 			extra_value = 0,
+			togive = 3
 		},
 	},
 	rarity = 1,
 	blueprint_compat = false,
 	discovered = false,
+	atlas = "commons",
 	pos = {
-		x = 1,
+		x = 0,
 		y = 0,
 	},
 	cost = 3,
@@ -47,16 +49,16 @@ SMODS.Joker({
 	},
 	loc_vars = function(self, info_queue, card)
 		return {
-			vars = {},
+			vars = {card.ability.extra.togive},
 		}
 	end,
 	calculate = function(self, card, context)
-    if context.cardarea == G.jokers then
-		card.ability.extra_value =  #G.jokers.cards*3-1
-		card:set_cost()
-	end
-    if context.joker_main and next(context.poker_hands["Pair"]) then
-        card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
-    end
-end
+		if context.cardarea == G.jokers then
+			card.ability.extra_value = #G.jokers.cards * card.ability.extra.togive - 1
+			card:set_cost()
+		end
+		if context.joker_main and next(context.poker_hands["Pair"]) then
+			card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
+		end
+	end,
 })

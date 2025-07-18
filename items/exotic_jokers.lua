@@ -1,7 +1,7 @@
 SMODS.Joker({
 	key = "finismortis",
 	config = {
-		extra = {},
+		extra = {copy = 1},
 	},
 	rarity = "cry_exotic",
 	blueprint_compat = true,
@@ -19,13 +19,14 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.copy},
 		}
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		local i = -1
 		if context.selling_self then
+		for i = 1, jud.copy do
 			if #G.GAME.jud_destroyed > 0 then
 				SMODS.add_card({
 					key = G.GAME.jud_destroyed[1].config.center.key,
@@ -49,7 +50,8 @@ SMODS.Joker({
 				end
 			end
 		end
-	end,
+	end
+end
 })
 
 SMODS.Joker({
@@ -93,7 +95,7 @@ SMODS.Joker({
 SMODS.Joker({
 	key = "phobophobia",
 	config = {
-		extra = {},
+		extra = {create = 3},
 	},
 	rarity = "cry_exotic",
 	blueprint_compat = true,
@@ -111,13 +113,13 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.create},
 		}
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.setting_blind then
-		for i = 1, 3 do
+		for i = 1, jud.create do
 			local ccard = SMODS.add_card({
 				key = pseudorandom_element(G.P_CENTER_POOLS.Joker).key,
 				edition = "e_negative",

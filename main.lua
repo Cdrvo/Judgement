@@ -26,6 +26,12 @@ SMODS.load_file("items/hands.lua")()
 SMODS.load_file("items/planets.lua")()
 SMODS.load_file("items/spectrals.lua")()
 SMODS.load_file("items/cryptics.lua")()
+SMODS.load_file("items/poststamps.lua")()
+SMODS.load_file("items/uno.lua")()
+SMODS.load_file("items/vouchers.lua")()
+SMODS.load_file("items/chance.lua")()
+SMODS.load_file("items/community.lua")()
+SMODS.load_file("items/titledeeds.lua")()
 
 SMODS.current_mod.optional_features = function()
 	return {
@@ -64,14 +70,21 @@ function Card:remove()
 			})
 		end
 	end
+	if self.ability.consumeable and self.added_to_deck then
+		SMODS.calculate_context({
+			jud_cons_destroyed = true,
+			jud_destroyedc = self,
+		})
+	end
 	removeold(self)
 end
 
 local oldaddroundevalrow = add_round_eval_row
 function add_round_eval_row(config)
-	config = config or {}
-	if config.dollars and next(SMODS.find_card("j_jud_crypto")) then
-		config.dollars = config.dollars * G.GAME.cashout
+	if G.GAME.jud_cashout > 0 then
+		config.dollars = config.dollars * G.GAME.jud_cashout * G.GAME.jud_crypto
+	else
+		config.dollars = config.dollars * G.GAME.jud_crypto
 	end
 	return oldaddroundevalrow(config)
 end
@@ -168,13 +181,103 @@ end
 
 local suitsold = Card.is_suit
 function Card:is_suit(suit, bypass_debuff, flush_calc)
-	if (#SMODS.find_card("c_jud_love") >= 1) then
+	if #SMODS.find_card("c_jud_love") >= 1 then
 		return true
 	end
 	return suitsold(self, suit, bypass_debuff, flush_calc)
 end
 
+local endofroundold = Card.get_end_of_round_effect
+function Card:get_end_of_round_effect(context)
+	if G.GAME.jud_babayaga == true then
+		if G.GAME.blind.boss then
+			G.GAME.jud_babayaga = false
+			Judgement.total_limit(-G.GAME.jud_babayaga_ammount)
+		end
+	end
+	return endofroundold(self, context)
+end
 
+local calcold = Card.calculate_joker
+function Card:calculate_joker(context)
+	if G.GAME.round_resets.ante >= 32 and (hand_chips * mult) > G.GAME.blind.chips then
+		check_for_unlock({ type = "nomercy_voucher" })
+		print("UNLOCKED")
+	end
+	return calcold(self, context)
+end
+
+local blindsetold = Blind.defeat
+function Blind:defeat(silent)
+	table.insert(G.GAME.blindsdefeated, self)
+	if
+		G.GAME.current_round.hands_played == 1
+		and G.GAME.round_resets.ante >= 32
+		and to_big(G.GAME.chips) > to_big(G.GAME.blind.chips)
+	then
+		check_for_unlock({ type = "nomercy_voucher" })
+		print("UNLOCKED")
+	end
+	return blindsetold(self, silent)
+end
+
+local cardcreateold = create_card
+function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
+	local card = cardcreateold(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
+	local cardset = card.ability.set
+	local center = card and card.config and card.config.center or {}
+	local area = area or G.jokers
+	if
+		_type ~= "Joker"
+		and cardset ~= "Default"
+		and cardset ~= "Enhanced"
+		and (G.GAME.unostickerse and not G.GAME.modifiers.cry_sticker_sheet)
+	then
+		if (area == G.shop_jokers) or (area == G.pack_cards) then
+			if not card.ability.eternal and G.GAME.unostickerse and pseudorandom("jud_sticker") > 0.5 then
+				local stickerkeys = {
+					"jud_alldrawone_a",
+					"jud_alldrawone_b",
+					"jud_alldrawone_c",
+					"jud_alldrawone_d",
+					"jud_skipeveryone_a",
+					"jud_skipeveryone_b",
+					"jud_skipeveryone_c",
+					"jud_skipeveryone_d",
+					"jud_skipreverse_a",
+					"jud_skipreverse_b",
+					"jud_skipreverse_c",
+					"jud_skipreverse_d",
+					"jud_targeteddraw_a",
+					"jud_alldrawtwo_a",
+					"jud_targeteddrawfour_a",
+					"jud_u",
+					"jud_n",
+					"jud_o",
+					"jud_ex",
+					"jud_wildjackpot",
+				}
+				local stickerkey = pseudorandom_element(stickerkeys)
+				SMODS.Stickers[stickerkey]:apply(card, true)
+			end
+		end
+	end
+	return card
+end
+
+local useconsold = Card.use_consumeable
+function Card:use_consumeable(area, copier)
+	if self.ability.set == "uno" and G.GAME.used_vouchers["v_jud_console"] == true then
+		if pseudorandom("console") < 1 / 3 then
+			local ecard = copy_card(self)
+			ecard:add_to_deck()
+			G.consumeables:emplace(ecard)
+		end
+	end
+	return useconsold(self,area,copier)
+end
+
+local vanilla = {}
 local igo = Game.init_game_object
 Game.init_game_object = function(self)
 	local ret = igo(self)
@@ -184,5 +287,163 @@ Game.init_game_object = function(self)
 	ret.jud_destroyed = {}
 	ret.jud_reroll = false
 	ret.jud_skip_tag = nil
+	ret.jud_babayaga = false
+	ret.jud_babayaga_ammount = 0
+	ret.blindsdefeated = {}
+	ret.jud_cashout = 0
+	ret.jud_crypto = 1
+	ret.unostickerse = false
+	-- I already had this list so, why not use it?
+	ret.jud_vanilla = {
+		"j_joker",
+		"j_greedy_joker",
+		"j_lusty_joker",
+		"j_wrathful_joker",
+		"j_gluttenous_joker",
+		"j_zany",
+		"j_mad",
+		"j_crazy",
+		"j_droll",
+		"j_sly",
+		"j_wily",
+		"j_clever",
+		"j_devious",
+		"j_crafty",
+		"j_half",
+		"j_stencil",
+		"j_four_fingers",
+		"j_mime",
+		"j_credit_card",
+		"j_ceremonial",
+		"j_banner",
+		"j_mystic_summit",
+		"j_marble",
+		"j_loyalty_card",
+		"j_8_ball",
+		"j_misprint",
+		"j_dusk",
+		"j_raised_fist",
+		"j_chaos",
+		"j_fibonacci",
+		"j_steel_joker",
+		"j_scary_face",
+		"j_abstract",
+		"j_delayed_grat",
+		"j_hack",
+		"j_pareidolia",
+		"j_gros_michel",
+		"j_even_steven",
+		"j_odd_todd",
+		"j_scholar",
+		"j_business",
+		"j_supernova",
+		"j_ride_the_bus",
+		"j_space",
+		"j_egg",
+		"j_burglar",
+		"j_blackboard",
+		"j_runner",
+		"j_ice_cream",
+		"j_dna",
+		"j_splash",
+		"j_blue_joker",
+		"j_sixth_sense",
+		"j_constellation",
+		"j_hiker",
+		"j_faceless",
+		"j_green_joker",
+		"j_superposition",
+		"j_todo_list",
+		"j_cavendish",
+		"j_card_sharp",
+		"j_red_card",
+		"j_madness",
+		"j_square",
+		"j_seance",
+		"j_riff_raff",
+		"j_vampire",
+		"j_shortcut",
+		"j_hologram",
+		"j_vagabond",
+		"j_baron",
+		"j_cloud_9",
+		"j_rocket",
+		"j_obelisk",
+		"j_midas_mask",
+		"j_luchador",
+		"j_photograph",
+		"j_gift",
+		"j_turtle_bean",
+		"j_erosion",
+		"j_reserved_parking",
+		"j_mail",
+		"j_to_the_moon",
+		"j_hallucination",
+		"j_fortune_teller",
+		"j_juggler",
+		"j_drunkard",
+		"j_stone",
+		"j_golden",
+		"j_lucky_cat",
+		"j_baseball",
+		"j_bull",
+		"j_diet_cola",
+		"j_trading",
+		"j_flash",
+		"j_popcorn",
+		"j_trousers",
+		"j_ancient",
+		"j_ramen",
+		"j_walkie_talkie",
+		"j_selzer",
+		"j_castle",
+		"j_smiley",
+		"j_campfire",
+		"j_ticket",
+		"j_mr_bones",
+		"j_acrobat",
+		"j_sock_and_buskin",
+		"j_swashbuckler",
+		"j_troubadour",
+		"j_certificate",
+		"j_smeared",
+		"j_throwback",
+		"j_hanging_chad",
+		"j_rough_gem",
+		"j_bloodstone",
+		"j_arrowhead",
+		"j_onyx_agate",
+		"j_glass",
+		"j_ring_master",
+		"j_flower_pot",
+		"j_blueprint",
+		"j_wee",
+		"j_merry_andy",
+		"j_oops",
+		"j_idol",
+		"j_seeing_double",
+		"j_matador",
+		"j_hit_the_road",
+		"j_duo",
+		"j_trio",
+		"j_family",
+		"j_order",
+		"j_tribe",
+		"j_stuntman",
+		"j_invisible",
+		"j_brainstorm",
+		"j_satellite",
+		"j_shoot_the_moon",
+		"j_drivers_license",
+		"j_cartomancer",
+		"j_astronomer",
+		"j_burnt",
+		"j_bootstraps",
+		--[["j_caino",
+	"j_triboulet",
+	"j_yorick",
+	"j_chicot",
+	"j_perkeo",]]
+	}
 	return ret
 end

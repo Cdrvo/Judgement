@@ -1,6 +1,5 @@
 SMODS.Seal({
-	key = "pareidolias",
-	pos = { x = 0, y = 0 },
+	key = "royal",
 	discovered = true,
 	badge_colour = HEX("00FF00"),
 	rarity = 3,

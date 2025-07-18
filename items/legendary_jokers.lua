@@ -71,21 +71,14 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = { (G.GAME.probabilities.normal or 1), jud.odds },
 		}
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.ending_shop and pseudorandom("acosta") < G.GAME.probabilities.normal / jud.odds then
-			local jokers = {}
-			for i = 1, #G.jokers.cards do
-				if not G.jokers.cards[i].edition then
-					jokers[#jokers + 1] = G.jokers.cards[i]
-				end
-			end
-			if #jokers > 0 then
-				local selected = pseudorandom_element(jokers, pseudoseed("acosta"))
-				selected:set_edition({ negative = true }, true)
+			if Judgement.random_joker(G.jokers.cards) then
+				Judgement.random_joker(G.jokers.cards):set_edition({ negative = true }, true)
 			end
 		end
 	end,
@@ -113,7 +106,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = { jud.xchips },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -136,15 +129,17 @@ SMODS.Joker({
 		extra = {},
 	},
 	rarity = 4,
+	7,
+	atlas = "leg",
 	blueprint_compat = true,
 	discovered = false,
 	pos = {
-		x = 1,
+		x = 0,
 		y = 0,
 	},
 	soul_pos = {
-		x = 1,
-		y = 0,
+		x = 0,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -187,9 +182,15 @@ SMODS.Joker({
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		return {
-			vars = {},
-		}
+		if G and G.playing_cards then
+			return {
+				vars = { jud.xmult, (#G.playing_cards or 1) * jud.xmult+1 },
+			}
+		else
+			return {
+				vars = { jud.xmult, 1 },
+			}
+		end
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -208,6 +209,7 @@ SMODS.Joker({
 	config = {
 		extra = {
 			remove = 0,
+			limit = 3,
 		},
 	},
 	rarity = 4,
@@ -225,21 +227,19 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.limit},
 		}
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.jud_upgraded then
-			SMODS.change_play_limit(3)
-			SMODS.change_discard_limit(3)
-			jud.remove = jud.remove + 3
+			Judgement.total_limit(jud.limit)
+			jud.remove = jud.remove + jud.limit
 		end
 	end,
 	remove_from_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
-		SMODS.change_play_limit(-jud.remove)
-		SMODS.change_discard_limit(-jud.remove)
+		Judgement.total_limit(-jud.remove)
 	end,
 })
 
@@ -272,15 +272,15 @@ SMODS.Joker({
 		local jud = card.ability.extra
 		local allcons = {}
 		if context.joker_main and next(context.poker_hands["Three of a Kind"]) then
-		for k, _ in pairs(SMODS.ConsumableTypes) do
-			table.insert(allcons, k)
-		end
-		for i = 1, #allcons do
-			SMODS.add_card({
-				set = allcons[1],
-			})
-			table.remove(allcons, 1)
-		end
+			for k, _ in pairs(SMODS.ConsumableTypes) do
+				table.insert(allcons, k)
+			end
+			for i = 1, #allcons do
+				SMODS.add_card({
+					set = allcons[1],
+				})
+				table.remove(allcons, 1)
+			end
 		end
 	end,
 })

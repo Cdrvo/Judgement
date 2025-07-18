@@ -50,7 +50,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.xmultg,jud.xmult},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -76,8 +76,6 @@ SMODS.Joker({
 	key = "ergophobia",
 	config = {
 		extra = {
-			xmult = 1,
-			xmultg = 0.2,
 			odds = 4,
 		},
 	},
@@ -92,7 +90,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {(G.GAME.probabilities.normal or 1),jud.odds},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -136,7 +134,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.xmult},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -181,7 +179,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.emultg,jud.emultg2,jud.emult},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -216,7 +214,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {(G.GAME.probabilities.normal or 1),jud.odds},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -238,7 +236,9 @@ SMODS.Joker({
 	key = "crypto",
 	config = {
 		extra = {
-			odds = 2,
+			c1 = 2,
+			c2 = 1.5,
+			c3= 1
 		},
 	},
 	rarity = 3,
@@ -252,18 +252,18 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.c1,jud.c2,jud.c3},
 		}
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.end_of_round and context.main_eval then
 			if G.GAME.current_round.hands_played == 0 then
-				G.GAME.cashout = 2
+				G.GAME.jud_crypto = jud.c1
 			elseif G.GAME.current_round.hands_played == 1 then
-				G.GAME.cashout = 1.5
+				G.GAME.jud_crypto = jud.c2
 			elseif G.GAME.current_round.hands_played > 1 then
-				G.GAME.cashout = 1
+				G.GAME.jud_crypto = jud.c3
 			end
 		end
 	end,
@@ -335,7 +335,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.level},
 		}
 	end,
 	calculate = function(self, card, context)

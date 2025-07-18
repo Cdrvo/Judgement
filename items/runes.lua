@@ -16,7 +16,7 @@ function Card:highlight(is_highlighted)
 		end
 
 		self.children.use_button = UIBox({
-			definition = Judgement.create_sell_and_switch_buttons(self, {
+			definition = Judgement.create_sell_and_switch_buttonsrun(self, {
 				sell = true,
 				use = true,
 			}),
@@ -34,7 +34,7 @@ function Card:highlight(is_highlighted)
 	end
 end
 
-Judgement.create_sell_and_switch_buttons = function(card, args)
+Judgement.create_sell_and_switch_buttonsrun = function(card, args)
 	local args = args or {}
 	local sell = nil
 	local use = nil
@@ -168,21 +168,21 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = { dollars = 3 },
 	},
 	cost = 5,
-	update = function(self, card, context)
+	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+		return {
+			vars = { jud.dollars },
+		}
+	end,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -202,21 +202,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -240,17 +234,11 @@ SMODS.Consumable({
 		y = 0,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -264,25 +252,57 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
-	key = "raidho",
+	key = "ansuz",
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
+		x = 1,
 		y = 0,
 	},
 	config = {
 		extra = {
-			negative = false,
+			odds = 20,
 		},
 	},
+	loc_vars = function(self, info_queue, card)
+		local numerator, denominator =
+			SMODS.get_probability_vars(card, (G.GAME.probabilities.normal or 1), card.ability.extra.odds, "ansuz")
+		return { vars = { numerator, denominator } }
+	end,
 	cost = 5,
-	update = function(self, card, context)
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
+	end,
+	calculate = function(self, card, context)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
+		if context.setting_blind then
+			if SMODS.pseudorandom_probability(card, "ansuz", G.GAME.probabilities.normal, card.ability.extra.odds) then
+				local s = { "c_cry_gateaway", "c_soul" }
+				SMODS.add_card({
+					key = pseudorandom_element(s),
+				})
+			end
 		end
+		if context.end_of_round and context.main_eval and G.GAME.blind.boss then
+			SMODS.destroy_cards(card)
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "raidho",
+	set = "runes",
+	atlas = "runes",
+	pos = {
+		x = 4,
+		y = 3,
+	},
+	config = {
+		extra = {},
+	},
+	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -300,21 +320,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -332,12 +346,11 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
 		extra = {
-			negative = false,
 			create = 2,
 			max = 10,
 			current = 0,
@@ -345,13 +358,15 @@ SMODS.Consumable({
 			activated = false,
 		},
 	},
-	cost = 5,
-	update = function(self, card, context)
+	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+		return {
+			vars = { jud.create, jud.seconds / 60, jud.max, jud.current },
+		}
+	end,
+	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -394,21 +409,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -428,21 +437,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
+		x = 3,
 		y = 0,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -462,21 +465,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -491,21 +488,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -542,21 +533,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -587,21 +572,15 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
+		x = 2,
 		y = 0,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = {},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -635,21 +614,21 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
-		extra = {
-			negative = false,
-		},
+		extra = { blindreq = 0.8 },
 	},
-	cost = 5,
-	update = function(self, card, context)
+	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+		return {
+			vars = { jud.blindreq },
+		}
+	end,
+	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -657,7 +636,7 @@ SMODS.Consumable({
 			card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
 		end
 		if context.setting_blind then
-			G.GAME.blind.chips = G.GAME.blind.chips - ((G.GAME.blind.chips * 20) / 100)
+			G.GAME.blind.chips = G.GAME.blind.chips * jud.blindreq
 			G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 			card:juice_up(0.3, 0.4)
 			return {
@@ -672,31 +651,32 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
 		extra = {
-			negative = false,
 			add = 2,
 		},
 	},
 	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
+	end,
 	update = function(self, card, context)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
-
-		for k, v in ipairs(G.playing_cards) do
-			if v.debuff then
-				v:set_debuff(false)
+		if G and G.playing_cards then
+			for k, v in ipairs(G.playing_cards) do
+				if v.debuff then
+					v:set_debuff(false)
+				end
 			end
 		end
-		for k, v in ipairs(G.jokers.cards) do
-			if v.debuff then
-				v:set_debuff(false)
+		if G and G.jokers and G.jokers.cards then
+			for k, v in ipairs(G.jokers.cards) do
+				if v.debuff then
+					v:set_debuff(false)
+				end
 			end
 		end
 	end,
@@ -707,22 +687,23 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
 		extra = {
-			negative = false,
 			add = 2,
 		},
 	},
-	cost = 5,
-	update = function(self, card, context)
+	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+		return {
+			vars = { jud.add },
+		}
+	end,
+	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -747,22 +728,17 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
 		extra = {
-			negative = false,
 			add = 2,
 		},
 	},
 	cost = 5,
-	update = function(self, card, context)
-		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -777,22 +753,23 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
 		extra = {
-			negative = false,
 			add = 2,
 		},
 	},
-	cost = 5,
-	update = function(self, card, context)
+	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+		return {
+			vars = { jud.add },
+		}
+	end,
+	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -815,22 +792,23 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
 		extra = {
-			negative = false,
 			add = 2,
 		},
 	},
-	cost = 5,
-	update = function(self, card, context)
+	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+		return {
+			vars = { jud.add },
+		}
+	end,
+	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -848,22 +826,23 @@ SMODS.Consumable({
 	set = "runes",
 	atlas = "runes",
 	pos = {
-		x = 0,
-		y = 0,
+		x = 4,
+		y = 3,
 	},
 	config = {
 		extra = {
-			negative = false,
 			add = 2,
 		},
 	},
-	cost = 5,
-	update = function(self, card, context)
+	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		if not jud.negative then
-			card:set_edition({ negative = true }, true)
-			jud.negative = true
-		end
+		return {
+			vars = { jud.add },
+		}
+	end,
+	cost = 5,
+	set_ability = function(self, card, initial, delay_sprites)
+		card:set_edition("e_negative", true, true)
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
@@ -875,4 +854,3 @@ SMODS.Consumable({
 		end
 	end,
 })
-

@@ -19,7 +19,7 @@ SMODS.Joker({
 	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		return {
-			vars = {},
+			vars = {(G.GAME.probabilities.normal or 1),card.ability.extra.odds},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -96,7 +96,6 @@ SMODS.Joker({
 		local jud = card.ability.extra
 		if context.repetition and context.cardarea == G.play then
 			jud.start = jud.start + context.other_card.base.nominal
-			print(jud.start)
 			return {
 				repetitions = 1,
 			}
@@ -267,12 +266,10 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
-		if context.selling_self then
+		if context.selling_self and G.STATE == G.STATES.SHOP then
 			G.E_MANAGER:add_event(Event({
 				func = function()
-					add_tag(Tag("tag_buffoon"))
-					play_sound("generic1", 0.9 + math.random() * 0.1, 0.8)
-					play_sound("holo1", 1.2 + math.random() * 0.1, 0.4)
+					Judgement.create_booster("p_jud_boonpj")
 					return true
 				end,
 			}))
@@ -320,7 +317,7 @@ SMODS.Joker({
 		extra = {
 			hands = 1,
 			discards = 1,
-			odds = 4
+			odds = 4,
 		},
 	},
 	rarity = 2,
@@ -334,12 +331,12 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.hands,jud.discards,(G.GAME.probabilities.normal or 1),jud.odds},
 		}
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
-		if contet.setting_blind then
+		if context.setting_blind then
 			ease_hands(jud.hands)
 			ease_discard(jud.discards)
 		end
@@ -349,4 +346,110 @@ SMODS.Joker({
 			end
 		end
 	end,
+})
+
+SMODS.Joker({
+	key = "on",
+	config = {
+		extra = {
+			odds = 3,
+		},
+	},
+	rarity = 2,
+	blueprint_compat = false,
+	discovered = false,
+	pos = {
+		x = 1,
+		y = 0,
+	},
+	cost = 5,
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { (G.GAME.probabilities.normal or 1), jud.odds },
+		}
+	end,
+	calculate = function(self, card, context)
+		local jud = card.ability.extra
+		if context.flex_destroyed and not context.blueprint then
+			if pseudorandom("jud_on") < G.GAME.probabilities.normal / jud.odds then
+				local ccard = copy_card(context.destroyedflexcard)
+				local area = context.destroyedflexcard.area
+				ccard:add_to_deck()
+				area:emplace(ccard)
+			end
+			G.E_MANAGER:add_event(Event({
+				delay = 1,
+				func = function()
+					card:set_ability("j_jud_off")
+					return true
+				end,
+			}))
+		end
+	end,
+})
+
+SMODS.Joker({
+	key = "off",
+	config = {
+		extra = {
+			odds = 3,
+		},
+	},
+	rarity = 2,
+	blueprint_compat = false,
+	discovered = false,
+	pos = {
+		x = 1,
+		y = 1,
+	},
+	cost = 5,
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { (G.GAME.probabilities.normal or 1), jud.odds },
+		}
+	end,
+	calculate = function(self, card, context)
+		local jud = card.ability.extra
+		if context.flex_destroyed and not context.blueprint then
+			G.E_MANAGER:add_event(Event({
+				delay = 1,
+				func = function()
+					card:set_ability("j_jud_on")
+					return true
+				end,
+			}))
+		end
+	end,
+})
+
+SMODS.Joker({
+	key = "stamp",
+	config = {
+		extra = {
+			odds = 3,
+		},
+	},
+	rarity = 2,
+	blueprint_compat = false,
+	discovered = false,
+	pos = {
+		x = 1,
+		y = 0,
+	},
+	cost = 5,
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { (G.GAME.probabilities.normal or 1), jud.odds },
+		}
+	end,
+	calculate = function(self, card, context)
+		local jud = card.ability.extra
+		if context.individual and context.cardarea == G.play and not context.blueprint 
+			and pseudorandom("jud_stamp") < G.GAME.probabilities.normal / jud.odds then
+						Judgement.random_post(context.other_card)
+			end
+		end
 })

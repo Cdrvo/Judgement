@@ -21,7 +21,14 @@ SMODS.Edition({
 	shader = false,
 	config = {
 		x_mult = 1.5 + reversea(),
-	},
+	},	
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				self.config.x_mult,reversea()
+			},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability
 		if
@@ -42,6 +49,13 @@ SMODS.Edition({
 		dollars = 2,
 		odds = 5
 	},
+		loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				self.config.mult,self.config.chips,self.config.dollars,(G.GAME.probabilities.normal or 1),self.config.odds
+			},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability
 		if
