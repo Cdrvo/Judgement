@@ -3,7 +3,7 @@ SMODS.ConsumableType({
 	collection_rows = { 5, 5 },
 	primary_colour = Judgement.C.UNOC,
 	secondary_colour = Judgement.C.UNOC,
-	shop_rate = 0.05,
+	shop_rate = 0.01,
 })
 
 SMODS.Consumable({
