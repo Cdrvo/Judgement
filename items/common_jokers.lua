@@ -61,4 +61,7 @@ SMODS.Joker({
 			card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
 		end
 	end,
+			set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: charmal", G.C.RARITY[1], G.C.BLACK, 0.8)
+	end,
 })

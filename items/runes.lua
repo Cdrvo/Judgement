@@ -248,7 +248,9 @@ SMODS.Consumable({
 		if context.ending_shop then
 			G.GAME.jud_reroll = false
 		end
-	end,
+	end,	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
+ 	end,
 })
 
 SMODS.Consumable({
@@ -286,7 +288,9 @@ SMODS.Consumable({
 		if context.end_of_round and context.main_eval and G.GAME.blind.boss then
 			SMODS.destroy_cards(card)
 		end
-	end,
+	end,	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
+ 	end,
 })
 
 SMODS.Consumable({
@@ -457,7 +461,9 @@ SMODS.Consumable({
 				draw_card(G.deck, G.hand, i * 100 / context.amount, "up", true)
 			end
 		end
-	end,
+	end,	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
+ 	end,
 })
 
 SMODS.Consumable({
@@ -606,7 +612,9 @@ SMODS.Consumable({
 				}))
 			end
 		end
-	end,
+	end,	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
+ 	end,
 })
 
 SMODS.Consumable({
