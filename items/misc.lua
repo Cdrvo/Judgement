@@ -248,7 +248,7 @@ function Judgement.most_played()
 	return _hand
 end
 
---like idk bro idk i can NEVER get this shit to work and its pissing me off
+--like idk bro idk i can NEVER get this shit to work and its pissing me off. After writing this i learnt that SMODS.add_card{} can be used to create playing cards. I wont be bothering myself and keep using this one.
 function Judgement.playing_card(area, rank, suit, enhancement, edition, stickers, seal)
 	local acard = create_playing_card({
 		front = G.P_CARDS["" .. "_" .. ""],
@@ -352,5 +352,9 @@ SMODS.ObjectType({
 
 Judgement.C = {
 	BOONSB = HEX("a6f7f3"),
-	SPACK = HEX("81307d")
+	SPACK = HEX("81307d"),
+	CHANCE = HEX("E1C16E"),
+	COMMUNITY = HEX("DAA520"),
+	DEEDS = HEX("C70039"),
+	UNOC = HEX("ff0000")
 }

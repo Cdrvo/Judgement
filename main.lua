@@ -77,7 +77,9 @@ function Card:remove()
 			jud_destroyedc = self,
 		})
 	end
+if (#SMODS.find_card("j_jud_thanatophobia") == 0) then
 	removeold(self)
+end
 end
 
 local oldaddroundevalrow = add_round_eval_row
@@ -127,7 +129,7 @@ function Card:is_face(from_boss)
 	if self.debuff and not from_boss then
 		return
 	end
-	if self.ability.seal == "jud_reversal" or (#SMODS.find_card("c_jud_mannaz") >= 1) then
+	if self.ability.seal == "jud_reversal" or (#SMODS.find_card("c_jud_mannaz") >= 1) or Judgement.has_post(self,"majestic") then
 		return true
 	end
 	return isfaceold(self, from_boss)
@@ -265,7 +267,17 @@ function Card:use_consumeable(area, copier)
 			G.consumeables:emplace(ecard)
 		end
 	end
-	return useconsold(self,area,copier)
+	return useconsold(self, area, copier)
+end
+
+local loc_old = loc_colour 
+function loc_colour(_c, _default)
+    if not G.ARGS.LOC_COLOURS then
+        loc_old()
+    end
+    G.ARGS.LOC_COLOURS.jud_uno = Judgement.C.UNOC
+
+    return loc_old(_c, _default)
 end
 
 local vanilla = {}

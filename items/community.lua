@@ -1,8 +1,8 @@
 SMODS.ConsumableType({
 	key = "community",
 	collection_rows = { 4, 5 },
-	primary_colour = G.C.GOLD,
-	secondary_colour = G.C.GOLD,
+	primary_colour = Judgement.C.COMMUNITY,
+	secondary_colour = Judgement.C.COMMUNITY,
 	shop_rate = 0.03,
 })
 
@@ -17,7 +17,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
+		ease_dollars(card.ability.extra.give)
 	end,
 })
 
@@ -32,7 +32,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
+		ease_dollars(card.ability.extra.give)
 	end,
 })
 
@@ -47,8 +47,8 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(-self.config.give)
-        ease_hands_played(self.config.hands)
+		ease_dollars(-card.ability.extra.give)
+        ease_hands_played(card.ability.extra.hands)
 	end,
 })
 
@@ -63,7 +63,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
+		ease_dollars(card.ability.extra.give)
 	end,
 })
 
@@ -78,7 +78,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_ante(-self.config.give)
+		ease_ante(-card.ability.extra.give)
 	end,
 })
 
@@ -93,7 +93,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-        ease_dollars(self.config.give*#G.GAME.blindsdefeated)
+        ease_dollars(card.ability.extra.give*#G.GAME.blindsdefeated)
 	end,
 })
 
@@ -108,8 +108,8 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
-        ease_discards(self.config.discards)
+		ease_dollars(card.ability.extra.give)
+        ease_discards(card.ability.extra.discards)
 	end,
 })
 
@@ -124,7 +124,22 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
+		ease_dollars(card.ability.extra.give)
+	end,
+})
+
+SMODS.Consumable({
+	key = "bday",
+	set = "community",
+	config = {
+		extra = {give = ((os.date("*t").day)/2)},
+	},
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		ease_dollars(card.ability.extra.give)
 	end,
 })
 
@@ -139,8 +154,8 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
-        ease_hands_played(self.config.hand)
+		ease_dollars(card.ability.extra.give)
+        ease_hands_played(card.ability.extra.hand)
 	end,
 })
 
@@ -170,8 +185,8 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		G.hand:change_size(self.config.add)
-		ease_dollars(-self.config.money)
+		G.hand:change_size(card.ability.extra.add)
+		ease_dollars(-card.ability.extra.money)
 	end,
 })
 
@@ -186,7 +201,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
+		ease_dollars(card.ability.extra.give)
 	end,
 })
 
@@ -201,8 +216,8 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		 G.consumeables:change_size(self.config.add)
-		 ease_dollars(self.config.remove*G.consumeables.config.card_limit)
+		 G.consumeables:change_size(card.ability.extra.add)
+		 ease_dollars(card.ability.extra.remove*G.consumeables.config.card_limit)
 	end,
 })
 
@@ -217,7 +232,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
+		ease_dollars(card.ability.extra.give)
 	end,
 })
 
@@ -232,7 +247,7 @@ SMODS.Consumable({
 		return true
 	end,
 	use = function(self, card, area, copier)
-		ease_dollars(self.config.give)
-		Judgement.total_limit(self.config.limit)
+		ease_dollars(card.ability.extra.give)
+		Judgement.total_limit(card.ability.extra.limit)
 	end,
 })

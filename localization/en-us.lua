@@ -325,20 +325,146 @@ return {
 			},
 		},
 		Other = {
- 			jud_royal_seal = {
+			jud_royal_seal = {
 				name = "Royal Seal",
 				text = {
 					"This card is considered",
 					"a {C:attention}face card{}",
 				},
 			},
-            jud_temporary = {
-                name = "Temporary",
-                text = {
-                    "{C:red}Self-Destructs{} at the end",
-                    "of a round"
-                }
-            },
+			jud_temporary = {
+				name = "Temporary",
+				text = {
+					"{C:red}Self-Destructs{} at the end",
+					"of a round",
+				},
+			},
+			jud_alldrawoner = {
+				name = "All Draw One",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
+					"{C:hearts}Hearts{} copy of selected card",
+				},
+			},
+			jud_alldrawoney = {
+				name = "All Draw One",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
+					"{C:diamonds}Diamonds{} copy of selected card",
+				},
+			},
+			jud_alldrawoneg = {
+				name = "All Draw One",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
+					"{C:spades}Spades{} copy of selected card",
+				},
+			},
+			jud_alldrawoneb = {
+				name = "All Draw One",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
+					"{C:clubs}Spades{} copy of selected card",
+					"when sold",
+				},
+			},
+			jud_skipeveryoner = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+#1#{} Hand for each",
+					"card with the {C:hearts}Hearts{} suit",
+					"in your hand when sold",
+				},
+			},
+			jud_skipeveryoneg = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+#1#{} Hand for each",
+					"card with the {C:spades}Spades{} suit",
+					"in your hand when sold",
+				},
+			},
+			jud_skipeveryoneb = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+#1#{} Hand for each",
+					"card with the {C:clubs}Clubs{} suit",
+					"in your hand when sold",
+				},
+			},
+			jud_skipeveryoney = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+#1#{} Hand for each",
+					"card with the {C:diamonds}Diamonds{} suit",
+					"in your hand when sold",
+				},
+			},
+			jud_reverseskip = {
+				name = "Reverse and Skip",
+				text = {
+					"Activate the {C:attention}Reverse{} and",
+					"{C:attention}Skip{} effects when sold",
+				},
+			},
+			jud_targeteddrawtwo = {
+				name = "Targeted Draw Two",
+				text = {
+					"Activates the {C:attention}Wild{}",
+					"effect when sold",
+				},
+			},
+			jud_alldrawtwo = {
+				name = "All Draw Two",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified{} copies",
+					"of selected card when sold",
+				},
+			},
+			jud_targeteddrawfour = {
+				name = "Targeted Draw Four",
+				text = {
+					"Activates the {C:attention}Wild{}",
+					"effect {C:attention}#1#{} times when sold",
+				},
+			},
+			jud_u = {
+				name = "U",
+				text = {
+					"{C:attention}Draw #1#{} card when this",
+					"consumable is {C:attention}used{}",
+				},
+			},
+			jud_n = {
+				name = "N",
+				text = {
+					"Creates a random {C:green}Code{} card when",
+					"this consumable is {C:attention}used{}",
+				},
+			},
+			jud_o = {
+				name = "O",
+				text = {
+					"Creates a random {C:tarot}Tarot{} card when",
+					"this consumable is {C:attention}used{}",
+				},
+			},
+			jud_ex = {
+				name = "!",
+				text = {
+					"Creates a random {C:spectral}Spectral{} card when",
+					"this consumable is {C:attention}used{}",
+				},
+			},
+			jud_wildjackpot = {
+				name = "Wild Jackpot",
+				text = {
+					"{C:green}#1# in #2#{} chance to to earn {C:money}$#3#{}",
+					"for each card in your deck whenever",
+					"this scores, triggers or is used",
+				},
+			},
+
 			jud_cerise = {
 				name = "Cerise Stamp",
 				text = {
@@ -415,14 +541,15 @@ return {
 			c_jud_wormhole = {
 				name = "Worm Hole",
 				text = {
-					"{C:green}#1# in #2#{} chance double the","level of your {C:attention}Most Played Hand"
+					"{C:green}#1# in #2#{} chance double the",
+					"level of your {C:attention}Most Played Hand",
 				},
 			},
 		},
 		boons = {
 			c_jud_knowledge = {
 				name = "Knowledge",
-				text = { "Next Card:","{C:attention}#1#{}"},
+				text = { "Next Card:", "{C:attention}#1#{}" },
 			},
 			c_jud_health = {
 				name = "Health",
@@ -450,7 +577,7 @@ return {
 				text = {
 					"{C:green}1 in 50{} chance to create a",
 					"{C:legendary,E:1}Legendary{} Joker when entering a Blind",
-                    "{C:inactive}(Cannot be affected by jokers like 'Oops, all Six!)"
+					"{C:inactive}(Cannot be affected by jokers like 'Oops, all Six!)",
 				},
 			},
 			c_jud_resource = {
@@ -489,6 +616,814 @@ return {
 				},
 			},
 		},
+		cryptic = {
+			c_jud_bigfoot = {
+				name = "Bigfoot",
+				text = {
+					"Converts {C:attention}#1#{} random card in hand",
+					"into a randomly {C:attention}modified face card{}",
+				},
+			},
+			c_jud_chupacabra = {
+				name = "Chupacabra",
+				text = {
+					"Destroy {C:attention}#1#{}",
+					"selected cards",
+				},
+			},
+			c_jud_lizard = {
+				name = "Lizard People",
+				text = {
+					"Increases rank of",
+					"up to {C:attention}#1#{} selected",
+					"cards by {C:attention}#2#{}",
+				},
+			},
+			c_jud_ogopogo = {
+				name = "Ogopogo",
+				text = {
+					"Randomly upgrades {C:attention}two{} random hands to",
+					"the same level as your {C:attention}most played{} hand",
+				},
+			},
+			c_jud_mothman = {
+				name = "Mothman",
+				text = {
+					"Enhances {C:attention}#1#{} selected",
+					"cards into",
+					"{C:attention}Stone Cards{}",
+				},
+			},
+			c_jud_mothership = {
+				name = "Mothership",
+				text = {
+					"Creates up to {C:attention}#1#{}",
+					"random {C:0b6623}Cryptic{} cards",
+					"{C:inactive}[Must have room]{}",
+				},
+			},
+			c_jud_rod = {
+				name = "Rod",
+				text = {
+					"Creates {C:attention}#1#{} consumables",
+					"of random types",
+					"{C:inactive}[Must have room]{}",
+				},
+			},
+			c_jud_jersey = {
+				name = "Jersey Devil",
+				text = {
+					"Gives {C:attention}#1#{} selected",
+					"cards random {C:edition}editions{}",
+				},
+			},
+			c_jud_notdeer = {
+				name = "Not-Deer",
+				text = {
+					"{C:red}+#1#{} Discard",
+				},
+			},
+			c_jud_allghoi = {
+				name = "Allghoi",
+				text = {
+					"{C:blue}+#1#{} Hand",
+				},
+			},
+			c_jud_mapinguari = {
+				name = "Mapinguari",
+				text = {
+					"{X:attention,C:white}X#1#{C:attention} Blind{} size",
+				},
+			},
+			c_jud_megaladon = {
+				name = "Megalodon",
+				text = {
+					"Destroys all cards in hand",
+					"Cards in deck gain {X:chips,C:white}X#1#{} Chips",
+					"for each card destroyed",
+				},
+			},
+			c_jud_fairy = {
+				name = "Fairy",
+				text = {
+					"{C:green}#1# in #2#{} chance to create",
+					"a {C:legendary,E:1}The Soul{} or {C:cry_exotic,E:1}Gateway{}",
+				},
+			},
+			c_jud_yeti = {
+				name = "Yeti",
+				text = {
+					"Applies {C:edition}Jolly{} on",
+					"selected Joker",
+				},
+			},
+			c_jud_babayaga = {
+				name = "Babayaga",
+				text = {
+					"No {C:attention}card selection limit{}",
+					"until end of {C:attention}Ante{}",
+				},
+			},
+		},
+		uno = {
+			c_jud_unowild = {
+				name = "Wild Card",
+				text = {
+					"Creates a randomly {C:attention}modified Face card{}",
+					"with a random {C:attention}suit{}",
+				},
+			},
+			c_jud_unowild_four = {
+				name = "Wild Draw 4",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified Face cards{}",
+					"with random {C:attention}suits{}",
+				},
+			},
+			c_jud_unowild_custom = {
+				name = "Wild Customizable",
+				text = {
+					"Creates {C:attention}#1# {C:edition}polychrome {C:attention}glass{}",
+					"{C:attention}King{} of a random suit with a {C:red}Red seal{}",
+				},
+			},
+			c_jud_fifty = {
+				name = "50",
+				text = {
+					"{C:green}#1# in #2#{} chance to",
+					"{C:attention}draw #3#{} cards",
+				},
+			},
+			c_jud_veto = {
+				name = "Veto",
+				text = {
+					"Destroy all",
+					"held {C:attention}Kings{}",
+				},
+			},
+			-- No Mercy
+			c_jud_unowild_six = {
+				name = "Wild Draw 6",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified Face cards{}",
+					"with random {C:attention}suits{}",
+				},
+			},
+			c_jud_unowild_ten = {
+				name = "Wild Draw 10",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified Face cards{}",
+					"with random {C:attention}suits{}",
+				},
+			},
+			c_jud_unowild_reversefour = {
+				name = "Wild Reverse Draw 4",
+				text = {
+					"Activates the {C:jud_uno}Wild Draw 4{} effect",
+					"{C:blue}+#1#{} Hands for each card in your hand",
+				},
+			},
+			-- Red/Hearts
+			c_jud_unoone_a = {
+				name = "1",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ace{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unotwo_a = {
+				name = "2",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Two{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unothree_a = {
+				name = "3",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Three{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unofour_a = {
+				name = "4",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Four{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unofive_a = {
+				name = "5",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Five{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unosix_a = {
+				name = "6",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Six{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unoseven_a = {
+				name = "7",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Seven{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unoeight_a = {
+				name = "8",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Eight{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unonine_a = {
+				name = "9",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Nine{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unoten_a = {
+				name = "0",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ten{} of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unodrawtwo_a = {
+				name = "Draw Two",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unoskip_a = {
+				name = "Skip",
+				text = {
+					"{X:attention,C:white}X#1#{C:attention} Blind{} size for each card",
+					"of the {C:hearts}Hearts{} suit in hand",
+				},
+			},
+			c_jud_unoreverse_a = {
+				name = "Reverse",
+				text = {
+					"{C:blue}+#1#{} Hand for each card of",
+					"with the {C:hearts}Hearts{} suit in hand",
+				},
+			},
+			c_jud_flip = {
+				name = "Flip",
+				text = {
+					"{C:attention}Flips{} all {C:jud_uno}Uno{} cards",
+					"Future {C:jud_uno}Uno{} cards appear Flipped",
+				},
+			},
+			c_jud_drawoner = {
+				name = "Draw One",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:hearts}Hearts{}",
+				},
+			},
+			-- No Mercy
+			c_jud_unodrawfour_am = {
+				name = "Draw 4",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_unoskipall_am = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card",
+					"of the {C:hearts}Hearts{} suit in your deck",
+				},
+			},
+			c_jud_unodiscardall_am = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:hearts}Hearts{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+			-- Yellow/Diamonds
+			c_jud_unoone_b = {
+				name = "1",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ace{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unotwo_b = {
+				name = "2",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Two{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unothree_b = {
+				name = "3",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Three{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unofour_b = {
+				name = "4",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Four{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unofive_b = {
+				name = "5",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Five{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unosix_b = {
+				name = "6",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Six{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unoseven_b = {
+				name = "7",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Seven{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unoeight_b = {
+				name = "8",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Eight{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unonine_b = {
+				name = "9",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Nine{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unoten_b = {
+				name = "0",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ten{} of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unodrawtwo_b = {
+				name = "Draw Two",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unoskip_b = {
+				name = "Skip",
+				text = {
+					"{X:attention,C:white}X#1#{C:attention} Blind{} size for each card",
+					"of the {C:diamonds}Diamonds{} suit in hand",
+				},
+			},
+			c_jud_unoreverse_b = {
+				name = "Reverse",
+				text = {
+					"{C:blue}+#1#{} Hand for each card of",
+					"with the {C:diamonds}Diamonds{} suit in hand",
+				},
+			},
+			c_jud_flip_b = {
+				name = "Flip",
+				text = {
+					"{C:attention}Flips{} all {C:jud_uno}Uno{} cards",
+					"Future {C:jud_uno}Uno{} cards appear Flipped",
+				},
+			},
+			c_jud_drawoney = {
+				name = "Draw One",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:diamonds}Diamonds{}",
+				},
+			},
+			-- No Mercy
+			c_jud_unodrawfour_bm = {
+				name = "Draw 4",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_unoskipall_bm = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card",
+					"of the {C:diamonds}Diamonds{} suit in your deck",
+				},
+			},
+			c_jud_unodiscardall_bm = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:diamonds}Diamonds{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+			-- Blue/Clubs
+			c_jud_unoone_c = {
+				name = "1",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ace{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unotwo_c = {
+				name = "2",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Two{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unothree_c = {
+				name = "3",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Three{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unofour_c = {
+				name = "4",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Four{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unofive_c = {
+				name = "5",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Five{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unosix_c = {
+				name = "6",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Six{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unoseven_c = {
+				name = "7",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Seven{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unoeight_c = {
+				name = "8",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Eight{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unonice_c = {
+				name = "9",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Nine{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unoten_c = {
+				name = "0",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ten{} of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unodrawtwo_c = {
+				name = "Draw Two",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unoskip_c = {
+				name = "Skip",
+				text = {
+					"{X:attention,C:white}X#1#{C:attention} Blind{} size for each card",
+					"of the {C:clubs}Clubs{} suit in hand",
+				},
+			},
+			c_jud_unoreverse_c = {
+				name = "Reverse",
+				text = {
+					"{C:blue}+#1#{} Hand for each card of",
+					"with the {C:clubs}Clubs{} suit in hand",
+				},
+			},
+			c_jud_flip_ = {
+				name = "Flip",
+				text = {
+					"{C:attention}Flips{} all {C:jud_uno}Uno{} cards",
+					"Future {C:jud_uno}Uno{} cards appear Flipped",
+				},
+			},
+			c_jud_drawoneb = {
+				name = "Draw One",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:clubs}Clubs{}",
+				},
+			},
+			-- No Mercy
+			c_jud_unodrawfour_cm = {
+				name = "Draw 4",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_unoskipall_cm = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card",
+					"of the {C:clubs}Clubs{} suit in your deck",
+				},
+			},
+			c_jud_unodiscardall_cm = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:clubs}Clubs{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+			-- Green/Spades
+			c_jud_unoone_d = {
+				name = "1",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ace{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unotwo_d = {
+				name = "2",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Two{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unothree_d = {
+				name = "3",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Three{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unofour_d = {
+				name = "4",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Four{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unofive_d = {
+				name = "5",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Five{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unosix_d = {
+				name = "6",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Six{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unoseven_d = {
+				name = "7",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Seven{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unoeight_d = {
+				name = "8",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Eight{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unonine_d = {
+				name = "9",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Nine{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unoten_d = {
+				name = "0",
+				text = {
+					"Creates a randomly {C:attention}modified{}",
+					"{C:attention}Ten{} of {C:spades}Spades{}",
+				},
+			},
+			c_jud_unodrawtwo_d = {
+				name = "Draw Two",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:spades}Spades{}",
+				},
+			},
+			c_jud_unoskip_d = {
+				name = "Skip",
+				text = {
+					"{X:attention,C:white}X#1#{C:attention} Blind{} size for each card",
+					"of the {C:spades}Spades{} suit in hand",
+				},
+			},
+			c_jud_unoreverse_d = {
+				name = "Reverse",
+				text = {
+					"{C:blue}+#1#{} Hand for each card of",
+					"with the {C:spades}Spades{} suit in hand",
+				},
+			},
+			c_jud_flip_d = {
+				name = "Flip",
+				text = {
+					"{C:attention}Flips{} all {C:jud_uno}Uno{} cards",
+					"Future {C:jud_uno}Uno{} cards appear Flipped",
+				},
+			},
+			c_jud_drawone_d = {
+				name = "Draw One",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:spades}Spades{}",
+				},
+			},
+			-- No Mercy
+			c_jud_unodrawfour_dm = {
+				name = "Draw 4",
+				text = {
+					"Upgrades the {C:attention}rank{} of selected card by {C:attention}#1#{}",
+					"and changes its suit to {C:spades}Spades{}",
+				},
+			},
+			c_jud_unoskipall_dm = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card",
+					"of the {C:spades}Spades{} suit in your deck",
+				},
+			},
+			c_jud_unodiscardall_dm = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:spades}Spades{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+			c_jud_unowildtwenty = {
+				name = "Wild Draw 20",
+				text = {
+					"Creates {C:attention}#1#{} randomly {C:attention}modified Face cards{}",
+					"with random {C:attention}suits{}",
+				},
+			},
+			-- Orange/Diamonds
+			c_jud_drawfive_b = {
+				name = "Draw Five",
+				text = {
+					"Creates {C:attention}#1#{} random",
+					"cards of {C:diamonds}Diamonds{}",
+				},
+			},
+			c_jud_skipeveryonef_b = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card of",
+					"with the {C:diamonds}Diamond{} suit in hand",
+				},
+			},
+			c_jud_flip_fb = {
+				name = "Flip",
+				text = {
+					"Flips all",
+					"{C:jud_uno}Uno{} cards",
+				},
+			},
+			-- No Mercy
+			c_jud_discardall_fbm = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:diamonds}Diamonds{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+			-- Teal/Clubs
+			c_jud_drawfive_c = {
+				name = "Draw Five",
+				text = {
+					"Creates {C:attention}#1#{} random",
+					"cards of {C:clubs}Clubs{}",
+				},
+			},
+			c_jud_skipeveryonef_c = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card of",
+					"with the {C:clubs}Clubs{} suit in hand",
+				},
+			},
+			c_jud_flip_fc = {
+				name = "Flip",
+				text = {
+					"Flips all",
+					"{C:jud_uno}Uno{} cards",
+				},
+			},
+			-- No Mercy
+			c_jud_discardall_fcm = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:clubs}Clubs{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+			-- Magenta/Spades
+			c_jud_drawfive_d = {
+				name = "Draw Five",
+				text = {
+					"Creates {C:attention}#1#{} random",
+					"cards of {C:spades}Spades{}",
+				},
+			},
+			c_jud_skipeveryonef_d = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card of",
+					"with the {C:spades}Spades{} suit in hand",
+				},
+			},
+			c_jud_flip_fd = {
+				name = "Flip",
+				text = {
+					"Flips all",
+					"{C:jud_uno}Uno{} cards",
+				},
+			},
+			-- No Mercy
+			c_jud_discardall_fdm = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:spades}Spades{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+			-- Purple/Hearts
+			c_jud_drawfive_a = {
+				name = "Draw Five",
+				text = {
+					"Creates {C:attention}#1#{} random",
+					"cards of {C:hearts}Hearts{}",
+				},
+			},
+			c_jud_skipeveryonef_a = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+1{} Hand for each card of",
+					"with the {C:hearts}Hearts{} suit in hand",
+				},
+			},
+			c_jud_flip_f = {
+				name = "Flip",
+				text = {
+					"Flips all",
+					"{C:jud_uno}Uno{} cards",
+				},
+			},
+			-- No Mercy
+			c_jud_discardall_fam = {
+				name = "Discard All",
+				text = {
+					"{C:attention}Discard{} all cards with {C:hearts}Hearts{}",
+					"as their suit and {C:attention}draw{} that many cards",
+				},
+			},
+		},
+
 		Stake = {},
 		Tag = {},
 		Tarot = {
@@ -517,181 +1452,516 @@ return {
 				},
 			},
 		},
-        runes = {
-    c_jud_fehu = {
-        name = "Fehu",
-        text = {
-            "{C:attention}Unscored cards{} give {C:money}#1#{}",
-            "until end of round",
-        },
-    },
-    c_jud_uruz = {
-        name = "Uruz",
-        text = {
-            "{C:attention}Scored cards{} give their chips {C:attention}twice{}",
-            "until end of round",
-        },
-    },
-    c_jud_thurisaz = {
-        name = "Thurisaz",
-        text = {
-            "All Jokers and Consumables have equal",
-            "chances of appearing in the next shop",
-            "Does not apply after rerolling",
-        },
-    },
-    c_jud_ansuz = {
-        name = "Ansuz",
-        text = {
-            "{C:green}#1# in #2#{} chance to create a",
-            "{C:legendary,E:1}The Soul{} or {C:cry_exotic,E:1}Gateway{}",
-            "after selecting a Blind",
-            "Lasts for {C:attention}#1# Ante{}",
-        },
-    },
-    c_jud_raidho = {
-        name = "Raidho",
-        text = {
-            "{C:attention}Held cards{} without editions gain",
-            "random {C:edition}editions{} until end",
-            "of round",
-        },
-    },
-    c_jud_kenaz = {
-        name = "Kenaz",
-        text = {
-            "{C:attention}Unscored cards{} are destroyed",
-            "until end of round",
-        },
-    },
-    c_jud_gebo = {
-        name = "Gebo",
-        text = {
-            "Gives {C:attention}#1#{} random {C:dark_edition}negative {C:attention}consumables{}",
-            "every {C:attention}#1# minutes{} for a maximum of {C:attention}#3#{}",
-        },
-    },
-    c_jud_wunjo = {
-        name = "Wunjo",
-        text = {
-            "{C:attention}Scored hands{} are leveled up when",
-            "scored until end of round",
-        },
-    },
-    c_jud_hagalaz = {
-        name = "Hagalaz",
-        text = {
-            "Draw an extra card whenever you",
-            "draw a card until end of round",
-        },
-    },
-    c_jud_isa = {
-        name = "Isa",
-        text = {
-            "All played cards are scored",
-            "until end of round",
-        },
-    },
-    c_jud_jera = {
-        name = "Jera",
-        text = {
-            "The {C:attention}rightmost scored card{} is",
-            "{C:attention}duplicated{} until end of round",
-        },
-    },
-    c_jud_eihwaz = {
-        name = "Eihwaz",
-        text = {
-            "Disable current Blind",
-            "until end of round",
-        },
-    },
-    c_jud_perthro = {
-        name = "Perthro",
-        text = {
-            "Defeating a Blind also rewards with a",
-            "random {C:attention}tag{} until end of {C:attention}Ante{}",
-        },
-    },
-    c_jud_algiz = {
-        name = "Algiz",
-        text = {
-            "{X:attention,C:white}X#1#{} score requirement",
-        },
-    },
-    c_jud_sowilo = {
-        name = "Sowilo",
-        text = {
-            "Enables visible {C:attention}disabled cards{}",
-        },
-    },
-    c_jud_towaz = {
-        name = "Towaz",
-        text = {
-            "{C:attention}+#1#{} card selection limit",
-            "until end of round",
-        },
-    },
-    c_jud_mannaz = {
-        name = "Mannaz",
-        text = {
-            "{C:attention}All cards{} are considered",
-            "{C:attention}Face cards{} until end of round",
-        },
-    },
-    c_jud_berkana = {
-        name = "Berkana",
-        text = {
-            "{C:attention}+#1#{} hand size until",
-            "end of round",
-        },
-    },
-    c_jud_othala = {
-        name = "Othala",
-        text = {
-            "{C:blue}+#1#{} hands until",
-            "end of round",
-        },
-    },
-    c_jud_inguz = {
-        name = "Inguz",
-        text = {
-            "{C:red}+#1#{} discards until",
-            "end of round",
-        },
-    },
-},
-monopoly = {
-    c_jud_advancego = {
-        name = "Advance to Go",
-        text = {
-            "{C:money}+$#1#{}",
-        },
-    },
-    c_jud_advanceill = {
-        name = "Advance to Illinois Ave",
-        text = {
-            "Creates an",
-            "{C:attention}Illinois Avenue{}",
-            "card",
-        },
-    },
-    c_jud_advancecharles = {
-        name = "Advance to St. Charles Place",
-        text = {
-            "Creates a",
-            "St. Charles Place",
-            "card",
-        },
-    },
-    c_jud_bankfifty = {
-        name = "Bank pays you $50",
-        text = {
-            "{C:money}+$#1#{}",
-        },
-    },
-    
-},
+		runes = {
+			c_jud_fehu = {
+				name = "Fehu",
+				text = {
+					"{C:attention}Unscored cards{} give {C:money}#1#{}",
+					"until end of round",
+				},
+			},
+			c_jud_uruz = {
+				name = "Uruz",
+				text = {
+					"{C:attention}Scored cards{} give their chips {C:attention}twice{}",
+					"until end of round",
+				},
+			},
+			c_jud_thurisaz = {
+				name = "Thurisaz",
+				text = {
+					"All Jokers and Consumables have equal",
+					"chances of appearing in the next shop",
+					"Does not apply after rerolling",
+				},
+			},
+			c_jud_ansuz = {
+				name = "Ansuz",
+				text = {
+					"{C:green}#1# in #2#{} chance to create a",
+					"{C:legendary,E:1}The Soul{} or {C:cry_exotic,E:1}Gateway{}",
+					"after selecting a Blind",
+					"Lasts for {C:attention}#1# Ante{}",
+				},
+			},
+			c_jud_raidho = {
+				name = "Raidho",
+				text = {
+					"{C:attention}Held cards{} without editions gain",
+					"random {C:edition}editions{} until end",
+					"of round",
+				},
+			},
+			c_jud_kenaz = {
+				name = "Kenaz",
+				text = {
+					"{C:attention}Unscored cards{} are destroyed",
+					"until end of round",
+				},
+			},
+			c_jud_gebo = {
+				name = "Gebo",
+				text = {
+					"Gives {C:attention}#1#{} random {C:dark_edition}negative {C:attention}consumables{}",
+					"every {C:attention}#1# minutes{} for a maximum of {C:attention}#3#{}",
+				},
+			},
+			c_jud_wunjo = {
+				name = "Wunjo",
+				text = {
+					"{C:attention}Scored hands{} are leveled up when",
+					"scored until end of round",
+				},
+			},
+			c_jud_hagalaz = {
+				name = "Hagalaz",
+				text = {
+					"Draw an extra card whenever you",
+					"draw a card until end of round",
+				},
+			},
+			c_jud_isa = {
+				name = "Isa",
+				text = {
+					"All played cards are scored",
+					"until end of round",
+				},
+			},
+			c_jud_jera = {
+				name = "Jera",
+				text = {
+					"The {C:attention}rightmost scored card{} is",
+					"{C:attention}duplicated{} until end of round",
+				},
+			},
+			c_jud_eihwaz = {
+				name = "Eihwaz",
+				text = {
+					"Disable current Blind",
+					"until end of round",
+				},
+			},
+			c_jud_perthro = {
+				name = "Perthro",
+				text = {
+					"Defeating a Blind also rewards with a",
+					"random {C:attention}tag{} until end of {C:attention}Ante{}",
+				},
+			},
+			c_jud_algiz = {
+				name = "Algiz",
+				text = {
+					"{X:attention,C:white}X#1#{} score requirement",
+				},
+			},
+			c_jud_sowilo = {
+				name = "Sowilo",
+				text = {
+					"Enables visible {C:attention}disabled cards{}",
+				},
+			},
+			c_jud_towaz = {
+				name = "Towaz",
+				text = {
+					"{C:attention}+#1#{} card selection limit",
+					"until end of round",
+				},
+			},
+			c_jud_mannaz = {
+				name = "Mannaz",
+				text = {
+					"{C:attention}All cards{} are considered",
+					"{C:attention}Face cards{} until end of round",
+				},
+			},
+			c_jud_berkana = {
+				name = "Berkana",
+				text = {
+					"{C:attention}+#1#{} hand size until",
+					"end of round",
+				},
+			},
+			c_jud_othala = {
+				name = "Othala",
+				text = {
+					"{C:blue}+#1#{} hands until",
+					"end of round",
+				},
+			},
+			c_jud_inguz = {
+				name = "Inguz",
+				text = {
+					"{C:red}+#1#{} discards until",
+					"end of round",
+				},
+			},
+		},
+		monopoly = {
+			c_jud_advancetogo1 = {
+				name = "Advance to Go",
+				text = {
+					"{C:money}+$#1#{}",
+				},
+			},
+			c_jud_advanceillinois = {
+				name = "Advance to Illinois Ave",
+				text = {
+					"Creates an",
+					"{C:c70039}Illinois Avenue{}",
+					"card",
+				},
+			},
+			c_jud_advancestcharles = {
+				name = "Advance to St. Charles Place",
+				text = {
+					"Creates a",
+					"{C:c70039}St. Charles Place{}",
+					"card",
+				},
+			},
+			c_jud_bankpays = {
+				name = "Bank pays you $50",
+				text = {
+					"{C:money}+$#1#{}",
+				},
+			},
+			c_jud_getoutofjail1 = {
+				name = "Get ou of Jail Free",
+				text = {
+					"Defeat the current Blind",
+				},
+			},
+			c_jud_gobackthreespaces = {
+				name = "Go Back Three Spaces",
+				text = {
+					"{C:attention}-#1# Ante{}",
+					"{C:attention}-#1#{} Joker slot",
+				},
+			},
+			c_jud_gotojail1 = {
+				name = "Go to Jail",
+				text = {
+					"{C:blue}+#1#{} Hand",
+					"{C:red}+#1#{} Discard",
+					"Score {X:edition,C:white}=#2#{}",
+				},
+			},
+			c_jud_advancereadingrailroad = {
+				name = "Advance to Reading Railroad",
+				text = {
+					"Creates a",
+					"{C:c70039}Reading Railroad{}",
+					"card",
+				},
+			},
+			c_jud_poortax = {
+				name = "Pay Poor Tax",
+				text = {
+					"{C:blue}+#1#{} Hand",
+					"{C:red}+#1#{} Discard",
+					"{C:money}-$#2#{}",
+				},
+			},
+			c_jud_electedchairman = {
+				name = "Elected Chairman",
+				text = {
+					"{C:money}+$#1# for each {C:attention}Blind{}",
+					"defeated so far",
+				},
+			},
+			c_jud_buildingloan = {
+				name = "Your Building Loan Matures",
+				text = {
+					"{C:money}+$#1#{}",
+					"Creates a random",
+					"{C:e1c16e}Chance{} card",
+				},
+			},
+		},
+		community = {
+			c_jud_advancetogo2 = {
+				name = "Advance to Go",
+				text = {
+					"{C:money}+$#1#",
+				},
+			},
+			c_jud_bankerror = {
+				name = "Bank Error",
+				text = {
+					"{C:money}+$#1#",
+				},
+			},
+			c_jud_doctorfee = {
+				name = "Doctor's fees",
+				text = {
+					"{C:blue}+#1#{} Hand",
+					"{C:money}-$#2#{}",
+				},
+			},
+			c_jud_saleofstock = {
+				name = "Sale of Stock",
+				text = {
+					"{C:money}+$#1#",
+				},
+			},
+			c_jud_gotojail2 = {
+				name = "Go to Jail",
+				text = {
+					"{C:attention}+#1# Ante",
+				},
+			},
+			c_jud_operanight = {
+				name = "Grand Opera Night",
+				text = {
+					"{C:money}+$#1#{} for every {C:attention}Blind{}",
+					"defeated this {C:attention}Ante{}",
+				},
+			},
+			c_jud_holiday = {
+				name = "Holiday",
+				text = {
+					"{C:red}+#1#{} Discard",
+					"{C:money}+#2#{}",
+				},
+			},
+			c_jud_taxreturn = {
+				name = "Income Tax Return",
+				text = {
+					"{C:money}+$#1#",
+				},
+			},
+			c_jud_lifeinsurance = {
+				name = "Life insurance matures",
+				text = {
+					"{C:blue}+#1#{} Hand",
+					"{C:money}+$#2#{}",
+				},
+			},
+			c_jud_hospitalfees = {
+				name = "Hospital Fees",
+				text = {
+					"Skip current {C:attention}Blind{}",
+					"{C:money}-$#1#{}",
+				},
+			},
+			c_jud_schoolfees = {
+				name = "School Fees",
+				text = {
+					"{C:attention}+#1#{} Hand Size",
+					"{C:money}-$#2#{}",
+				},
+			},
+			c_jud_receive25 = {
+				name = "Receive $25 consultancy fee",
+				text = {
+					"{C:money}+$#1#{}",
+				},
+			},
+			c_jud_streetrepairs = {
+				name = "Street Repairs",
+				text = {
+					"{C:attention}+#1#{} consumable slots",
+					"{C:money}-$#2#{} for each consumable slot",
+				},
+			},
+			c_jud_secondplace = {
+				name = "Second Place",
+				text = {
+					"{C:money}+$#1#{}",
+				},
+			},
+			c_jud_inherit100 = {
+				name = "You inherit $100",
+				text = {
+					"{C:attention}+#1#{} card selection limit",
+					"{C:money}+$#2#{}",
+				},
+			},
+		},
+		Title_Deed = {
+			c_jud_mediterranean = {
+				name = "Mediterranean Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:money}+$#2#{} when flipped",
+				},
+			},
+			c_jud_baltic = {
+				name = "Baltic Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:money}+$#2#{} when flipped",
+				},
+			},
+			c_jud_oriental = {
+				name = "Oriental Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:blue}+#2#{} Hands until end of round",
+					"when flipped",
+				},
+			},
+			c_jud_vermont = {
+				name = "Vermont Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:red}+#2#{} Discards until end of round",
+					"when flipped",
+				},
+			},
+			c_jud_connecticut = {
+				name = "Connecticut Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{X:attention,C:white}X#2#{C:attention} Blind{} size until",
+					"next {C:attention}Ante{}",
+				},
+			},
+			c_jud_stcharles = {
+				name = "St. Charles Place",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:attention}+#2#{} Hand Size until end of round",
+					"when flipped",
+				},
+			},
+			c_jud_tennessee = {
+				name = "Tennessee Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:attention}Draw{} cards until you have twice as",
+					"many cards as your hand size",
+					"in your hand when flipped",
+				},
+			},
+			c_jud_newyork = {
+				name = "New York Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Destroy {C:attention}#2#{} cards of the lowest rank",
+					"in your deck when flipped",
+				},
+			},
+			c_jud_kentucky = {
+				name = "Kentucky Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Gain {C:attention}#2#{} random {C:attention}Tags{}",
+					"when flipped",
+				},
+			},
+			c_jud_indiana = {
+				name = "Indiana Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Create {C:attention}#2#{} random {C:spectral}Spectral{}",
+					"cards when flipped",
+				},
+			},
+			c_jud_illinois = {
+				name = "Illinois Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Redeem {C:attention}two{} random",
+					"{C:green}Vouchers{} when flipped",
+				},
+			},
+			c_jud_atlantic = {
+				name = "Atlantic Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Reset {C:attention}Shop Reroll{}",
+					"price when flipped",
+				},
+			},
+			c_jud_ventnor = {
+				name = "Ventnor Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Fills your Joker slots with",
+					"random {C:blue}Vanilla{} Jokers when flipped",
+				},
+			},
+			c_jud_marvin = {
+				name = "Marvin Gardens",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Creates {C:attention}two{} random {C:E1C16E}Chance{}",
+					"cards when flipped",
+				},
+			},
+			c_jud_pacific = {
+				name = "Pacific Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:attention}+#2#{} Hand Size until end of round",
+					"when flipped",
+				},
+			},
+			c_jud_northcarolina = {
+				name = "North Carolina Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"{C:attention}+#2#{} Card Selection Limit until end",
+					"of round when flipped",
+				},
+			},
+			c_jud_pennsylvania = {
+				name = "Pennsylvania Avenue",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Creates {C:attention}#2#{} random {C:EF0098}Epic{} Jokers",
+				},
+			},
+			c_jud_reading = {
+				name = "Reading Railroad",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Gain {C:attention}#2#{} random {C:attention}Tags{}",
+					"when flipped",
+				},
+			},
+			c_jud_pennsylvaniarailroad = {
+				name = "Pennsylvania Railroad",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Create {C:attention}#2#{} random {C:spectral}Spectral{}",
+					"card when flipped",
+				},
+			},
+			c_jud_bo = {
+				name = "B. & O.",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Applies {C:dark_edition}Negative{} on a random",
+					"Joker when flipped",
+				},
+			},
+			c_jud_shortline = {
+				name = "Shortline",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Randomly {C:attention}enhances{} selected",
+					"cards when flipped",
+				},
+			},
+			c_jud_electric = {
+				name = "Electric Company",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Levels up {C:attention}most played{} hand",
+					"{C:attention}#2#{} times when flipped",
+				},
+			},
+			c_jud_waterworks = {
+				name = "Water Works",
+				text = {
+					"{C:money}X#1#{} {C:attention}Blind Payout{} while held",
+					"Creates a random {C:dark_edition}Negative{}",
+					"{C:uncommon}Uncommon{} Joker when flipped",
+				},
+			},
+		},
 		Voucher = {
 			v_jud_guardianvoucher = {
 				name = "Guardian Voucher",
@@ -793,13 +2063,15 @@ monopoly = {
 			k_pills = "Pill",
 			b_pills_cards = "Pills",
 			k_titledeeds = "Avenue",
-			k_titledeeds_q = "Utility",
-			k_titledeeds_z = "Railroad",
+			k_titledeedq = "Utility",
+			k_titledeedz = "Railroad",
 			b_titledeeds_cards = "Title Deeds",
 			k_monopoly = "Chance Card",
 			b_monopoly_cards = "Chance Cards",
 			k_community = "Community Card",
 			b_community_cards = "Community Cards",
+			k_stickerpacks = "Sticker Pack",
+			b_stickerpacks_cards = "Sticker Packs",
 			lab_jud_posts = "Post Stamps",
 		},
 		high_scores = {},
@@ -810,8 +2082,8 @@ monopoly = {
 		poker_hands = {},
 		quips = {},
 		ranks = {},
-		suits_plural = {},
-		suits_singular = {},
+		suitplural = {},
+		suitsingular = {},
 		tutorial = {},
 		v_dictionary = {},
 		v_text = {},

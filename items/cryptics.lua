@@ -188,6 +188,66 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	key = "nessie",
+	set = "cryptic",
+	hidden = true,
+	soul_rate = 0.3,
+	config = { max_highlighted = 3 },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.max_highlighted } }
+	end,
+	use = function(self, card, area, copier)
+		local high = 0
+		local key
+
+		for i = 1, #G.playing_cards do
+			local rcard = G.playing_cards
+			if rcard[i].base.times_played > high then
+				high = rcard[i].base.times_played
+				key = rcard[i]
+			end
+		end
+		for i, card in pairs(G.hand.highlighted) do
+			card:flip()
+			G.E_MANAGER:add_event(Event({
+				trigger = "before",
+				delay = 0.2,
+				func = function()
+					copy_card(key, card)
+					return true
+				end,
+			}))
+			delay(0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					card:flip()
+					return true
+				end,
+			}))
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "chupacabra",
+	set = "cryptic",
+	hidden = true,
+	soul_rate = 0.3,
+	config = { max_highlighted = 5 },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.max_highlighted } }
+	end,
+	use = function(self, card, area, copier)
+		for i, card in pairs(G.hand.highlighted) do
+			SMODS.destroy_card(card)
+		end
+	end,
+})
+
+SMODS.Consumable({
 	key = "lizard",
 	set = "cryptic",
 	hidden = true,
@@ -299,8 +359,7 @@ SMODS.Consumable({
 						SMODS.add_card({
 							set = "cryptic",
 							hidden = true,
-							soul_rate = 0.3
-					,
+							soul_rate = 0.3,
 						})
 						return true
 					end,
@@ -316,8 +375,7 @@ SMODS.Consumable({
 						SMODS.add_card({
 							set = "cryptic",
 							hidden = true,
-							soul_rate = 0.3
-					,
+							soul_rate = 0.3,
 						})
 						return true
 					end,
@@ -414,6 +472,40 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	key = "amomongo",
+	set = "cryptic",
+	hidden = true,
+	soul_rate = 0.3,
+	config = { max = 4 },
+	loc_vars = function(self, card, info_queue)
+		return { vars = { self.config.max } }
+	end,
+	can_use = function(self, card)
+		if #G.jokers.highlighted > 0 and #G.jokers.highlighted < self.config.max then
+			return true
+		end
+	end,
+	use = function(self, card, area, copier)
+		for i = 1, #G.jokers.highlighted do
+			local rcard = G.jokers.highlighted
+			local GP = G.P_CENTERS
+			local keye
+			local setedition
+			if rcard[i].edition then
+				keye = rcard[i].edition.key
+				local order = GP[keye].order
+				for i = 1, #G.P_CENTER_POOLS.Edition do
+					if G.P_CENTER_POOLS.Edition[i].order == order + 1 then
+						setedition = G.P_CENTER_POOLS.Edition[i].key
+					end
+				end
+			end
+			rcard[i]:set_edition(setedition)
+		end
+	end,
+})
+
+SMODS.Consumable({
 	key = "notdeer",
 	set = "cryptic",
 	hidden = true,
@@ -491,7 +583,7 @@ SMODS.Consumable({
 	config = { odds = 8 },
 	loc_vars = function(self, info_queue)
 		local numerator, denominator = SMODS.get_probability_vars(self, 1, self.config.odds, "jud_fairy")
-		return { vars = { self.config.max, numerator, denominator } }
+		return { vars = { numerator, denominator } }
 	end,
 	can_use = function(self, card)
 		return true

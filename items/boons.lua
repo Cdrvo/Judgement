@@ -353,7 +353,40 @@ SMODS.Consumable({
 	end,
 })
 
---CHOICE
+SMODS.Consumable({
+	key = "love",
+	set = "boons",
+	add_to_deck = function(self, card, from_debuff)
+		if #G.jud_boons.cards > 0 then
+			for i = 1, #G.jud_boons.cards do
+				SMODS.destroy_cards(G.jud_boons.cards[i])
+			end
+		end
+		for i = 1, #G.P_CENTER_POOLS.Booster do
+			local rcard = G.P_CENTER_POOLS.Booster
+			rcard[i].config.choose = rcard[i].config.choose + 1
+		end
+	end,
+	pos = {
+		x = 0,
+		y = 0,
+	},
+	config = {
+		extra = {},
+	},
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {},
+		}
+	end,
+	cost = 5,
+	remove_from_deck = function(self,card,from_debuff)
+				for i = 1, #G.P_CENTER_POOLS.Booster do
+			local rcard = G.P_CENTER_POOLS.Booster
+			rcard[i].config.choose = rcard[i].config.choose - 1
+		end
+	end
+})
 
 SMODS.Consumable({
 	key = "love",

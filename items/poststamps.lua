@@ -283,3 +283,13 @@ Judgement.Post({
 		end
 	end,
 })
+
+Judgement.Post({
+	key = "majestic",
+	badge_colour = G.C.CHIPS,
+	config = {},
+	loc_vars = function(self, info_queue)
+	end,
+	calculate = function(self, card, context)
+	end,
+})

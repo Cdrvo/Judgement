@@ -1,8 +1,8 @@
 SMODS.ConsumableType({
 	key = "uno",
 	collection_rows = { 5, 5 },
-	primary_colour = G.C.RED,
-	secondary_colour = G.C.RED,
+	primary_colour = Judgement.C.UNOC,
+	secondary_colour = Judgement.C.UNOC,
 	shop_rate = 2000,
 })
 
@@ -1367,6 +1367,13 @@ SMODS.Consumable({
 		x = 8,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
 	Pools = {
 		UnoRed = true,
 	},
@@ -1423,6 +1430,13 @@ SMODS.Consumable({
 		x = 9,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
 	Pools = {
 		UnoYellow = true,
 	},
@@ -1483,6 +1497,13 @@ SMODS.Consumable({
 	Pools = {
 		UnoGreen = true,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
 	cost = 5,
 	use = function(self, card, area, copier)
 		for i, card in pairs(G.hand.highlighted) do
@@ -1535,6 +1556,13 @@ SMODS.Consumable({
 		x = 11,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
 	Pools = {
 		UnoBlue = true,
 	},
@@ -1590,6 +1618,13 @@ SMODS.Consumable({
 		x = 0,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.blindreq,
+			},
+		}
+	end,
 	Pools = {
 		UnoRed = true,
 	},
@@ -1631,6 +1666,13 @@ SMODS.Consumable({
 		x = 1,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.blindreq,
+			},
+		}
+	end,
 	Pools = {
 		UnoYellow = true,
 	},
@@ -1671,6 +1713,13 @@ SMODS.Consumable({
 		x = 2,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.blindreq,
+			},
+		}
+	end,
 	config = { blindreq = 0.9 },
 	Pools = {
 		UnoGreen = true,
@@ -1711,6 +1760,13 @@ SMODS.Consumable({
 		x = 3,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.blindreq,
+			},
+		}
+	end,
 	Pools = {
 		UnoBlue = true,
 	},
@@ -1753,7 +1809,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoRed = true,
 	},
-	config = {},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.add,
+			},
+		}
+	end,
+	config = { add = 1 },
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
@@ -1765,7 +1828,7 @@ SMODS.Consumable({
 				_cards[#_cards + 1] = G.hand.cards[i]
 			end
 		end
-		ease_hands_played(Judgement.find_lowest(_cards).base.id)
+		ease_hands_played(Judgement.find_lowest(_cards).base.id * self.config.add)
 		if G.GAME.used_vouchers["v_jud_allwild"] == true then
 			local _suit, _rank =
 				pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
@@ -1793,6 +1856,13 @@ SMODS.Consumable({
 		x = 5,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.add,
+			},
+		}
+	end,
 	Pools = {
 		UnoYellow = true,
 	},
@@ -1836,6 +1906,13 @@ SMODS.Consumable({
 		x = 6,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.add,
+			},
+		}
+	end,
 	config = {},
 	Pools = {
 		UnoGreen = true,
@@ -1879,6 +1956,13 @@ SMODS.Consumable({
 		x = 7,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.add,
+			},
+		}
+	end,
 	Pools = {
 		UnoBlue = true,
 	},
@@ -1953,6 +2037,13 @@ SMODS.Consumable({
 		x = 13,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	config = { max = 4 },
 	cost = 5,
 	can_use = function(self, card)
@@ -1960,12 +2051,14 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		local wcard
-		local _suit, _rank =
-			pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
-			pseudorandom_element(Judgement.facepool(), pseudoseed("unowild")).card_key
-		wcard = Judgement.playing_card(G.deck, _rank, _suit, SMODS.poll_enhancement({ guaranteed = true }))
-		if G.GAME.used_vouchers["v_jud_dice"] == true then
-			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+		for i = 1, self.config.max do
+			local _suit, _rank =
+				pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
+				pseudorandom_element(Judgement.facepool(), pseudoseed("unowild")).card_key
+			wcard = Judgement.playing_card(G.deck, _rank, _suit, SMODS.poll_enhancement({ guaranteed = true }))
+			if G.GAME.used_vouchers["v_jud_dice"] == true then
+				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+			end
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
@@ -1984,19 +2077,28 @@ SMODS.Consumable({
 		x = 14,
 		y = 3,
 	},
-	config = {},
+	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
 		return true
 	end,
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	use = function(self, card, area, copier)
 		local wcard
-		local _suit, _rank =
-			pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
-			pseudorandom_element(Judgement.facepool(), pseudoseed("unowild")).card_key
-		wcard = Judgement.playing_card(G.deck, "King", _suit, "m_glass", "e_polychrome", nil, "Red")
-		if G.GAME.used_vouchers["v_jud_dice"] == true then
-			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+		for i = 1, self.config.max do
+			local _suit, _rank =
+				pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
+				pseudorandom_element(Judgement.facepool(), pseudoseed("unowild")).card_key
+			wcard = Judgement.playing_card(G.deck, "King", _suit, "m_glass", "e_polychrome", nil, "Red")
+			if G.GAME.used_vouchers["v_jud_dice"] == true then
+				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+			end
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
@@ -2020,7 +2122,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoRed = true,
 	},
-	config = { max_highlighted = 2 },
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
+	config = { max_highlighted = 4 },
 	cost = 5,
 	use = function(self, card, area, copier)
 		for i, card in pairs(G.hand.highlighted) do
@@ -2069,7 +2178,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoYellow = true,
 	},
-	config = { max_highlighted = 2 },
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
+	config = { max_highlighted = 4 },
 	cost = 5,
 	use = function(self, card, area, copier)
 		for i, card in pairs(G.hand.highlighted) do
@@ -2118,7 +2234,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoGreen = true,
 	},
-	config = { max_highlighted = 2 },
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
+	config = { max_highlighted = 4 },
 	cost = 5,
 	use = function(self, card, area, copier)
 		for i, card in pairs(G.hand.highlighted) do
@@ -2167,7 +2290,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoBlue = true,
 	},
-	config = { max_highlighted = 2 },
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max_highlighted,
+			},
+		}
+	end,
+	config = { max_highlighted = 4 },
 	cost = 5,
 	use = function(self, card, area, copier)
 		for i, card in pairs(G.hand.highlighted) do
@@ -2215,7 +2345,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoRed = true,
 	},
-	config = {},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
+	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
@@ -2250,7 +2387,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoYellow = true,
 	},
-	config = {},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
+	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
@@ -2285,7 +2429,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoGreen = true,
 	},
-	config = {},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
+	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
@@ -2320,7 +2471,14 @@ SMODS.Consumable({
 	Pools = {
 		UnoBlue = true,
 	},
-	config = {},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
+	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
@@ -2506,6 +2664,13 @@ SMODS.Consumable({
 		x = 13,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	config = { max = 6 },
 	cost = 5,
 	can_use = function(self, card)
@@ -2545,6 +2710,13 @@ SMODS.Consumable({
 		x = 13,
 		y = 3,
 	},
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	config = { max = 10 },
 	cost = 5,
 	can_use = function(self, card)
@@ -2584,7 +2756,14 @@ SMODS.Consumable({
 		x = 13,
 		y = 3,
 	},
-	config = { max = 4 },
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
+	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -2608,7 +2787,7 @@ SMODS.Consumable({
 		end
 		local easeh = 0
 		for i = 1, #G.hand.cards do
-			easeh = easeh + 1
+			easeh = easeh + 1 * self.config.max
 		end
 		ease_hands_played(easeh)
 	end,
@@ -2726,6 +2905,560 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	key = "flip_b",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	no_collection = true,
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "flip_c",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	no_collection = true,
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "flip_d",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	no_collection = true,
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+--Flipped flips :D
+
+SMODS.Consumable({
+	key = "flip_f",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "flip_fb",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	no_collection = true,
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "flip_fc",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	no_collection = true,
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "flip_fd",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	no_collection = true,
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+SMODS.Consumable({
 	key = "drawfive_a",
 	set = "uno",
 	atlas = "unoc",
@@ -2738,8 +3471,15 @@ SMODS.Consumable({
 	can_use = function(self, card)
 		return true
 	end,
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	use = function(self, card, area, copier)
-		for i = 1, card.ability.extra.max do
+		for i = 1, self.config.max do
 			local wcard
 			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
 			wcard = Judgement.playing_card(G.deck, _rank, "Hearts", SMODS.poll_enhancement({ guaranteed = true }))
@@ -2770,8 +3510,15 @@ SMODS.Consumable({
 	can_use = function(self, card)
 		return true
 	end,
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	use = function(self, card, area, copier)
-		for i = 1, card.ability.extra.max do
+		for i = 1, self.config.max do
 			local wcard
 			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
 			wcard = Judgement.playing_card(G.deck, _rank, "Diamonds", SMODS.poll_enhancement({ guaranteed = true }))
@@ -2802,8 +3549,15 @@ SMODS.Consumable({
 	can_use = function(self, card)
 		return true
 	end,
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	use = function(self, card, area, copier)
-		for i = 1, card.ability.extra.max do
+		for i = 1, self.config.max do
 			local wcard
 			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
 			wcard = Judgement.playing_card(G.deck, _rank, "Clubs", SMODS.poll_enhancement({ guaranteed = true }))
@@ -2834,8 +3588,15 @@ SMODS.Consumable({
 	can_use = function(self, card)
 		return true
 	end,
+	loc_vars = function(self, info_queue, center)
+		return {
+			vars = {
+				self.config.max,
+			},
+		}
+	end,
 	use = function(self, card, area, copier)
-		for i = 1, card.ability.extra.max do
+		for i = 1, self.config.max do
 			local wcard
 			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
 			wcard = Judgement.playing_card(G.deck, _rank, "Spades", SMODS.poll_enhancement({ guaranteed = true }))
@@ -2889,7 +3650,7 @@ SMODS.Consumable({
 		y = 0,
 	},
 	config = {},
-		no_collection = true,
+	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
@@ -2918,7 +3679,7 @@ SMODS.Consumable({
 		y = 0,
 	},
 	config = {},
-		no_collection = true,
+	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
@@ -3102,7 +3863,7 @@ SMODS.Consumable({
 		x = 9,
 		y = 0,
 	},
-	config = {max = 20},
+	config = { max = 20 },
 	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
@@ -3127,10 +3888,3 @@ SMODS.Consumable({
 		return false
 	end,
 })
-
-
-
-
-
-
-

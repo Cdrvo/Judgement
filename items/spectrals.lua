@@ -131,3 +131,122 @@ SMODS.Consumable({
 		ease_ante(-self.config.ante)
 	end,
 })
+
+SMODS.Consumable({
+	key = "fivebucks",
+	set = "Spectral",
+	hidden = true,
+	soul_set = "monopoly",
+	config = {
+        ante = 500
+    },
+	loc_vars = function(self, info_queue)
+		return { vars = {self.config.ante} }
+	end,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		ease_dollars(self.config.ante)
+	end,
+})
+
+
+SMODS.Consumable({
+	key = "fivebucksc",
+	set = "Spectral",
+	hidden = true,
+	soul_set = "community",
+	no_collection = true,
+	config = {
+        ante = 500
+    },
+	loc_vars = function(self, info_queue)
+		return { vars = {self.config.ante} }
+	end,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		ease_dollars(self.config.ante)
+	end,
+})
+
+
+SMODS.Consumable({
+	key = "parkplace",
+	set = "Spectral",
+	hidden = true,
+	soul_set = "titledeeds",
+	config = {
+        payout = 9.5
+    },
+	loc_vars = function(self, info_queue)
+		return { vars = {self.config.ante} }
+	end,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		local jud = card.ability.extra
+		SMODS.add_card{
+			set = "Joker",
+			legendary = true,
+			area = G.jokers
+		}
+		G.E_MANAGER:add_event(Event({
+			trigger = "before",
+			delay = 0.2,
+			func = function()
+				card:flip()
+				card:set_ability("c_jud_flippeddeeds")
+				return true
+			end,
+		}))
+		G.E_MANAGER:add_event(Event({
+			trigger = "after",
+			delay = 0.2,
+			func = function()
+				card:flip()
+				return true
+			end,
+		}))
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		G.GAME.jud_cashout = G.GAME.jud_cashout + jud.payout
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		G.GAME.jud_cashout = G.GAME.jud_cashout - jud.payout
+	end,
+})
+
+SMODS.Consumable({
+	key = "parkplace",
+	set = "Spectral",
+	hidden = true,
+	soul_set = "titledeeds",
+	soul_rate = 0.001,
+	config = {
+        payout = 50
+    },
+	loc_vars = function(self, info_queue)
+		return { vars = {self.config.ante} }
+	end,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		local jud = card.ability.extra
+		SMODS.destroy_cards(card)
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		G.GAME.jud_cashout = G.GAME.jud_cashout + jud.payout
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		G.GAME.jud_cashout = G.GAME.jud_cashout - jud.payout
+	end,
+})

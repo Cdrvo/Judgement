@@ -1,8 +1,8 @@
 SMODS.ConsumableType({
 	key = "titledeeds",
 	collection_rows = { 4, 5 },
-	primary_colour = G.C.GOLD,
-	secondary_colour = G.C.GOLD,
+	primary_colour = Judgement.C.DEEDS,
+	secondary_colour = Judgement.C.DEEDS,
 	shop_rate = 0.03,
 })
 
@@ -14,6 +14,7 @@ function Card:highlight(is_highlighted)
 		and string.find(self.ability.set, "titledeeds")
 		and self.area == G.consumeables
 		and self.key ~= "c_jud_flippeddeeds"
+		or self.key == "c_jud_parkplace"
 	then
 		if self.children.use_button then
 			self.children.use_button:remove()
@@ -1231,7 +1232,7 @@ SMODS.Consumable({
 	key = "reading",
 	set = "titledeeds",
 	config = {
-		extra = { payout = 1.7, ease = 3 },
+		extra = { payout = 1.7, ease = 2 },
 	},
 	Pools = {
 		Railroads = true,

@@ -50,7 +50,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {jud.xmultg,jud.xmult},
+			vars = { jud.xmultg, jud.xmult },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -73,6 +73,66 @@ SMODS.Joker({
 })
 
 SMODS.Joker({
+	key = "trypophobia",
+	config = {
+		extra = {
+			xmultg = 0.1,
+			xmult = 1,
+		},
+	},
+	rarity = 3,
+	blueprint_compat = false,
+	discovered = false,
+	pos = {
+		x = 1,
+		y = 0,
+	},
+	cost = 5,
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.xmultg, jud.xmult },
+		}
+	end,
+	calculate = function(self, card, context)
+		local jud = card.ability.extra
+		if context.joker_main and not context.blueprint then
+			local thegap
+			for i = 1, #context.scoring_hand do
+				local rcard = context.scoring_hand
+				if rcard[i + 1] ~= nil then
+					if rcard[i]:get_id() > rcard[i + 1]:get_id() then
+						thegap = rcard[i]:get_id() - rcard[i + 1]:get_id()
+						print(thegap)
+						if thegap > 2 and not card.startdestoy then
+							SMODS.destroy_cards(card)
+							card.startdestoy = true
+						else
+							jud.xmult = jud.xmult + (jud.xmultg * thegap)
+						end
+					elseif rcard[i]:get_id() < rcard[i + 1]:get_id() then
+						thegap = rcard[i + 1]:get_id() - rcard[i]:get_id()
+						print(thegap)
+						if thegap > 2 and not card.startdestoy then
+							SMODS.destroy_cards(card)
+							card.startdestoy = true
+						else
+							jud.xmult = jud.xmult + (jud.xmultg * thegap)
+						end
+					elseif rcard[i]:get_id() == rcard[i + 1]:get_id() then
+						thegap = 0
+						print(thegap)
+					end
+				end
+			end
+			return {
+				xmult = jud.xmult,
+			}
+		end
+	end,
+})
+
+SMODS.Joker({
 	key = "ergophobia",
 	config = {
 		extra = {
@@ -90,7 +150,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {(G.GAME.probabilities.normal or 1),jud.odds},
+			vars = { (G.GAME.probabilities.normal or 1), jud.odds },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -134,7 +194,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {jud.xmult},
+			vars = { jud.xmult },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -179,7 +239,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {jud.emultg,jud.emultg2,jud.emult},
+			vars = { jud.emultg, jud.emultg2, jud.emult },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -214,7 +274,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {(G.GAME.probabilities.normal or 1),jud.odds},
+			vars = { (G.GAME.probabilities.normal or 1), jud.odds },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -238,7 +298,7 @@ SMODS.Joker({
 		extra = {
 			c1 = 2,
 			c2 = 1.5,
-			c3= 1
+			c3 = 1,
 		},
 	},
 	rarity = 3,
@@ -252,7 +312,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {jud.c1,jud.c2,jud.c3},
+			vars = { jud.c1, jud.c2, jud.c3 },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -266,6 +326,36 @@ SMODS.Joker({
 				G.GAME.jud_crypto = jud.c3
 			end
 		end
+	end,
+})
+
+SMODS.Joker({
+	key = "necrophobia",
+	config = {
+		extra = {
+			aeae = 0.3,
+			set = 0
+		},
+	},
+	rarity = 3,
+	blueprint_compat = false,
+	discovered = false,
+	pos = {
+		x = 1,
+		y = 0,
+	},
+	cost = 5,
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.aeae},
+		}
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		G.GAME.probabilities.normal = G.GAME.probabilities.normal * card.ability.extra.aeae
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.GAME.probabilities.normal = G.GAME.probabilities.normal / card.ability.extra.aeae
 	end,
 })
 
@@ -335,19 +425,18 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {jud.level},
+			vars = { jud.level },
 		}
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
-			if context.joker_main and G.GAME.current_round.hands_played == 0 then
-				return{
-					level_up = jud.level
-				}
-			end
-			if context.using_consumeable and context.consumeable.ability.set == "Planet" then
-				card:start_dissolve(nil,1.6)
-			end
-
+		if context.joker_main and G.GAME.current_round.hands_played == 0 then
+			return {
+				level_up = jud.level,
+			}
 		end
+		if context.using_consumeable and context.consumeable.ability.set == "Planet" then
+			card:start_dissolve(nil, 1.6)
+		end
+	end,
 })

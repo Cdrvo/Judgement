@@ -1,8 +1,8 @@
 SMODS.ConsumableType({
 	key = "monopoly",
 	collection_rows = { 4, 5 },
-	primary_colour = G.C.GOLD,
-	secondary_colour = G.C.GOLD,
+	primary_colour = Judgement.C.CHANCE,
+	secondary_colour = Judgement.C.CHANCE,
 	shop_rate = 0.03,
 })
 
@@ -80,9 +80,55 @@ SMODS.Consumable({
 	end,
 })
 
---Utility
+SMODS.Consumable({
+	key = "nearestutility",
+	set = "monopoly",
+	config = {
+		extra = { give = 200 },
+	},
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
+	use = function(self, card, area, copier)
+		SMODS.add_card({
+			set = "Utility",
+			area = G.jokers,
+		})
+	end,
+})
 
---Railroad
+SMODS.Consumable({
+	key = "nearestraildroad",
+	set = "monopoly",
+	config = {
+		extra = { give = 200 },
+	},
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
+	use = function(self, card, area, copier)
+		SMODS.add_card({
+			set = "Railroads",
+			area = G.jokers,
+		})
+	end,
+})
 
 SMODS.Consumable({
 	key = "bankfifty",
@@ -220,7 +266,6 @@ SMODS.Consumable({
 	end,
 })
 
---Boardwalk
 
 SMODS.Consumable({
 	key = "electedchairman",

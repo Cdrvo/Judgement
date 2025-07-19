@@ -19,7 +19,7 @@ SMODS.Joker({
 	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		return {
-			vars = {(G.GAME.probabilities.normal or 1),card.ability.extra.odds},
+			vars = { (G.GAME.probabilities.normal or 1), card.ability.extra.odds },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -277,18 +277,17 @@ SMODS.Joker({
 	end,
 })
 
---[[SMODS.Joker({         doesnt seem to work rn
+-- OK so i did not know extra_value was non-existant when i first coded this joker. Don't judge me.
+SMODS.Joker({
 	key = "globophobia",
 	config = {
-		extra = {
-
-		},
+		extra = { max = 0 },
 	},
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
 	pos = {
-		x = 1,
+		x = 0,
 		y = 0,
 	},
 	cost = 5,
@@ -298,18 +297,33 @@ SMODS.Joker({
 			vars = {},
 		}
 	end,
-	calculate = function(self, card, context)
-		if (context.selling_self and not context.blueprint) then
-			for k, v in ipairs(G.jokers.cards) do
-				if v.set_cost then
-					v.ability.extra_value = (v.ability.extra_value or 0) * 2
-					v:set_cost()
+	update = function(self, card, context)
+		local jud = card.ability.extra
+		if jud.max >= 15 and not card.destroyed then
+			SMODS.destroy_cards(card)
+			card.destroyed = true
+		end
+		if card.area and card.area == G.jokers then
+			for i = 1, #G.jokers.cards do
+				local rcard = G.jokers.cards[i]
+				if not rcard.jud_updated then
+					rcard.ability.extra_value = rcard.sell_cost
+					rcard:set_cost()
+					rcard.jud_updated = true
 				end
 			end
-			card_eval_status_text(card, "extra", nil, nil, nil, { message = localize("k_val_up"), colour = G.C.MONEY })
 		end
 	end,
-})]]
+	calculate = function(self, card, context)
+		local jud = card.ability.extra
+		if context.selling_card and context.card.ability.set == "Joker" then
+			jud.max = jud.max + context.card.sell_cost
+		end
+		if context.end_of_round then
+			jud.max = 0
+		end
+	end,
+})
 
 SMODS.Joker({
 	key = "ludophobia",
@@ -331,7 +345,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {jud.hands,jud.discards,(G.GAME.probabilities.normal or 1),jud.odds},
+			vars = { jud.hands, jud.discards, (G.GAME.probabilities.normal or 1), jud.odds },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -447,9 +461,50 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
-		if context.individual and context.cardarea == G.play and not context.blueprint 
-			and pseudorandom("jud_stamp") < G.GAME.probabilities.normal / jud.odds then
-						Judgement.random_post(context.other_card)
-			end
+		if
+			context.individual
+			and context.cardarea == G.play
+			and not context.blueprint
+			and pseudorandom("jud_stamp") < G.GAME.probabilities.normal / jud.odds
+		then
+			Judgement.random_post(context.other_card)
 		end
+	end,
+})
+
+SMODS.Joker({
+	key = "obesophobia",
+	config = {
+		extra = {
+			limit = 2,
+		},
+	},
+	rarity = 2,
+	blueprint_compat = false,
+	discovered = false,
+	pos = {
+		x = 1,
+		y = 0,
+	},
+	cost = 5,
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.limit },
+		}
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		Judgement.total_limit(jud.limit)
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		Judgement.total_limit(-jud.limit)
+	end,
+	update = function(self,card,context)
+		if #G.hand.highlighted > #G.hand.cards / 2 and not card.getting_sliced then
+			card.getting_sliced = true
+			SMODS.destroy_cards(card)
+		end
+	end
 })
