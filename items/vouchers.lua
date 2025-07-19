@@ -27,22 +27,34 @@ SMODS.Voucher({
 })
 
 SMODS.Voucher({
-	key = "nomercy2",
+	key = "unostickerstier",
+	unlocked = true,
+	pos = {
+		x = 0,
+		y = 0,
+	},
+	requires = { "v_jud_unostickers" },
+	cost = 10,
+	redeem = function(self, card)
+	end,
+})
+
+SMODS.Voucher({
+	key = "nomercytier",
 	unlocked = true,
 	pos = {
 		x = 0,
 		y = 0,
 	},
 	cost = 10,
-	requires = {"v_jud_nomercy"},
+	requires = { "v_jud_nomercy" },
 	redeem = function(self, card)
 		if G.hand.config.card_limit >= 25 then
 			G.hand:change_size(1)
-		else 
-			G.hand:change_size(25- G.hand.config.card_limit)
+		else
+			G.hand:change_size(25 - G.hand.config.card_limit)
 		end
 	end,
-	
 })
 
 SMODS.Voucher({
@@ -58,7 +70,6 @@ SMODS.Voucher({
 	end,
 })
 
-
 SMODS.Voucher({
 	key = "allwild",
 	unlocked = true,
@@ -67,10 +78,8 @@ SMODS.Voucher({
 		y = 1,
 	},
 	cost = 10,
-	redeem = function(self, card)
-	end,
+	redeem = function(self, card) end,
 })
-
 
 SMODS.Voucher({
 	key = "dice",
@@ -80,10 +89,8 @@ SMODS.Voucher({
 		y = 1,
 	},
 	cost = 10,
-	redeem = function(self, card)
-	end,
+	redeem = function(self, card) end,
 })
-
 
 SMODS.Voucher({
 	key = "console",
@@ -93,6 +100,16 @@ SMODS.Voucher({
 		y = 1,
 	},
 	cost = 10,
-	redeem = function(self, card)
-	end,
+	redeem = function(self, card) end,
+})
+
+SMODS.Voucher({
+	key = "flip",
+	unlocked = true,
+	pos = {
+		x = 0,
+		y = 1,
+	},
+	cost = 10,
+	redeem = function(self, card) end,
 })

@@ -32,6 +32,7 @@ SMODS.load_file("items/vouchers.lua")()
 SMODS.load_file("items/chance.lua")()
 SMODS.load_file("items/community.lua")()
 SMODS.load_file("items/titledeeds.lua")()
+SMODS.load_file("items/stickerpack.lua")()
 
 SMODS.current_mod.optional_features = function()
 	return {
@@ -198,15 +199,6 @@ function Card:get_end_of_round_effect(context)
 	return endofroundold(self, context)
 end
 
-local calcold = Card.calculate_joker
-function Card:calculate_joker(context)
-	if G.GAME.round_resets.ante >= 32 and (hand_chips * mult) > G.GAME.blind.chips then
-		check_for_unlock({ type = "nomercy_voucher" })
-		print("UNLOCKED")
-	end
-	return calcold(self, context)
-end
-
 local blindsetold = Blind.defeat
 function Blind:defeat(silent)
 	table.insert(G.GAME.blindsdefeated, self)
@@ -216,7 +208,6 @@ function Blind:defeat(silent)
 		and to_big(G.GAME.chips) > to_big(G.GAME.blind.chips)
 	then
 		check_for_unlock({ type = "nomercy_voucher" })
-		print("UNLOCKED")
 	end
 	return blindsetold(self, silent)
 end
@@ -293,6 +284,7 @@ Game.init_game_object = function(self)
 	ret.jud_cashout = 0
 	ret.jud_crypto = 1
 	ret.unostickerse = false
+	ret.flipped = false
 	-- I already had this list so, why not use it?
 	ret.jud_vanilla = {
 		"j_joker",

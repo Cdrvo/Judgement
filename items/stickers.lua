@@ -40,10 +40,12 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("alldrawone")).key
-			Judgement.playing_card(G.hand, _rank, "Hearts",SMODS.poll_enhancement({ guaranteed = true }))
+			Judgement.playing_card(G.hand, _rank, "Hearts", SMODS.poll_enhancement({ guaranteed = true }))
 		end
 	end,
 })
@@ -67,10 +69,12 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("alldrawone")).key
-			Judgement.playing_card(G.hand, _rank, "Diamonds",SMODS.poll_enhancement({ guaranteed = true }))
+			Judgement.playing_card(G.hand, _rank, "Diamonds", SMODS.poll_enhancement({ guaranteed = true }))
 		end
 	end,
 })
@@ -94,10 +98,12 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("alldrawone")).key
-			Judgement.playing_card(G.hand, _rank, "Clubs",SMODS.poll_enhancement({ guaranteed = true }))
+			Judgement.playing_card(G.hand, _rank, "Clubs", SMODS.poll_enhancement({ guaranteed = true }))
 		end
 	end,
 })
@@ -121,10 +127,12 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("alldrawone_a")).key
-			Judgement.playing_card(G.hand, _rank, "Spades",SMODS.poll_enhancement({ guaranteed = true }))
+			Judgement.playing_card(G.hand, _rank, "Spades", SMODS.poll_enhancement({ guaranteed = true }))
 		end
 	end,
 })
@@ -149,7 +157,9 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local add
 			for i = 1, Judgement.suitcheck("Hearts", G.hand.cards) do
@@ -179,7 +189,9 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local add
 			for i = 1, Judgement.suitcheck("Diamonds", G.hand.cards) do
@@ -209,7 +221,9 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local add
 			for i = 1, Judgement.suitcheck("Clubs", G.hand.cards) do
@@ -239,7 +253,9 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local add
 			for i = 1, Judgement.suitcheck("Spades", G.hand.cards) do
@@ -271,7 +287,9 @@ SMODS.Sticker({
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
 			local _cards = {}
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
 				for i = 1, Judgement.suitcheck("Hearts", G.playing_cards) do
@@ -308,7 +326,9 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _cards = {}
 			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
@@ -346,7 +366,9 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _cards = {}
 			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
@@ -384,7 +406,9 @@ SMODS.Sticker({
 	calculate = function(self, card, context)
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _cards = {}
 			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
@@ -424,12 +448,14 @@ SMODS.Sticker({
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
 			local _cards = {}
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _suit, _rank =
 				pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
 				pseudorandom_element(faces, pseudoseed("unowild")).card_key
-			Judgement.playing_card(G.deck, _rank, _suit,SMODS.poll_enhancement({ guaranteed = true }))
+			Judgement.playing_card(G.deck, _rank, _suit, SMODS.poll_enhancement({ guaranteed = true }))
 		end
 	end,
 })
@@ -456,7 +482,9 @@ SMODS.Sticker({
 		local jud = self.config
 		if context.jud_cons_destroyed and context.jud_destroyedc == card then
 			local _cards = {}
-			ease_dollars(-jud.dollars)
+			if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+				ease_dollars(-jud.dollars)
+			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
 				for i = 1, jud.ammount do
@@ -502,11 +530,13 @@ SMODS.Sticker({
 			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			for i = 1, jud.dollars do
-				ease_dollars(-jud.dollars)
+				if not G.GAME.used_vouchers["v_jud_unostickerstier"] == true then
+					ease_dollars(-jud.dollars)
+				end
 				local _suit, _rank =
 					pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
 					pseudorandom_element(faces, pseudoseed("unowild")).card_key
-				Judgement.playing_card(G.deck, _rank, _suit,SMODS.poll_enhancement({ guaranteed = true }))
+				Judgement.playing_card(G.deck, _rank, _suit, SMODS.poll_enhancement({ guaranteed = true }))
 			end
 		end
 	end,
@@ -639,7 +669,7 @@ SMODS.Sticker({
 	},
 	config = {
 		dollars = 4,
-		odds = 4
+		odds = 4,
 	},
 	rate = 0.2,
 	needs_enable_flag = true,

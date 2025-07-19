@@ -352,4 +352,5 @@ SMODS.ObjectType({
 
 Judgement.C = {
 	BOONSB = HEX("a6f7f3"),
+	SPACK = HEX("81307d")
 }

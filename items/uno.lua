@@ -3,7 +3,7 @@ SMODS.ConsumableType({
 	collection_rows = { 5, 5 },
 	primary_colour = G.C.RED,
 	secondary_colour = G.C.RED,
-	shop_rate = 0.03,
+	shop_rate = 2000,
 })
 
 SMODS.Consumable({
@@ -30,6 +30,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -59,6 +65,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -86,6 +98,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -115,6 +133,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -141,6 +165,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -170,6 +200,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -197,6 +233,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -226,6 +268,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -252,6 +300,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -281,6 +335,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -308,6 +368,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -337,6 +403,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -363,6 +435,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -392,6 +470,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -419,6 +503,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -448,6 +538,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -474,6 +570,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -503,6 +605,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -530,6 +638,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -559,6 +673,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -585,6 +705,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -614,6 +740,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -641,6 +773,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -670,6 +808,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -696,6 +840,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -725,6 +875,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -752,6 +908,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -781,6 +943,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -807,6 +975,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -836,6 +1010,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -863,6 +1043,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -892,6 +1078,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -918,6 +1110,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -947,6 +1145,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -974,6 +1178,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1003,6 +1213,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1029,6 +1245,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1058,6 +1280,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1086,6 +1314,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1113,6 +1347,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1166,6 +1406,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1215,6 +1461,12 @@ SMODS.Consumable({
 				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 			end
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1266,6 +1518,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1316,6 +1574,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1349,6 +1613,12 @@ SMODS.Consumable({
 				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 			end
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1384,6 +1654,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1418,6 +1694,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1451,6 +1733,12 @@ SMODS.Consumable({
 				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 			end
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1487,6 +1775,12 @@ SMODS.Consumable({
 				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 			end
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1525,6 +1819,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1561,6 +1861,12 @@ SMODS.Consumable({
 				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 			end
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1600,6 +1906,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1624,6 +1936,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1650,6 +1968,12 @@ SMODS.Consumable({
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -1674,6 +1998,12 @@ SMODS.Consumable({
 		if G.GAME.used_vouchers["v_jud_dice"] == true then
 			SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -1717,7 +2047,10 @@ SMODS.Consumable({
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -1763,7 +2096,10 @@ SMODS.Consumable({
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -1809,7 +2145,10 @@ SMODS.Consumable({
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -1855,7 +2194,10 @@ SMODS.Consumable({
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -1886,7 +2228,10 @@ SMODS.Consumable({
 		ease_hands_played(add)
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -1918,7 +2263,10 @@ SMODS.Consumable({
 		ease_hands_played(add)
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -1950,7 +2298,10 @@ SMODS.Consumable({
 		ease_hands_played(add)
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -1982,7 +2333,10 @@ SMODS.Consumable({
 		ease_hands_played(add)
 	end,
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -2017,7 +2371,10 @@ SMODS.Consumable({
 	end,
 
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -2053,7 +2410,10 @@ SMODS.Consumable({
 	end,
 
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -2089,7 +2449,10 @@ SMODS.Consumable({
 	end,
 
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -2125,7 +2488,10 @@ SMODS.Consumable({
 	end,
 
 	in_pool = function(self, wawa, wawa2)
-		if G.GAME.used_vouchers["v_jud_nomercy"] == true then
+		if
+			G.GAME.used_vouchers["v_jud_nomercy"] == true
+			and (G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true)
+		then
 			return true
 		end
 		return false
@@ -2163,6 +2529,12 @@ SMODS.Consumable({
 			end
 		end
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 SMODS.Consumable({
@@ -2195,6 +2567,12 @@ SMODS.Consumable({
 				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
 			end
 		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
 	end,
 })
 
@@ -2234,6 +2612,12 @@ SMODS.Consumable({
 		end
 		ease_hands_played(easeh)
 	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
 })
 
 --[[SMODS.Consumable({
@@ -2260,3 +2644,493 @@ SMODS.Consumable({
 		end
 	end,
 })]]
+
+--Stuff below are releated to flip
+
+SMODS.Consumable({
+	key = "flip",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 13,
+		y = 3,
+	},
+	config = { max = 4 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		if G.GAME.flipped == false then
+			G.GAME.flipped = true
+			local flipcards = { "c_jud_drawfive", "c_jud_skipeveryonef" }
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(flipcards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		else
+			G.GAME.flipped = false
+			local unocards = {}
+			for i = 1, #G.P_CENTER_POOLS.uno do
+				if
+					G.P_CENTER_POOLS.uno[i].key ~= "c_jud_drawfive"
+					and G.P_CENTER_POOLS.uno[i].key ~= "c_jud_skipeveryonef"
+				then
+					unocards[#unocards + 1] = G.P_CENTER_POOLS.uno[i]
+				end
+			end
+			for i = 1, #G.consumeables.cards do
+				local rcards = G.consumeables.cards[i]
+				local randomflipcard = pseudorandom_element(unocards)
+				if rcards.ability.set == "uno" then
+					G.E_MANAGER:add_event(Event({
+						trigger = "before",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							rcards:set_ability(randomflipcard)
+							return true
+						end,
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = "after",
+						delay = 0.2,
+						func = function()
+							rcards:flip()
+							return true
+						end,
+					}))
+				end
+			end
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "drawfive_a",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 0,
+		y = 0,
+	},
+	config = { max = 5 },
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		for i = 1, card.ability.extra.max do
+			local wcard
+			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
+			wcard = Judgement.playing_card(G.deck, _rank, "Hearts", SMODS.poll_enhancement({ guaranteed = true }))
+			if G.GAME.used_vouchers["v_jud_dice"] == true then
+				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+			end
+		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "drawfive_b",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 0,
+		y = 0,
+	},
+	config = { max = 5 },
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		for i = 1, card.ability.extra.max do
+			local wcard
+			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
+			wcard = Judgement.playing_card(G.deck, _rank, "Diamonds", SMODS.poll_enhancement({ guaranteed = true }))
+			if G.GAME.used_vouchers["v_jud_dice"] == true then
+				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+			end
+		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "drawfive_c",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 0,
+		y = 0,
+	},
+	config = { max = 5 },
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		for i = 1, card.ability.extra.max do
+			local wcard
+			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
+			wcard = Judgement.playing_card(G.deck, _rank, "Clubs", SMODS.poll_enhancement({ guaranteed = true }))
+			if G.GAME.used_vouchers["v_jud_dice"] == true then
+				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+			end
+		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "drawfive_d",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 0,
+		y = 0,
+	},
+	config = { max = 5 },
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+	use = function(self, card, area, copier)
+		for i = 1, card.ability.extra.max do
+			local wcard
+			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
+			wcard = Judgement.playing_card(G.deck, _rank, "Spades", SMODS.poll_enhancement({ guaranteed = true }))
+			if G.GAME.used_vouchers["v_jud_dice"] == true then
+				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+			end
+		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "skipeveryonef_a",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+	use = function(self, card, area, copier)
+		local add = 0
+		for i = 1, Judgement.suitcheck("Hearts", G.hand.cards) do
+			add = add + 1
+		end
+		ease_hands_played(add)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "skipeveryonef_b",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+		no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+	use = function(self, card, area, copier)
+		local add = 0
+		for i = 1, Judgement.suitcheck("Diamonds", G.hand.cards) do
+			add = add + 1
+		end
+		ease_hands_played(add)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "skipeveryonef_c",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+		no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+	use = function(self, card, area, copier)
+		local add = 0
+		for i = 1, Judgement.suitcheck("Clubs", G.hand.cards) do
+			add = add + 1
+		end
+		ease_hands_played(add)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "skipeveryonef_d",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+	use = function(self, card, area, copier)
+		local add = 0
+		for i = 1, Judgement.suitcheck("Diamonds", G.hand.cards) do
+			add = add + 1
+		end
+		ease_hands_played(add)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "discardall_fam",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+
+	use = function(self, card, area, copier)
+		local cards = {}
+		for i = 1, #G.hand.cards do
+			if G.hand.cards[i]:is_suit("Hearts") then
+				cards[#cards + 1] = G.hand.cards[i]
+			end
+		end
+		Judgement.discard(#cards, cards)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "discardall_fbm",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+
+	use = function(self, card, area, copier)
+		local cards = {}
+		for i = 1, #G.hand.cards do
+			if G.hand.cards[i]:is_suit("Diamonds") then
+				cards[#cards + 1] = G.hand.cards[i]
+			end
+		end
+		Judgement.discard(#cards, cards)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "discardall_fcm",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+
+	use = function(self, card, area, copier)
+		local cards = {}
+		for i = 1, #G.hand.cards do
+			if G.hand.cards[i]:is_suit("Clubs") then
+				cards[#cards + 1] = G.hand.cards[i]
+			end
+		end
+		Judgement.discard(#cards, cards)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "discardall_fdm",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {},
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+	end,
+
+	use = function(self, card, area, copier)
+		local cards = {}
+		for i = 1, #G.hand.cards do
+			if G.hand.cards[i]:is_suit("Spades") then
+				cards[#cards + 1] = G.hand.cards[i]
+			end
+		end
+		Judgement.discard(#cards, cards)
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Consumable({
+	key = "unowildtwenty",
+	set = "uno",
+	atlas = "unoc",
+	pos = {
+		x = 9,
+		y = 0,
+	},
+	config = {max = 20},
+	no_collection = true,
+	cost = 5,
+	can_use = function(self, card)
+		return true
+	end,
+
+	use = function(self, card, area, copier)
+		for i = 1, self.config.max do
+			local _suit, _rank =
+				pseudorandom_element(SMODS.Suits, pseudoseed("unowild")).card_key,
+				pseudorandom_element(Judgement.facepool(), pseudoseed("unowild")).card_key
+			local wcard = Judgement.playing_card(G.deck, _rank, _suit, SMODS.poll_enhancement({ guaranteed = true }))
+			if G.GAME.used_vouchers["v_jud_dice"] == true then
+				SMODS.Stickers["cry_rigged"]:apply(wcard, true)
+			end
+		end
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == true or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+
+
+
+
+
+
