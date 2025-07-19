@@ -58,4 +58,26 @@ table.insert(t, 2, G.jud_boons)
 '''
 match_indent = true
 
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "if G.blind_select then "
+position = "after"
+payload = '''
+    local _tag = e.UIBox:get_UIE_by_ID('tag_container')
+    G.GAME.jud_skip_tag = _tag
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '    if area and #G[area].cards < G[area].config.card_limit + edition_card_limit then'
+position = "at"
+payload = '''
+   if area and #G[area].cards < G[area].config.card_limit + edition_card_limit or card.ability.set == "boons" then
+'''
+match_indent = true
+
+
 

@@ -21,7 +21,14 @@ SMODS.Edition({
 	shader = false,
 	config = {
 		x_mult = 1.5 + reversea(),
-	},
+	},	
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				self.config.x_mult,reversea()
+			},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability
 		if
@@ -32,3 +39,35 @@ SMODS.Edition({
 		end
 	end,
 })
+
+SMODS.Edition({
+	key = "fake",
+	shader = false,
+	config = {
+		mult = 1,
+		chips = 1,
+		dollars = 2,
+		odds = 5
+	},
+		loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				self.config.mult,self.config.chips,self.config.dollars,(G.GAME.probabilities.normal or 1),self.config.odds
+			},
+		}
+	end,
+	calculate = function(self, card, context)
+		local jud = card.ability
+		if
+			(context.cardarea == G.jokers and context.post_joker)
+			or (context.main_scoring and context.cardarea == G.play)
+		then
+			if pseudorandom("fake") < G.GAME.probabilities.normal / self.config.odds then
+				card:start_dissolve(nil, 1.6)
+			else
+			return { mult = self.config.mult, chips = self.config.chips, dollars = self.config.dollars }
+			end
+		end
+	end,
+})
+

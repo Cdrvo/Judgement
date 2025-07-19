@@ -16,7 +16,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.level},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -33,13 +33,15 @@ SMODS.Joker({
 	config = {
 		extra = {
 			removing = 0,
+			removing2 = 0
 		},
 	},
+	atlas = "jepic",
 	rarity = "cry_epic",
 	blueprint_compat = true,
 	discovered = false,
 	pos = {
-		x = 1,
+		x = 0,
 		y = 0,
 	},
 	cost = 5,
@@ -52,11 +54,14 @@ SMODS.Joker({
 	add_to_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
 		jud.removing = G.jokers.config.card_limit
+		jud.removing2 = G.consumeables.config.card_limit
 		G.jokers.config.card_limit = G.jokers.config.card_limit * 2
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit * 2
 	end,
 	remove_from_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
 		G.jokers.config.card_limit = G.jokers.config.card_limit - jud.removing
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit - jud.removing
 	end,
 })
 
@@ -121,7 +126,6 @@ SMODS.Joker({
 
 --skipped obesophobia
 
-
 --[[ i fucked this up and i do not know how ;-;
 SMODS.Joker({
 	key = "Musophobia",
@@ -148,4 +152,5 @@ SMODS.Joker({
 		
 	end,
 })
-]]-- 
+]]
+--

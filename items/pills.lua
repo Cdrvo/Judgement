@@ -8,7 +8,7 @@ function Card:highlight(is_highlighted)
 		end
 
 		self.children.use_button = UIBox({
-			definition = Judgement.create_sell_and_switch_buttons(self, {
+			definition = Judgement.create_sell_and_switch_buttonspii(self, {
 				sell = true,
 				use = true,
 			}),
@@ -26,7 +26,7 @@ function Card:highlight(is_highlighted)
 	end
 end
 
-Judgement.create_sell_and_switch_buttons = function(card, args)
+Judgement.create_sell_and_switch_buttonspii = function(card, args)
 	local args = args or {}
 	local sell = nil
 	local use = nil
@@ -230,13 +230,8 @@ SMODS.Consumable({
 		local jud = card.ability.extra
 		if context.setting_blind then
 			if pseudorandom("purplepill") < G.GAME.probabilities.normal / jud.odds then
-				local jokers = {}
-				for i = 1, #G.jokers.cards do
-					jokers[#jokers + 1] = G.jokers.cards[i]
-				end
-				if #jokers > 0 then
-					local chosen_joker = pseudorandom_element(jokers, pseudoseed("purplepill"))
-					chosen_joker:set_edition({ negative = true }, true)
+				if Judgement.random_joker(G.jokers.cards) then
+					Judgement.random_joker(G.jokers.cards):set_edition({ negative = true }, true)
 				end
 			end
 			G.GAME.blind.chips = G.GAME.blind.chips * jud.multipler
@@ -321,5 +316,140 @@ SMODS.Consumable({
 	remove_from_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
 		G.hand:change_size(-jud.hands)
+	end,
+})
+
+SMODS.Consumable({
+	key = "handypill",
+	set = "pills",
+	config = {
+		extra = {
+			hands = 1,
+		},
+	},
+	add_to_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		G.hand:change_size(jud.hands)
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		local jud = card.ability.extra
+		G.hand:change_size(-jud.hands)
+	end,
+})
+
+SMODS.Consumable({
+	key = "darkbluepill",
+	set = "pills",
+	config = {
+		extra = {
+			hands = 1,
+			cooldown = 0
+		},
+	},
+	calculate = function(self,card,context)
+		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
+			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
+		end
+	end,
+	update = function(self,card,context)
+		if G.GAME.current_round.hands_left <= 1 and card.ability.extra.cooldown == 3 then
+			card.ability.extra.cooldown = 0
+			ease_hands_played(card.ability.extra.hands)
+		end
+	end
+})
+
+SMODS.Consumable({
+	key = "tarotpill",
+	set = "pills",
+	config = {
+		extra = {
+			cooldown = 0
+		},
+	},
+	calculate = function(self,card,context)
+		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
+			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
+		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
+			SMODS.add_card{
+				set = "Tarot"
+			}
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "planetpill",
+	set = "pills",
+	config = {
+		extra = {
+			cooldown = 0
+		},
+	},
+	calculate = function(self,card,context)
+		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
+			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
+		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
+			SMODS.add_card{
+				set = "Planet"
+			}
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "spectralpill",
+	set = "pills",
+	config = {
+		extra = {
+			cooldown = 0
+		},
+	},
+	calculate = function(self,card,context)
+		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
+			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
+		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
+			SMODS.add_card{
+				set = "Spectral"
+			}
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "runicpill",
+	set = "pills",
+	config = {
+		extra = {
+			cooldown = 0
+		},
+	},
+	calculate = function(self,card,context)
+		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
+			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
+		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
+			SMODS.add_card{
+				set = "runes"
+			}
+		end
+	end,
+})
+
+SMODS.Consumable({
+	key = "blessedpill",
+	set = "pills",
+	config = {
+		extra = {
+			cooldown = 0
+		},
+	},
+	calculate = function(self,card,context)
+		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
+			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
+		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
+			SMODS.add_card{
+				set = "boons"
+			}
+		end
 	end,
 })
