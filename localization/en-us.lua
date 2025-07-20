@@ -339,28 +339,28 @@ return {
 					"of a round",
 				},
 			},
-			jud_alldrawoner = {
+			jud_alldrawone_a = {
 				name = "All Draw One",
 				text = {
 					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
 					"{C:hearts}Hearts{} copy of selected card",
 				},
 			},
-			jud_alldrawoney = {
+			jud_alldrawone_b = {
 				name = "All Draw One",
 				text = {
 					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
 					"{C:diamonds}Diamonds{} copy of selected card",
 				},
 			},
-			jud_alldrawoneg = {
+			jud_alldrawone_c = {
 				name = "All Draw One",
 				text = {
 					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
-					"{C:spades}Spades{} copy of selected card",
+					"{C:clubs}Clubs{} copy of selected card",
 				},
 			},
-			jud_alldrawoneb = {
+			jud_alldrawone_d = {
 				name = "All Draw One",
 				text = {
 					"Creates {C:attention}#1#{} randomly {C:attention}modified{}",
@@ -368,7 +368,7 @@ return {
 					"when sold",
 				},
 			},
-			jud_skipeveryoner = {
+			jud_skipeveryone_a = {
 				name = "Skip Everyone",
 				text = {
 					"{C:blue}+#1#{} Hand for each",
@@ -376,23 +376,7 @@ return {
 					"in your hand when sold",
 				},
 			},
-			jud_skipeveryoneg = {
-				name = "Skip Everyone",
-				text = {
-					"{C:blue}+#1#{} Hand for each",
-					"card with the {C:spades}Spades{} suit",
-					"in your hand when sold",
-				},
-			},
-			jud_skipeveryoneb = {
-				name = "Skip Everyone",
-				text = {
-					"{C:blue}+#1#{} Hand for each",
-					"card with the {C:clubs}Clubs{} suit",
-					"in your hand when sold",
-				},
-			},
-			jud_skipeveryoney = {
+			jud_skipeveryone_b = {
 				name = "Skip Everyone",
 				text = {
 					"{C:blue}+#1#{} Hand for each",
@@ -400,28 +384,69 @@ return {
 					"in your hand when sold",
 				},
 			},
-			jud_reverseskip = {
+			jud_skipeveryone_c = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+#1#{} Hand for each",
+					"card with the {C:clubs}Clubs{} suit",
+					"in your hand when sold",
+				},
+			},
+			jud_skipeveryone_d = {
+				name = "Skip Everyone",
+				text = {
+					"{C:blue}+#1#{} Hand for each",
+					"card with the {C:spades}Spades{} suit",
+					"in your hand when sold",
+				},
+			},
+			jud_skipreverse_a = {
 				name = "Reverse and Skip",
 				text = {
 					"Activate the {C:attention}Reverse{} and",
-					"{C:attention}Skip{} effects when sold",
+					"{C:attention}Skip{} effects for",
+					"{C:hearts}Hearts{} when sold",
 				},
 			},
-			jud_targeteddrawtwo = {
+			jud_skipreverse_b = {
+				name = "Reverse and Skip",
+				text = {
+					"Activate the {C:attention}Reverse{} and",
+					"{C:attention}Skip{} effects for",
+					"{C:diamonds}Diamonds{} when sold",
+				},
+			},
+			jud_skipreverse_c = {
+				name = "Reverse and Skip",
+				text = {
+					"Activate the {C:attention}Reverse{} and",
+					"{C:attention}Skip{} effects for",
+					"{C:clubs}Clubs{} when sold",
+				},
+			},
+			jud_skipreverse_d = {
+				name = "Reverse and Skip",
+				text = {
+					"Activate the {C:attention}Reverse{} and",
+					"{C:attention}Skip{} effects for",
+					"{C:spades}Spades{} when sold",
+				},
+			},
+			jud_targeteddraw_a = {
 				name = "Targeted Draw Two",
 				text = {
 					"Activates the {C:attention}Wild{}",
 					"effect when sold",
 				},
 			},
-			jud_alldrawtwo = {
+			jud_alldrawtwo_a = {
 				name = "All Draw Two",
 				text = {
 					"Creates {C:attention}#1#{} randomly {C:attention}modified{} copies",
 					"of selected card when sold",
 				},
 			},
-			jud_targeteddrawfour = {
+			jud_targeteddrawfour_a = {
 				name = "Targeted Draw Four",
 				text = {
 					"Activates the {C:attention}Wild{}",
@@ -509,6 +534,118 @@ return {
 					"Creates a {C:dark_edition}negative {C:planet}Planet{} card",
 					"for played hand if scored",
 					"{C:green}#1# in #2#{} chance to {C:red}self-destruct{}",
+				},
+			},
+			p_jud_unopack = {
+				name = "Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}3 {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_jumbounopack = {
+				name = "Jumbo Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_megaunopack = {
+				name = "Mega Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_monopolypack = {
+				name = "Monopoly Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:money}Monopoly{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_jumbomonopolypack = {
+				name = "Jumbo Monopoly Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:money}Monopoly{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_megamonopolypack = {
+				name = "Mega Monopoly Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:money}Monopoly{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_runepack = {
+				name = "Rune Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:674ea7}Rune{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_jumborunepack = {
+				name = "Jumbo Rune Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:674ea7}Rune{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_megarunepack = {
+				name = "Mega Rune Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:674ea7}Rune{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_boonpack = {
+				name = "Boon Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:a6f7f3}Boons{} to",
+					"be granted to you",
+				},
+			},
+			p_jud_jumboboonpack = {
+				name = "Jumbo Boon Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:a6f7f3}Boons{} to",
+					"be granted to you",
+				},
+			},
+			p_jud_stickerpacket = {
+				name = "Sticker Packet",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:e0218a}Sticker Packs{} to",
+					"be taken or used immediately",
+				},
+			},
+			p_jud_jumbostickerpacket = {
+				name = " Jumbo Sticker Packet",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:e0218a}Sticker Packs{} to",
+					"be taken or used immediately",
+				},
+			},
+			p_jud_megastickerpacket = {
+				name = "Mega Sticker Packet",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:e0218a}Sticker Packs{} to",
+					"be taken or used immediately",
 				},
 			},
 		},
@@ -1778,7 +1915,7 @@ return {
 				},
 			},
 		},
-		Title_Deed = {
+		titledeeds = {
 			c_jud_mediterranean = {
 				name = "Mediterranean Avenue",
 				text = {
@@ -2052,6 +2189,11 @@ return {
 		challenge_names = {},
 		collabs = {},
 		dictionary = {
+			k_jud_boonpk = "Boon Pack",
+			k_jud_unopk = "Uno Pack",
+			k_jud_deedspk = "Monopoly Pack",
+			k_jud_runespk = "Rune Pack",
+			k_jud_stickerpackpk = "Sticker Pack",
 			k_boons = "Boon",
 			b_boons_cards = "Boons",
 			k_runes = "Rune",
