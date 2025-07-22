@@ -355,7 +355,7 @@ SMODS.Joker({
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.setting_blind then
-			ease_hands(jud.hands)
+			ease_hands_played(jud.hands)
 			ease_discard(jud.discards)
 		end
 		if context.joker_main and not context.blueprint then

@@ -20,9 +20,13 @@ SMODS.Consumable({
 	end,
 })
 
+
 SMODS.Consumable({
 	key = "wormhole",
 	set = "Spectral",
+	hidden = true,
+	soul_set = "Planet",
+	soul_rate = 0.003,
 	atlas = "jplanet",
 	pos = {x=0,y=0},
 	config = { odds = 5 },
@@ -61,7 +65,7 @@ SMODS.Consumable({
 				mult = G.GAME.hands[_hand].mult,
 				level = G.GAME.hands[_hand].level,
 			})
-			level_up_hand(used_consumable, _hand, nil, G.GAME.hands[_hand].level)
+			level_up_hand(used_consumable, _hand, nil, Judgement.factorial(G.GAME.hands[_hand].level))
 			update_hand_text({ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 }, {
 				mult = 0,
 				chips = 0,

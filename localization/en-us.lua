@@ -739,8 +739,7 @@ return {
 			c_jud_wormhole = {
 				name = "Worm Hole",
 				text = {
-					"{C:green}#1# in #2#{} chance double the",
-					"level of your {C:attention}Most Played Hand",
+					"{C:green}#1# in #2#{} chance to upgrade", "your {C:attention}Most Played Hand{} by n!", "where n is its current level",
 				},
 			},
 			c_jud_ufo = {

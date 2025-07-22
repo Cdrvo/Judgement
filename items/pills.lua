@@ -314,7 +314,7 @@ SMODS.Consumable({
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.setting_blind then
-			ease_hands(jud.hands)
+			ease_hands_played(jud.hands)
 		end
 	end,
 })
@@ -323,7 +323,7 @@ SMODS.Consumable({
 	key = "redbluepill",
 	set = "pills",
 	config = {
-		extra = {
+		extra = {	
 			discards = 1,
 		},
 	},

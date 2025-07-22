@@ -315,6 +315,15 @@ function Judgement.facepool()
 	return faces
 end
 
+function Judgement.factorial(mod)
+  if to_big(mod) <= to_big(0) then
+    return 1
+  else
+    return mod * Judgement.factorial(mod-1)
+  end
+end
+
+
 SMODS.ObjectType({
 	key = "CommonDeeds",
 	cards = {},

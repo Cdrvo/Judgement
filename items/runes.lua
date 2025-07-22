@@ -248,9 +248,10 @@ SMODS.Consumable({
 		if context.ending_shop then
 			G.GAME.jud_reroll = false
 		end
-	end,	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
- 	end,
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Consumable({
@@ -288,9 +289,10 @@ SMODS.Consumable({
 		if context.end_of_round and context.main_eval and G.GAME.blind.boss then
 			SMODS.destroy_cards(card)
 		end
-	end,	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
- 	end,
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Consumable({
@@ -358,8 +360,8 @@ SMODS.Consumable({
 			create = 2,
 			max = 10,
 			current = 0,
-			seconds = 300,
-			activated = false,
+			timer = 0,
+			timermax = 3,
 		},
 	},
 	loc_vars = function(self, info_queue, card)
@@ -374,37 +376,27 @@ SMODS.Consumable({
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
-		if jud.current >= jud.max then
-			card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
-		end
-		if jud.activated then
-			jud.activated = false
-			local allcons = {}
-			for k, _ in pairs(SMODS.ConsumableTypes) do
-				table.insert(allcons, k)
+		if context.setting_blind then
+			if jud.current < jud.max then
+				if jud.timer < jud.timermax then
+					jud.timer = jud.timer + 1
+				else
+					jud.timer = 0
+					local allcons = {}
+					for k, _ in pairs(SMODS.ConsumableTypes) do
+						table.insert(allcons, k)
+					end
+					for i = 1, jud.create do
+						jud.current = jud.current + 1
+						SMODS.add_card({
+							set = pseudorandom_element(allcons, nil),
+						})
+					end
+				end
+			else 
+				SMODS.destroy_cards(card)
 			end
-			for i = 1, jud.create do
-				jud.current = jud.current + 1
-				SMODS.add_card({
-					set = pseudorandom_element(allcons, nil),
-				})
-			end
 		end
-		local event
-		event = Event({
-			blockable = false,
-			blocking = false,
-			pause_force = true,
-			no_delete = true,
-			trigger = "after",
-			delay = 5,
-			timer = "UPTIME",
-			func = function()
-				event.start_timer = false
-				jud.activated = true
-			end,
-		})
-		G.E_MANAGER:add_event(event)
 	end,
 })
 
@@ -461,9 +453,10 @@ SMODS.Consumable({
 				draw_card(G.deck, G.hand, i * 100 / context.amount, "up", true)
 			end
 		end
-	end,	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
- 	end,
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Consumable({
@@ -612,9 +605,10 @@ SMODS.Consumable({
 				}))
 			end
 		end
-	end,	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
- 	end,
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Consumable({
@@ -824,7 +818,7 @@ SMODS.Consumable({
 			card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
 		end
 		if context.setting_blind then
-			ease_hands(jud.add)
+			ease_hands_played(jud.add)
 		end
 	end,
 })
