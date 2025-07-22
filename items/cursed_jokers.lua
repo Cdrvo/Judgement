@@ -189,11 +189,14 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
-			local choosenone = Judgement.random_joker(G.jokers.cards)
-			if choosenone == card then
-				card:start_dissolve(nil, 1.6)
-			else
-				SMODS.Stickers["banana"]:apply(choosenone, true)
-			end
+		local choosenone = Judgement.random_joker(G.jokers.cards)
+		if choosenone == card then
+			card:start_dissolve(nil, 1.6)
+		else
+			SMODS.Stickers["banana"]:apply(choosenone, true)
+		end
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: ven_the_person", G.C.BLACK, G.C.WHITE, 0.8)
 	end,
 })

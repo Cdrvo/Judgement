@@ -63,6 +63,9 @@ SMODS.Joker({
 		G.jokers.config.card_limit = G.jokers.config.card_limit - jud.removing
 		G.consumeables.config.card_limit = G.consumeables.config.card_limit - jud.removing
 	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Breuhh", G.C.RARITY.cry_epic, G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Joker({

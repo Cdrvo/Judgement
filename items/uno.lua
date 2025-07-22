@@ -3,13 +3,16 @@ SMODS.ConsumableType({
 	collection_rows = { 5, 5 },
 	primary_colour = Judgement.C.UNOC,
 	secondary_colour = Judgement.C.UNOC,
-	shop_rate = 2000,
+	shop_rate = 0.01,
 })
 
 SMODS.Consumable({
 	key = "unoone_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 0,
@@ -43,6 +46,9 @@ SMODS.Consumable({
 	key = "unoone_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 1,
@@ -77,6 +83,9 @@ SMODS.Consumable({
 	key = "unoone_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 2,
@@ -111,6 +120,9 @@ SMODS.Consumable({
 	key = "unoone_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 3,
@@ -145,6 +157,9 @@ SMODS.Consumable({
 	key = "unotwo_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 4,
 		y = 0,
@@ -178,6 +193,9 @@ SMODS.Consumable({
 	key = "unotwo_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 5,
@@ -212,6 +230,9 @@ SMODS.Consumable({
 	key = "unotwo_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 6,
@@ -246,6 +267,9 @@ SMODS.Consumable({
 	key = "unotwo_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 7,
@@ -280,6 +304,9 @@ SMODS.Consumable({
 	key = "unothree_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 8,
 		y = 0,
@@ -313,6 +340,9 @@ SMODS.Consumable({
 	key = "unothree_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 9,
@@ -347,6 +377,9 @@ SMODS.Consumable({
 	key = "unothree_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 10,
@@ -381,6 +414,9 @@ SMODS.Consumable({
 	key = "unothree_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 11,
@@ -415,6 +451,9 @@ SMODS.Consumable({
 	key = "unofour_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 12,
 		y = 0,
@@ -448,6 +487,9 @@ SMODS.Consumable({
 	key = "unofour_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 13,
@@ -482,6 +524,9 @@ SMODS.Consumable({
 	key = "unofour_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 14,
@@ -516,6 +561,9 @@ SMODS.Consumable({
 	key = "unofour_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 15,
@@ -550,6 +598,9 @@ SMODS.Consumable({
 	key = "unofive_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 1,
@@ -583,6 +634,9 @@ SMODS.Consumable({
 	key = "unofive_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 1,
@@ -617,6 +671,9 @@ SMODS.Consumable({
 	key = "unofive_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 2,
@@ -651,6 +708,9 @@ SMODS.Consumable({
 	key = "unofive_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 3,
@@ -685,6 +745,9 @@ SMODS.Consumable({
 	key = "unosix_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 4,
 		y = 1,
@@ -718,6 +781,9 @@ SMODS.Consumable({
 	key = "unosix_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 5,
@@ -752,6 +818,9 @@ SMODS.Consumable({
 	key = "unosix_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 6,
@@ -786,6 +855,9 @@ SMODS.Consumable({
 	key = "unosix_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 7,
@@ -820,6 +892,9 @@ SMODS.Consumable({
 	key = "unoseven_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 8,
 		y = 1,
@@ -853,6 +928,9 @@ SMODS.Consumable({
 	key = "unoseven_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 9,
@@ -887,6 +965,9 @@ SMODS.Consumable({
 	key = "unoseven_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 10,
@@ -921,6 +1002,9 @@ SMODS.Consumable({
 	key = "unoseven_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 11,
@@ -955,6 +1039,9 @@ SMODS.Consumable({
 	key = "unoeight_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 12,
 		y = 1,
@@ -988,6 +1075,9 @@ SMODS.Consumable({
 	key = "unoeight_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 13,
@@ -1022,6 +1112,9 @@ SMODS.Consumable({
 	key = "unoeight_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 14,
@@ -1056,6 +1149,9 @@ SMODS.Consumable({
 	key = "unoeight_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 15,
@@ -1090,6 +1186,9 @@ SMODS.Consumable({
 	key = "unonine_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 2,
@@ -1123,6 +1222,9 @@ SMODS.Consumable({
 	key = "unonine_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 1,
@@ -1157,6 +1259,9 @@ SMODS.Consumable({
 	key = "unonine_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 2,
@@ -1191,6 +1296,9 @@ SMODS.Consumable({
 	key = "unonine_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 3,
@@ -1225,6 +1333,9 @@ SMODS.Consumable({
 	key = "unoten_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 4,
 		y = 2,
@@ -1258,6 +1369,9 @@ SMODS.Consumable({
 	key = "unoten_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 5,
@@ -1292,6 +1406,9 @@ SMODS.Consumable({
 	key = "unoten_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 6,
@@ -1326,6 +1443,9 @@ SMODS.Consumable({
 	key = "unoten_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 7,
@@ -1363,6 +1483,9 @@ SMODS.Consumable({
 	key = "unodrawtwo_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 8,
 		y = 3,
@@ -1425,6 +1548,9 @@ SMODS.Consumable({
 	key = "unodrawtwo_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 9,
@@ -1488,6 +1614,9 @@ SMODS.Consumable({
 	key = "unodrawtwo_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 10,
@@ -1551,6 +1680,9 @@ SMODS.Consumable({
 	key = "unodrawtwo_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 11,
@@ -1614,6 +1746,9 @@ SMODS.Consumable({
 	key = "unoskip_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 3,
@@ -1661,6 +1796,9 @@ SMODS.Consumable({
 	key = "unoskip_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 1,
@@ -1708,6 +1846,9 @@ SMODS.Consumable({
 	key = "unoskip_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 2,
@@ -1755,6 +1896,9 @@ SMODS.Consumable({
 	key = "unoskip_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 3,
@@ -1802,6 +1946,9 @@ SMODS.Consumable({
 	key = "unoreverse_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 4,
 		y = 3,
@@ -1851,6 +1998,9 @@ SMODS.Consumable({
 	key = "unoreverse_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 5,
@@ -1901,6 +2051,9 @@ SMODS.Consumable({
 	key = "unoreverse_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 6,
@@ -1951,6 +2104,9 @@ SMODS.Consumable({
 	key = "unoreverse_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 7,
@@ -2002,6 +2158,9 @@ SMODS.Consumable({
 	key = "unowild",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 12,
 		y = 3,
@@ -2033,6 +2192,9 @@ SMODS.Consumable({
 	key = "unowild_four",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -2073,6 +2235,9 @@ SMODS.Consumable({
 	key = "unowild_custom",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 14,
 		y = 3,
@@ -2115,6 +2280,9 @@ SMODS.Consumable({
 	key = "unodrawfour_am",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 8,
 		y = 3,
@@ -2170,6 +2338,9 @@ SMODS.Consumable({
 	key = "unodrawfour_bm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 9,
@@ -2226,6 +2397,9 @@ SMODS.Consumable({
 	key = "unodrawfour_cm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 10,
@@ -2282,6 +2456,9 @@ SMODS.Consumable({
 	key = "unodrawfour_dm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 11,
@@ -2338,6 +2515,9 @@ SMODS.Consumable({
 	key = "unoskipall_am",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 8,
 		y = 3,
@@ -2379,6 +2559,9 @@ SMODS.Consumable({
 	key = "unoskipall_bm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 9,
@@ -2421,6 +2604,9 @@ SMODS.Consumable({
 	key = "unoskipall_cm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 10,
@@ -2463,6 +2649,9 @@ SMODS.Consumable({
 	key = "unoskipall_dm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 11,
@@ -2505,6 +2694,9 @@ SMODS.Consumable({
 	key = "unodiscardall_am",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 8,
 		y = 3,
@@ -2543,6 +2735,9 @@ SMODS.Consumable({
 	key = "unodiscardall_bm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 8,
@@ -2582,6 +2777,9 @@ SMODS.Consumable({
 	key = "unodiscardall_cm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 8,
@@ -2621,6 +2819,9 @@ SMODS.Consumable({
 	key = "unodiscardall_dm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	no_collection = true,
 	pos = {
 		x = 8,
@@ -2660,6 +2861,9 @@ SMODS.Consumable({
 	key = "unowild_six",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -2706,6 +2910,9 @@ SMODS.Consumable({
 	key = "unowild_ten",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -2752,6 +2959,9 @@ SMODS.Consumable({
 	key = "unowild_reversefour",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -2803,6 +3013,9 @@ SMODS.Consumable({
 	key = "unoroulette",
 	set = "uno",
 	atlas = "unoc",
+		set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8 )
+ 	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -2830,6 +3043,9 @@ SMODS.Consumable({
 	key = "flip",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -2908,6 +3124,9 @@ SMODS.Consumable({
 	key = "flip_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -2987,6 +3206,9 @@ SMODS.Consumable({
 	key = "flip_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -3066,6 +3288,9 @@ SMODS.Consumable({
 	key = "flip_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -3147,6 +3372,9 @@ SMODS.Consumable({
 	key = "flip_f",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -3225,6 +3453,9 @@ SMODS.Consumable({
 	key = "flip_fb",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -3304,6 +3535,9 @@ SMODS.Consumable({
 	key = "flip_fc",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -3383,6 +3617,9 @@ SMODS.Consumable({
 	key = "flip_fd",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 13,
 		y = 3,
@@ -3462,6 +3699,9 @@ SMODS.Consumable({
 	key = "drawfive_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 0,
@@ -3500,6 +3740,9 @@ SMODS.Consumable({
 	key = "drawfive_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 0,
@@ -3539,6 +3782,9 @@ SMODS.Consumable({
 	key = "drawfive_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 0,
@@ -3578,6 +3824,9 @@ SMODS.Consumable({
 	key = "drawfive_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 0,
 		y = 0,
@@ -3617,6 +3866,9 @@ SMODS.Consumable({
 	key = "skipeveryonef_a",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3645,6 +3897,9 @@ SMODS.Consumable({
 	key = "skipeveryonef_b",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3674,6 +3929,9 @@ SMODS.Consumable({
 	key = "skipeveryonef_c",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3703,6 +3961,9 @@ SMODS.Consumable({
 	key = "skipeveryonef_d",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3732,6 +3993,9 @@ SMODS.Consumable({
 	key = "discardall_fam",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3763,6 +4027,9 @@ SMODS.Consumable({
 	key = "discardall_fbm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3795,6 +4062,9 @@ SMODS.Consumable({
 	key = "discardall_fcm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3827,6 +4097,9 @@ SMODS.Consumable({
 	key = "discardall_fdm",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,
@@ -3859,6 +4132,9 @@ SMODS.Consumable({
 	key = "unowildtwenty",
 	set = "uno",
 	atlas = "unoc",
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	pos = {
 		x = 9,
 		y = 0,

@@ -1,4 +1,11 @@
 SMODS.Atlas({
+	key = "modicon",
+	path = "jud_icon.png",
+	px = 34,
+	py = 34,
+})
+
+SMODS.Atlas({
 	key = "exotics",
 	path = "exotics.png",
 	px = 71,
@@ -57,6 +64,13 @@ SMODS.Atlas({
 SMODS.Atlas({
 	key = "commons",
 	path = "commons.png",
+	px = 71,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "jplanet",
+	path = "planets.png",
 	px = 71,
 	py = 95,
 })
@@ -316,7 +330,7 @@ SMODS.ObjectType({
 })
 
 SMODS.ObjectType({
-	key = "LegendaryReeds",
+	key = "LegendaryDeeds",
 	cards = {},
 })
 

@@ -221,10 +221,11 @@ SMODS.Joker({
 		extra = {},
 	},
 	rarity = 2,
+	atlas = "uncj",
 	blueprint_compat = false,
 	discovered = false,
 	pos = {
-		x = 1,
+		x = 0,
 		y = 0,
 	},
 	cost = 5,
@@ -242,6 +243,9 @@ SMODS.Joker({
 				area = G.consumeables,
 			})
 		end
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Breuhh", G.C.RARITY[2], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -502,9 +506,11 @@ SMODS.Joker({
 		Judgement.total_limit(-jud.limit)
 	end,
 	update = function(self,card,context)
+	if G and G.hand and G.hand.highlighted then
 		if #G.hand.highlighted > #G.hand.cards / 2 and not card.getting_sliced then
 			card.getting_sliced = true
 			SMODS.destroy_cards(card)
 		end
 	end
+end
 })

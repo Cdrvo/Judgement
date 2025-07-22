@@ -48,6 +48,7 @@ Judgement.Post_keys = {
 	"navy",
 	"emerald",
 	"ultramarine",
+	"majestic",
 }
 
 Judgement.Post = SMODS.Sticker:extend({
@@ -139,7 +140,7 @@ create_UIBox_Other_GameObjects = function()
 	return wrap_without_poststamps(other_objects_ref)
 end
 
---Post Sttamps
+--Post Stamps
 
 Judgement.Post({
 	key = "cerise",

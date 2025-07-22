@@ -1,14 +1,6 @@
 SMODS.Consumable({
 	key = "shootingstar",
 	set = "Planet",
-	loc_txt = {
-		name = "Shooting Star",
-		text = {
-			"{C:green}#1# in #2#{} Chance to",
-			"upgrade your {C:attention}Most Played Hand",
-			"by {C:attention}#3#{} level",
-		},
-	},
 
 	config = { odds = 5,level = 1 },
 	loc_vars = function(self, info_queue, center)
@@ -99,15 +91,6 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "smertrios",
 	set = "Planet",
-	loc_txt = {
-		name = "Smertrios",
-		text = {
-			"{S:0.8}({S:0.8,V:1}lvl.#2#{S:0.8}){} Level up",
-			"{C:attention}#1#",
-			"{C:mult}+#3#{} Mult and",
-			"{C:chips}+#4#{} chips",
-		},
-	},
 
 	config = { hand_type = "jud_blackjack", softlock = true },
 	loc_vars = function(self, info_queue, center)

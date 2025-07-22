@@ -35,8 +35,8 @@ payload = '''
     self.jud_boons_H = 1
 
     self.jud_boons = CardArea(
-        G.consumeables.T.x + 5,
-        G.consumeables.T.y + G.consumeables.T.h + -2, 
+        G.consumeables.T.x + 3,
+        G.consumeables.T.y + G.consumeables.T.h + 1, 
         self.jud_boons_W, 
         self.jud_boons_H, 
         {card_limit = 1, type = 'joker', highlight_limit = 1}

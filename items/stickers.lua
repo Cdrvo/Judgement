@@ -11,6 +11,9 @@ SMODS.Sticker({
 	config = {
 		timer = 0,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.timer } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -35,6 +38,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -63,6 +69,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	no_collection = true,
 	rate = 0.2,
 	needs_enable_flag = true,
@@ -92,6 +101,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	no_collection = true,
 	rate = 0.2,
 	needs_enable_flag = true,
@@ -122,6 +134,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -152,6 +167,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -183,6 +201,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	no_collection = true,
 	rate = 0.2,
 	needs_enable_flag = true,
@@ -215,6 +236,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	no_collection = true,
 	rate = 0.2,
 	needs_enable_flag = true,
@@ -248,6 +272,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -281,6 +308,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -320,6 +350,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	no_collection = true,
 	rate = 0.2,
 	needs_enable_flag = true,
@@ -360,6 +393,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	no_collection = true,
 	rate = 0.2,
 	needs_enable_flag = true,
@@ -401,6 +437,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -442,6 +481,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -476,6 +518,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars,self.config.ammount } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -515,6 +560,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -557,6 +605,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -582,6 +633,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -611,6 +665,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -640,6 +697,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars } }
+	end,
 	rate = 0.2,
 	needs_enable_flag = true,
 	calculate = function(self, card, context)
@@ -667,6 +727,9 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.dollars,self.config.odds } }
+	end,
 	config = {
 		dollars = 4,
 		odds = 4,
