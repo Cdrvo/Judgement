@@ -12,6 +12,13 @@ SMODS.Consumable({
 	config = {
 		extra = {give = 200},
 	},
+		loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -26,7 +33,13 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 200},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -41,7 +54,14 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 50,hands = 2},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+				card.ability.extra.hands
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -57,7 +77,13 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 50},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -72,7 +98,13 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 3},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -84,10 +116,16 @@ SMODS.Consumable({
 
 SMODS.Consumable({
 	key = "grandopera",
-	set = "monopoly",
+	set = "community",
 	config = {
 		extra = {give = 50},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -102,7 +140,14 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 100,discards = 2},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+				card.ability.extra.discards
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -118,7 +163,13 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 20},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -133,7 +184,13 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = ((os.date("*t").day)/2)},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -148,7 +205,14 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 100,hand = 1},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+				card.ability.extra.hand
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -160,26 +224,43 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
-	key = "hospitalfee",
+	key = "hospitalfees",
 	set = "community",
 	config = {
-		extra = {},
+		extra = {
+			give = 100
+		},
 	},
+		loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
 	end,
 	use = function(self, card, area, copier)
+		ease_dollars(-card.ability.extra.give)
 		Judgement.defeat()
 	end,
 })
 
 SMODS.Consumable({
-	key = "hospitalfee",
+	key = "schoolfee",
 	set = "community",
 	config = {
 		extra = {add = 1,money = 50},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.money,
+				card.ability.extra.add
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -195,7 +276,13 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 25},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -210,7 +297,14 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {add = 2,remove = 40},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.add,
+				card.ability.extra.remove
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -226,7 +320,13 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 10},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true
@@ -241,7 +341,14 @@ SMODS.Consumable({
 	set = "community",
 	config = {
 		extra = {give = 100,limit = 1},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.give,
+				card.ability.extra.limit
+			},
+		}
+	end,
 	cost = 5,
 	can_use = function(self, card)
 		return true

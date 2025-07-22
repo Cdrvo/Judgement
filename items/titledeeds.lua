@@ -11,9 +11,9 @@ function Card:highlight(is_highlighted)
 	self.highlighted = is_highlighted
 	if
 		self.highlighted
-		and string.find(self.ability.set, "titledeeds")
-		and self.area == G.consumeables
-		and self.key ~= "c_jud_flippeddeeds"
+			and string.find(self.ability.set, "titledeeds")
+			and self.area == G.consumeables
+			and self.key ~= "c_jud_flippeddeeds"
 		or self.key == "c_jud_parkplace"
 	then
 		if self.children.use_button then
@@ -389,8 +389,6 @@ Judgement.create_sell_and_switch_buttons2 = function(card, args)
 	}
 end
 
---I need to change most stuff with this button code. I hate it
-
 SMODS.Consumable({
 	key = "flippeddeeds",
 	set = "titledeeds",
@@ -409,6 +407,12 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.5, ease = 30 },
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	pools = {
 		CommonDeeds = true,
@@ -456,6 +460,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.7, ease = 40 },
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
+		CommonDeeds = true,
+	},
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -499,6 +512,15 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 2, ease = 2 },
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
+		CommonDeeds = true,
 	},
 	cost = 5,
 	keep_on_use = function(self, card)
@@ -544,6 +566,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 2.5, ease = 2 },
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
+		CommonDeeds = true,
+	},
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -587,6 +618,15 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 3, ease = 0.5 },
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
+		UncommonDeeds = true,
 	},
 	cost = 5,
 	keep_on_use = function(self, card)
@@ -633,6 +673,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 3.5, ease = 2 },
 	},
+	pools = {
+		UncommonDeeds = true,
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -677,6 +726,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 4, ease = nil },
 	},
+	pools = {
+		UncommonDeeds = true,
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -721,6 +779,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 4.5, ease = 4 },
 	},
+	pools = {
+		UncommonDeeds = true,
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -774,6 +841,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 5, ease = 4 },
 	},
+	pools = {
+		UncommonDeeds = true,
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -818,6 +894,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 5.5, ease = 4 },
 	},
+	pools = {
+		RareDeeds = true,
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -871,6 +956,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 6, ease = 2 },
 	},
+	pools = {
+		RareDeeds = true,
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -951,6 +1045,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 6.5, ease = 5 },
 	},
+	pools = {
+		RareDeeds = true,
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -999,7 +1102,16 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 7, ease = 5 },
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
+	pools = {
+		RareDeeds = true,
+	},
 	keep_on_use = function(self, card)
 		return true
 	end,
@@ -1050,7 +1162,16 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 7.5, ease = 2 },
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
+	pools = {
+		RareDeeds = true,
+	},
 	keep_on_use = function(self, card)
 		return true
 	end,
@@ -1098,10 +1219,19 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 8, ease = 4 },
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
 	end,
+	pools = {
+		LegendaryDeeds = true,
+	},
 	can_use = function(self, card)
 		return true
 	end,
@@ -1141,6 +1271,14 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 8.5, ease = 2 },
+	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,	pools = {
+		LegendaryDeeds = true,
 	},
 	cost = 5,
 	keep_on_use = function(self, card)
@@ -1185,7 +1323,15 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 9, ease = 2 },
+	},	pools = {
+		LegendaryDeeds = true,
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -1234,9 +1380,16 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.7, ease = 2 },
 	},
-	Pools = {
+	pools = {
 		Railroads = true,
+		CommonDeeds = true,
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
@@ -1277,7 +1430,8 @@ SMODS.Consumable({
 	remove_from_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
 		G.GAME.jud_cashout = G.GAME.jud_cashout - jud.payout
-	end,    set_card_type_badge = function(self, card, badges)
+	end,
+	set_card_type_badge = function(self, card, badges)
 		badges[1] = create_badge(localize("k_titledeeds_z"), get_type_colour(self or card.config, card), nil, 1.2)
 	end,
 })
@@ -1288,8 +1442,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.7, ease = 1 },
 	},
-	Pools = {
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
 		Railroads = true,
+		CommonDeeds = true,
 	},
 	cost = 5,
 	keep_on_use = function(self, card)
@@ -1333,7 +1494,8 @@ SMODS.Consumable({
 	remove_from_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
 		G.GAME.jud_cashout = G.GAME.jud_cashout - jud.payout
-	end,    set_card_type_badge = function(self, card, badges)
+	end,
+	set_card_type_badge = function(self, card, badges)
 		badges[1] = create_badge(localize("k_titledeeds_z"), get_type_colour(self or card.config, card), nil, 1.2)
 	end,
 })
@@ -1344,8 +1506,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.7, ease = 1 },
 	},
-	Pools = {
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
 		Railroads = true,
+		CommonDeeds = true,
 	},
 	cost = 5,
 	keep_on_use = function(self, card)
@@ -1354,7 +1523,7 @@ SMODS.Consumable({
 	can_use = function(self, card)
 		return true
 	end,
-    set_card_type_badge = function(self, card, badges)
+	set_card_type_badge = function(self, card, badges)
 		badges[1] = create_badge(localize("k_titledeeds_z"), get_type_colour(self or card.config, card), nil, 1.2)
 	end,
 	use = function(self, card, area, copier)
@@ -1403,8 +1572,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.7, ease = nil },
 	},
-	Pools = {
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
 		Utilities = true,
+		CommonDeeds = true,
 	},
 	set_card_badge_type = function(self, card, badges)
 		badges[#badges + 1] =
@@ -1422,9 +1598,7 @@ SMODS.Consumable({
 	use = function(self, card, area, copier)
 		local jud = card.ability.extra
 		for i = 1, #G.hand.highlighted do
-			if #G.hand.highlighted.ability.effect == "Base" then
 				G.hand.highlighted[i]:set_ability(G.P_CENTERS[SMODS.poll_enhancement({ guaranteed = true })])
-			end
 		end
 		local jud = card.ability.extra
 		G.E_MANAGER:add_event(Event({
@@ -1464,8 +1638,15 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.7, ease = 5 },
 	},
-	Pools = {
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
+	pools = {
 		Utilities = true,
+		CommonDeeds = true,
 	},
 	set_card_badge_type = function(self, card, badges)
 		badges[#badges + 1] =
@@ -1519,12 +1700,19 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 1.7, ease = nil },
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = { jud.payout, jud.ease },
+		}
+	end,
 	cost = 5,
 	keep_on_use = function(self, card)
 		return true
 	end,
-	Pools = {
+	pools = {
 		Utilities = true,
+		CommonDeeds = true,
 	},
 	can_use = function(self, card)
 		return true

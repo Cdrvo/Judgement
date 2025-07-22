@@ -1,4 +1,4 @@
-SMODS.Tag{
+--[[SMODS.Tag{
     key = 'packtag',
     pos = { x = 2, y = 0},
     apply = function(self, tag, context)
@@ -21,4 +21,4 @@ SMODS.Tag{
             return true
         end
 
-}
+    }]]

@@ -40,7 +40,7 @@ SMODS.Booster({
 	group_key = "k_jud_unopk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
 			set = "uno",
@@ -62,7 +62,7 @@ SMODS.Booster({
 	group_key = "k_jud_unopk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
 			set = "uno",
@@ -84,7 +84,7 @@ SMODS.Booster({
 	group_key = "k_jud_deedspk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
 			set = "uno",
@@ -108,12 +108,44 @@ SMODS.Booster({
 	group_key = "k_jud_deedspk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
-		return SMODS.create_card({
-			set = "titledeeds",
-			skip_materialize = true,
-		})
+		local AA = { "1", "2", "3" }
+		local addc = pseudorandom("titlep")
+		local ccd = pseudorandom_element(AA)
+		if ccd == "1" then
+			return SMODS.create_card({
+				set = "monopoly",
+				skip_materialize = true,
+			})
+		elseif ccd == "2" then
+			return SMODS.create_card({
+				set = "community",
+				skip_materialize = true,
+			})
+		elseif ccd == "3" then
+			if addc < 0.5 then
+				return SMODS.create_card({
+					set = "CommonDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.5 and addc <= 0.89 then
+				return SMODS.create_card({
+					set = "UncommonDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.89 and addc <= 0.99 then
+				return SMODS.create_card({
+					set = "RareDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.99 then
+				return SMODS.create_card({
+					set = "LegendaryDeeds",
+					skip_materialize = true,
+				})
+			end
+		end
 	end,
 })
 
@@ -124,29 +156,93 @@ SMODS.Booster({
 	group_key = "k_jud_deedspk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
-		return SMODS.create_card({
-			set = "titledeeds",
-			skip_materialize = true,
-		})
-	end,
+		local AA = { "1", "2", "3" }
+		local addc = pseudorandom("titlep")
+		local ccd = pseudorandom_element(AA)
+		if ccd == "1" then
+			return SMODS.create_card({
+				set = "monopoly",
+				skip_materialize = true,
+			})
+		elseif ccd == "2" then
+			return SMODS.create_card({
+				set = "community",
+				skip_materialize = true,
+			})
+		elseif ccd == "3" then
+		if addc < 0.5 then
+			return SMODS.create_card({
+				set = "CommonDeeds",
+				skip_materialize = true,
+			})
+		elseif addc > 0.5 and addc <= 0.8 then
+			return SMODS.create_card({
+				set = "UncommonDeeds",
+				skip_materialize = true,
+			})
+		elseif addc > 0.8 and addc <= 0.99 then
+			return SMODS.create_card({
+				set = "RareDeeds",
+				skip_materialize = true,
+			})
+		elseif addc > 0.99 then
+			return SMODS.create_card({
+				set = "LegendaryDeeds",
+				skip_materialize = true,
+			})
+		end
+	end
+end
 })
 
 SMODS.Booster({
 	key = "titlepm",
 	pos = { x = 0, y = 0 },
 	config = { extra = 5, choose = 2 },
-	group_key = "k_jud_unopk",
+	group_key = "k_jud_deedspk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
-		return SMODS.create_card({
-			set = "titledeeds",
-			skip_materialize = true,
-		})
-	end,
+		local AA = { "1", "2", "3" }
+		local addc = pseudorandom("titlep")
+		local ccd = pseudorandom_element(AA)
+		if ccd == "1" then
+			return SMODS.create_card({
+				set = "monopoly",
+				skip_materialize = true,
+			})
+		elseif ccd == "2" then
+			return SMODS.create_card({
+				set = "community",
+				skip_materialize = true,
+			})
+		elseif ccd == "3" then
+		if addc < 0.5 then
+			return SMODS.create_card({
+				set = "CommonDeeds",
+				skip_materialize = true,
+			})
+		elseif addc > 0.5 and addc <= 0.8 then
+			return SMODS.create_card({
+				set = "UncommonDeeds",
+				skip_materialize = true,
+			})
+		elseif addc > 0.8 and addc <= 0.99 then
+			return SMODS.create_card({
+				set = "RareDeeds",
+				skip_materialize = true,
+			})
+		elseif addc > 0.99 then
+			return SMODS.create_card({
+				set = "LegendaryDeeds",
+				skip_materialize = true,
+			})
+		end
+	end
+end
 })
 
 -- Runes
@@ -158,10 +254,10 @@ SMODS.Booster({
 	group_key = "k_jud_runespk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
-			set = "rune",
+			set = "runes",
 			skip_materialize = true,
 		})
 	end,
@@ -174,10 +270,10 @@ SMODS.Booster({
 	group_key = "k_jud_runespk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
-			set = "rune",
+			set = "runes",
 			skip_materialize = true,
 		})
 	end,
@@ -190,10 +286,10 @@ SMODS.Booster({
 	group_key = "k_jud_runespk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
-			set = "rune",
+			set = "runes",
 			skip_materialize = true,
 		})
 	end,
@@ -208,7 +304,7 @@ SMODS.Booster({
 	group_key = "k_jud_stickerpackpk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
 			set = "stickerpacks",
@@ -224,7 +320,7 @@ SMODS.Booster({
 	group_key = "k_jud_stickerpackpk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
 			set = "stickerpacks",
@@ -240,7 +336,7 @@ SMODS.Booster({
 	group_key = "k_jud_stickerpackpk",
 	cost = 4,
 	weight = 0.06,
-	select_card = "Consumeables",
+	select_card = "consumeables",
 	create_card = function(self, card, i)
 		return SMODS.create_card({
 			set = "stickerpacks",

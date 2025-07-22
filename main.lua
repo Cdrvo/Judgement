@@ -77,9 +77,9 @@ function Card:remove()
 			jud_destroyedc = self,
 		})
 	end
-if (#SMODS.find_card("j_jud_thanatophobia") == 0) then
-	removeold(self)
-end
+	if #SMODS.find_card("j_jud_thanatophobia") == 0 then
+		removeold(self)
+	end
 end
 
 local oldaddroundevalrow = add_round_eval_row
@@ -129,10 +129,28 @@ function Card:is_face(from_boss)
 	if self.debuff and not from_boss then
 		return
 	end
-	if self.ability.seal == "jud_reversal" or (#SMODS.find_card("c_jud_mannaz") >= 1) or Judgement.has_post(self,"majestic") then
+	if self.ability.seal == "jud_reversal" or (#SMODS.find_card("c_jud_mannaz") >= 1) or Judgement.has_post(self, "majestic") then
 		return true
 	end
 	return isfaceold(self, from_boss)
+end
+
+local getidold = Card.get_id
+function Card:get_id()
+	if Judgement.has_post(self, "majestic") then
+		return 11
+	else
+		return self.base.id
+	end
+end
+
+local getoriginalrankold = Card.get_original_rank
+function Card:get_original_rank()
+	if Judgement.has_post(self, "majestic") then
+		return "Jack"
+	else
+		return self.base.original_value
+	end
 end
 
 local gcp = get_current_pool
@@ -255,6 +273,19 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
 			end
 		end
 	end
+	if
+		_type ~= "Joker"
+		and cardset ~= "Default"
+		and cardset ~= "Enhanced"
+		and (G.GAME.unostickerse and not G.GAME.modifiers.cry_sticker_sheet)
+	then
+		if (area == G.shop_jokers) or (area == G.pack_cards) then
+			if not card.ability.eternal and G.GAME.unostickerse and pseudorandom("jud_sticker") > 0.5 then
+				local stickerkey = pseudorandom_element(stickerkeys)
+				SMODS.Stickers[stickerkey]:apply(card, true)
+			end
+		end
+	end
 	return card
 end
 
@@ -270,14 +301,14 @@ function Card:use_consumeable(area, copier)
 	return useconsold(self, area, copier)
 end
 
-local loc_old = loc_colour 
+local loc_old = loc_colour
 function loc_colour(_c, _default)
-    if not G.ARGS.LOC_COLOURS then
-        loc_old()
-    end
-    G.ARGS.LOC_COLOURS.jud_uno = Judgement.C.UNOC
+	if not G.ARGS.LOC_COLOURS then
+		loc_old()
+	end
+	G.ARGS.LOC_COLOURS.jud_uno = Judgement.C.UNOC
 
-    return loc_old(_c, _default)
+	return loc_old(_c, _default)
 end
 
 local vanilla = {}

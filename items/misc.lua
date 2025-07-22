@@ -68,6 +68,13 @@ SMODS.Atlas({
 	py = 95,
 })
 
+SMODS.Atlas({
+	key = "jplanet",
+	path = "planets.png",
+	px = 71,
+	py = 95,
+})
+
 function Judgement.suitcheck(suit, area)
 	local suitcheck = 0
 	if G.playing_cards then
@@ -323,7 +330,7 @@ SMODS.ObjectType({
 })
 
 SMODS.ObjectType({
-	key = "LegendaryReeds",
+	key = "LegendaryDeeds",
 	cards = {},
 })
 

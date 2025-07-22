@@ -23,6 +23,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "wormhole",
 	set = "Spectral",
+	atlas = "jplanet",
+	pos = {x=0,y=0},
 	config = { odds = 5 },
 	loc_vars = function(self, info_queue, center)
 		local _hand, _tally = nil, -1

@@ -171,6 +171,12 @@ SMODS.Consumable({
 			xchips = 2,
 		},
 	},
+	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.xchips},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.joker_main then
@@ -188,7 +194,12 @@ SMODS.Consumable({
 		extra = {
 			xmult = 2,
 		},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.xmult},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.joker_main then
@@ -206,7 +217,12 @@ SMODS.Consumable({
 		extra = {
 			dollars = 10,
 		},
-	},
+	},	loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.dollars},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.joker_main then
@@ -226,6 +242,12 @@ SMODS.Consumable({
 			odds = 4,
 		},
 	},
+		loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.multipler,(G.GAME.probabilities.normal or 1),jud.odds},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.setting_blind then
@@ -253,6 +275,12 @@ SMODS.Consumable({
 			odds = 4,
 		},
 	},
+		loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {(G.GAME.probabilities.normal or 1),jud.odds,jud.lose},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.end_of_round and context.main_eval then
@@ -277,6 +305,12 @@ SMODS.Consumable({
 			hands = 1,
 		},
 	},
+		loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.hands},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.setting_blind then
@@ -293,6 +327,12 @@ SMODS.Consumable({
 			discards = 1,
 		},
 	},
+		loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.discards},
+		}
+	end,
 	calculate = function(self, card, context)
 		local jud = card.ability.extra
 		if context.setting_blind then
@@ -309,24 +349,12 @@ SMODS.Consumable({
 			hands = 1,
 		},
 	},
-	add_to_deck = function(self, card, from_debuff)
+		loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
-		G.hand:change_size(jud.hands)
+		return {
+			vars = {jud.hands},
+		}
 	end,
-	remove_from_deck = function(self, card, from_debuff)
-		local jud = card.ability.extra
-		G.hand:change_size(-jud.hands)
-	end,
-})
-
-SMODS.Consumable({
-	key = "handypill",
-	set = "pills",
-	config = {
-		extra = {
-			hands = 1,
-		},
-	},
 	add_to_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra
 		G.hand:change_size(jud.hands)
@@ -342,21 +370,28 @@ SMODS.Consumable({
 	set = "pills",
 	config = {
 		extra = {
-			hands = 1,
-			cooldown = 0
+			hands = 3,
+			cooldown = 0,
+			max = 3
 		},
 	},
-	calculate = function(self,card,context)
-		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
+		loc_vars = function(self, info_queue, card)
+		local jud = card.ability.extra
+		return {
+			vars = {jud.hands,jud.max,jud.cooldown},
+		}
+	end,
+	calculate = function(self, card, context)
+		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < card.ability.extra.max then
 			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
 		end
 	end,
-	update = function(self,card,context)
-		if G.GAME.current_round.hands_left <= 1 and card.ability.extra.cooldown == 3 then
+	update = function(self, card, context)
+		if G.GAME.current_round.hands_left <= 1 and card.ability.extra.cooldown >= card.ability.extra.max and not to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
 			card.ability.extra.cooldown = 0
 			ease_hands_played(card.ability.extra.hands)
 		end
-	end
+	end,
 })
 
 SMODS.Consumable({
@@ -364,16 +399,16 @@ SMODS.Consumable({
 	set = "pills",
 	config = {
 		extra = {
-			cooldown = 0
+			cooldown = 0,
 		},
 	},
-	calculate = function(self,card,context)
+	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
 			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
 		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
-			SMODS.add_card{
-				set = "Tarot"
-			}
+			SMODS.add_card({
+				set = "Tarot",
+			})
 		end
 	end,
 })
@@ -383,16 +418,16 @@ SMODS.Consumable({
 	set = "pills",
 	config = {
 		extra = {
-			cooldown = 0
+			cooldown = 0,
 		},
 	},
-	calculate = function(self,card,context)
+	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
 			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
 		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
-			SMODS.add_card{
-				set = "Planet"
-			}
+			SMODS.add_card({
+				set = "Planet",
+			})
 		end
 	end,
 })
@@ -402,16 +437,16 @@ SMODS.Consumable({
 	set = "pills",
 	config = {
 		extra = {
-			cooldown = 0
+			cooldown = 0,
 		},
 	},
-	calculate = function(self,card,context)
+	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
 			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
 		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
-			SMODS.add_card{
-				set = "Spectral"
-			}
+			SMODS.add_card({
+				set = "Spectral",
+			})
 		end
 	end,
 })
@@ -421,16 +456,16 @@ SMODS.Consumable({
 	set = "pills",
 	config = {
 		extra = {
-			cooldown = 0
+			cooldown = 0,
 		},
 	},
-	calculate = function(self,card,context)
+	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
 			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
 		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
-			SMODS.add_card{
-				set = "runes"
-			}
+			SMODS.add_card({
+				set = "runes",
+			})
 		end
 	end,
 })
@@ -440,16 +475,16 @@ SMODS.Consumable({
 	set = "pills",
 	config = {
 		extra = {
-			cooldown = 0
+			cooldown = 0,
 		},
 	},
-	calculate = function(self,card,context)
+	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and card.ability.extra.cooldown < 3 then
 			card.ability.extra.cooldown = card.ability.extra.cooldown + 1
 		elseif context.end_of_round and context.main_eval and card.ability.extra.cooldown >= 3 then
-			SMODS.add_card{
-				set = "boons"
-			}
+			SMODS.add_card({
+				set = "boons",
+			})
 		end
 	end,
 })
