@@ -75,6 +75,13 @@ SMODS.Atlas({
 	py = 95,
 })
 
+SMODS.Atlas({
+	key = "boons",
+	path = "boons.png",
+	px = 40,
+	py = 40,
+})
+
 function Judgement.suitcheck(suit, area)
 	local suitcheck = 0
 	if G.playing_cards then

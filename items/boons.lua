@@ -74,6 +74,13 @@ Judgement.create_sell_and_switch_buttonsb = function(card, args)
 end
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "knowledge",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -103,6 +110,13 @@ SMODS.Consumable{
 }]]
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "health",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -122,6 +136,13 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "wealth",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -158,6 +179,13 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "power",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -183,6 +211,13 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "resource",
 	set = "boons",
 	config = {
@@ -214,12 +249,15 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "serendipity",
 	set = "boons",
-	pos = {
-		x = 0,
-		y = 0,
-	},
 	config = {
 		extra = {},
 	},
@@ -247,12 +285,15 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "respect",
 	set = "boons",
-	pos = {
-		x = 0,
-		y = 0,
-	},
 	config = {
 		extra = {
 			original = 0,
@@ -279,6 +320,13 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "leadership",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -288,10 +336,6 @@ SMODS.Consumable({
 			end
 		end
 	end,
-	pos = {
-		x = 0,
-		y = 0,
-	},
 	config = {
 		extra = {
 			xchips = 1.2,
@@ -320,6 +364,13 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "opportunity",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -329,10 +380,6 @@ SMODS.Consumable({
 			end
 		end
 	end,
-	pos = {
-		x = 0,
-		y = 0,
-	},
 	config = {
 		extra = {},
 	},
@@ -354,6 +401,13 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "love",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -367,10 +421,6 @@ SMODS.Consumable({
 			rcard[i].config.choose = rcard[i].config.choose + 1
 		end
 	end,
-	pos = {
-		x = 0,
-		y = 0,
-	},
 	config = {
 		extra = {},
 	},
@@ -380,15 +430,22 @@ SMODS.Consumable({
 		}
 	end,
 	cost = 5,
-	remove_from_deck = function(self,card,from_debuff)
-				for i = 1, #G.P_CENTER_POOLS.Booster do
+	remove_from_deck = function(self, card, from_debuff)
+		for i = 1, #G.P_CENTER_POOLS.Booster do
 			local rcard = G.P_CENTER_POOLS.Booster
 			rcard[i].config.choose = rcard[i].config.choose - 1
 		end
-	end
+	end,
 })
 
 SMODS.Consumable({
+	atlas = "boons",
+	display_size = {
+		w = 40,
+		h = 40,
+	},
+	pos = { x = 0, y = 0 },
+	soul_pos = { x = 0, y = 1 },
 	key = "love",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -398,10 +455,6 @@ SMODS.Consumable({
 			end
 		end
 	end,
-	pos = {
-		x = 0,
-		y = 0,
-	},
 	config = {
 		extra = {},
 	},

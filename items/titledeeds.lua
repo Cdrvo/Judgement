@@ -866,7 +866,7 @@ SMODS.Consumable({
 			func = function()
 				card:flip()
 				card:set_ability("c_jud_flippeddeeds")
-				return truex
+				return true
 			end,
 		}))
 		G.E_MANAGER:add_event(Event({
@@ -928,7 +928,7 @@ SMODS.Consumable({
 			func = function()
 				card:flip()
 				card:set_ability("c_jud_flippeddeeds")
-				return truex
+				return true
 			end,
 		}))
 		G.E_MANAGER:add_event(Event({
