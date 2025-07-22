@@ -2,7 +2,7 @@
 	"id": "Judgement",
 	"name": "Judgement",
 	"display_name": "Judgement",
-	"author": ["CodeRevo"],
+	"author": ["CodeRevo","TheOfficialfem"],
 	"description": "Judgement is an addon for the Cryptid mod that aims to add new mechanics, cards, consumables and all of the fun content that we can think of. Ideally, it is compatible and fun to use alongside other Cryptid addons or mods.",
 	"prefix": "jud",
 	"main_file": "main.lua",
