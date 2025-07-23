@@ -76,11 +76,11 @@ end
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
-	pos = { x = 0, y = 0 },
-	soul_pos = { x = 0, y = 1 },
+	pos = { x = 0, y = 2 },
+	soul_pos = { x = 0, y = 3 },
 	key = "knowledge",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -112,11 +112,11 @@ SMODS.Consumable{
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
-	pos = { x = 0, y = 0 },
-	soul_pos = { x = 0, y = 1 },
+	pos = { x = 1, y = 0 },
+	soul_pos = { x = 1, y = 1},
 	key = "health",
 	set = "boons",
 	add_to_deck = function(self, card, from_debuff)
@@ -138,8 +138,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -181,8 +181,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -213,8 +213,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -251,8 +251,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -287,8 +287,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -322,8 +322,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -366,8 +366,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -403,8 +403,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },
@@ -441,8 +441,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	atlas = "boons",
 	display_size = {
-		w = 40,
-		h = 40,
+		w = 42,
+		h = 42,
 	},
 	pos = { x = 0, y = 0 },
 	soul_pos = { x = 0, y = 1 },

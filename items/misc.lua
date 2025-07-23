@@ -53,6 +53,12 @@ SMODS.Atlas({
 	px = 71,
 	py = 95,
 })
+SMODS.Atlas({
+	key = "rares",
+	path = "rares.png",
+	px = 71,
+	py = 95,
+})
 
 SMODS.Atlas({
 	key = "cursj",
@@ -78,8 +84,8 @@ SMODS.Atlas({
 SMODS.Atlas({
 	key = "boons",
 	path = "boons.png",
-	px = 40,
-	py = 40,
+	px = 42,
+	py = 42,
 })
 
 function Judgement.suitcheck(suit, area)

@@ -149,7 +149,7 @@ function Card:get_original_rank()
 	if Judgement.has_post(self, "majestic") then
 		return "Jack"
 	else
-		return self.base.original_value
+		return getoriginalrankold
 	end
 end
 
@@ -300,6 +300,7 @@ function Card:use_consumeable(area, copier)
 	end
 	return useconsold(self, area, copier)
 end
+
 
 local loc_old = loc_colour
 function loc_colour(_c, _default)
