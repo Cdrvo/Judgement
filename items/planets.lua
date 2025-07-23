@@ -2,11 +2,11 @@ SMODS.Consumable({
 	key = "shootingstar",
 	set = "Planet",
 
-	config = { odds = 5,level = 1 },
-	loc_vars = function(self, info_queue, center)
+	config = { level = 1 ,extra = {odds = 5}},
+	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				(G.GAME.probabilities.normal or 1), self.config.odds, self.config.level
+				(G.GAME.probabilities.normal or 1), card.ability.extra.odds, self.config.level
 			},
 		}
 	end,
@@ -22,7 +22,7 @@ SMODS.Consumable({
 				_tally = G.GAME.hands[v].played
 			end
 		end
-    if pseudorandom("shootingstar") < G.GAME.probabilities.normal / self.config.odds then
+    if pseudorandom("shootingstar") < G.GAME.probabilities.normal /card.ability.extra.odds or card.ability.cry_rigged then
 		update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			handname = localize(_hand, "poker_hands"),
 			chips = G.GAME.hands[_hand].chips,

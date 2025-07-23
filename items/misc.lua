@@ -53,6 +53,12 @@ SMODS.Atlas({
 	px = 71,
 	py = 95,
 })
+SMODS.Atlas({
+	key = "rares",
+	path = "rares.png",
+	px = 71,
+	py = 95,
+})
 
 SMODS.Atlas({
 	key = "cursj",
@@ -73,6 +79,13 @@ SMODS.Atlas({
 	path = "planets.png",
 	px = 71,
 	py = 95,
+})
+
+SMODS.Atlas({
+	key = "boons",
+	path = "boons.png",
+	px = 42,
+	py = 42,
 })
 
 function Judgement.suitcheck(suit, area)
@@ -314,6 +327,15 @@ function Judgement.facepool()
 	end
 	return faces
 end
+
+function Judgement.factorial(mod)
+  if to_big(mod) <= to_big(0) then
+    return 1
+  else
+    return mod * Judgement.factorial(mod-1)
+  end
+end
+
 
 SMODS.ObjectType({
 	key = "CommonDeeds",

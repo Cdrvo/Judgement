@@ -220,12 +220,12 @@ return {
 			},
 			j_jud_necrophobia = {
 				name = "Necrophobia",
-				text = {
-					"{C:attention}Denominators{} for cards that",
-					"would self-destruct are {C:attention}tripled{}",
-					"{C:red}Self-destruct{} when a card",
-					"is destroyed",
-				},
+               text={
+                    "Multiplies all {C:attention}listed",
+                    "{C:green,E:1,S:1.1}probabilities{} by #1#.",
+					"{C:red}Self-Destructs{} when a card is destryed",
+                    "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}0.3 in 3{C:inactive})",
+                },
 			},
 			j_jud_scopophobia = {
 				name = "Scopophobia",
@@ -739,8 +739,7 @@ return {
 			c_jud_wormhole = {
 				name = "Worm Hole",
 				text = {
-					"{C:green}#1# in #2#{} chance double the",
-					"level of your {C:attention}Most Played Hand",
+					"{C:green}#1# in #2#{} chance to upgrade", "your {C:attention}Most Played Hand{} by n!", "where n is its current level",
 				},
 			},
 			c_jud_ufo = {

@@ -3847,7 +3847,7 @@ SMODS.Consumable({
 	use = function(self, card, area, copier)
 		for i = 1, self.config.max do
 			local wcard
-			local _suit, _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
+			local _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("unowild")).card_key
 			wcard = Judgement.playing_card(G.deck, _rank, "Spades", SMODS.poll_enhancement({ guaranteed = true }))
 			if G.GAME.used_vouchers["v_jud_dice"] == true then
 				SMODS.Stickers["cry_rigged"]:apply(wcard, true)

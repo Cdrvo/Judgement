@@ -334,10 +334,11 @@ SMODS.Joker({
 	config = {
 		extra = {
 			aeae = 0.3,
-			set = 0
+			set = 0,
 		},
 	},
 	rarity = 3,
+	atlas = "rares",
 	blueprint_compat = false,
 	discovered = false,
 	pos = {
@@ -348,7 +349,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {jud.aeae},
+			vars = { jud.aeae },
 		}
 	end,
 	add_to_deck = function(self, card, from_debuff)
@@ -356,6 +357,9 @@ SMODS.Joker({
 	end,
 	remove_from_deck = function(self, card, from_debuff)
 		G.GAME.probabilities.normal = G.GAME.probabilities.normal / card.ability.extra.aeae
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Revo", G.C.RARITY[3], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -418,10 +422,11 @@ SMODS.Joker({
 	blueprint_compat = false,
 	discovered = false,
 	pos = {
-		x = 1,
+		x = 0,
 		y = 0,
 	},
 	cost = 5,
+	atlas = "rares",
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
@@ -438,5 +443,8 @@ SMODS.Joker({
 		if context.using_consumeable and context.consumeable.ability.set == "Planet" then
 			card:start_dissolve(nil, 1.6)
 		end
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Revo", G.C.RARITY[3], G.C.BLACK, 0.8)
 	end,
 })

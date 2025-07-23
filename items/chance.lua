@@ -47,7 +47,7 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		SMODS.add_card({
-			key = "j_jud_illinois",
+			key = "c_jud_illinois",
 			set = "titledeeds",
 			area = G.jokers,
 		})
@@ -73,7 +73,7 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		SMODS.add_card({
-			key = "j_jud_charles",
+			key = "c_jud_charles",
 			set = "titledeeds",
 			area = G.jokers,
 		})
@@ -234,7 +234,7 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		SMODS.add_card({
-			key = "j_jud_reading",
+			key = "c_jud_reading",
 			set = "titledeeds",
 			area = G.jokers,
 		})

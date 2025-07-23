@@ -153,7 +153,7 @@ SMODS.Consumable({
 	key = "bigfoot",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max_highlighted = 1 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max_highlighted } }
@@ -191,7 +191,7 @@ SMODS.Consumable({
 	key = "nessie",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max_highlighted = 3 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max_highlighted } }
@@ -235,7 +235,7 @@ SMODS.Consumable({
 	key = "chupacabra",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max_highlighted = 5 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max_highlighted } }
@@ -251,7 +251,7 @@ SMODS.Consumable({
 	key = "lizard",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max_highlighted = 5 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max_highlighted } }
@@ -267,7 +267,7 @@ SMODS.Consumable({
 	key = "ogopogo",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = {},
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max_highlighted } }
@@ -328,7 +328,7 @@ SMODS.Consumable({
 	key = "mothman",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max_highlighted = 5, mod_conv = "m_stone" },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max_highlighted } }
@@ -339,7 +339,7 @@ SMODS.Consumable({
 	key = "mothership",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max = 2 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max } }
@@ -359,7 +359,7 @@ SMODS.Consumable({
 						SMODS.add_card({
 							set = "cryptic",
 							hidden = true,
-							soul_rate = 0.3,
+							soul_rate = 0.003,
 						})
 						return true
 					end,
@@ -375,7 +375,7 @@ SMODS.Consumable({
 						SMODS.add_card({
 							set = "cryptic",
 							hidden = true,
-							soul_rate = 0.3,
+							soul_rate = 0.003,
 						})
 						return true
 					end,
@@ -389,7 +389,7 @@ SMODS.Consumable({
 	key = "rod",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max = 3 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max } }
@@ -439,7 +439,7 @@ SMODS.Consumable({
 	key = "jersey",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max_highlighted = 5 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max_highlighted } }
@@ -475,7 +475,7 @@ SMODS.Consumable({
 	key = "amomongo",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max = 4 },
 	loc_vars = function(self, card, info_queue)
 		return { vars = { self.config.max } }
@@ -509,7 +509,7 @@ SMODS.Consumable({
 	key = "notdeer",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max = 1 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max } }
@@ -523,7 +523,7 @@ SMODS.Consumable({
 	key = "allghoi",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max = 1 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max } }
@@ -537,7 +537,7 @@ SMODS.Consumable({
 	key = "mapinguari",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max = 0.2 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max } }
@@ -552,7 +552,7 @@ SMODS.Consumable({
 	key = "megaladon",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { max = 0.1 },
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.max } }
@@ -579,7 +579,7 @@ SMODS.Consumable({
 	key = "fairy",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	config = { odds = 8 },
 	loc_vars = function(self, info_queue)
 		local numerator, denominator = SMODS.get_probability_vars(self, 1, self.config.odds, "jud_fairy")
@@ -602,7 +602,7 @@ SMODS.Consumable({
 	key = "yeti",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	discovered = true,
 	config = {
 		extra = {
@@ -644,7 +644,7 @@ SMODS.Consumable({
 	key = "babayaga",
 	set = "cryptic",
 	hidden = true,
-	soul_rate = 0.3,
+	soul_rate = 0.003,
 	discovered = true,
 	config = {
 		extra = {
