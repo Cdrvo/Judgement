@@ -392,10 +392,14 @@ end
 SMODS.Consumable({
 	key = "flippeddeeds",
 	set = "titledeeds",
-	pos = { x = 1, y = 0 },
 	no_collection = true,
 	config = {},
 	cost = 5,
+		atlas = "avenues",
+	pos = {
+		x = 8,
+		y = 1,
+	},
 	can_use = function(self, card)
 		return true
 	end,
@@ -416,6 +420,11 @@ SMODS.Consumable({
 	cost = 5,
 	pools = {
 		CommonDeeds = true,
+	},
+	atlas = "avenues",
+	pos = {
+		x = 0,
+		y = 0,
 	},
 	keep_on_use = function(self, card)
 		return true
@@ -466,6 +475,11 @@ SMODS.Consumable({
 			vars = { jud.payout, jud.ease },
 		}
 	end,
+	atlas = "avenues",
+	pos = {
+		x = 1,
+		y = 0,
+	},
 	pools = {
 		CommonDeeds = true,
 	},
@@ -519,6 +533,11 @@ SMODS.Consumable({
 			vars = { jud.payout, jud.ease },
 		}
 	end,
+	atlas = "avenues",
+	pos = {
+		x = 2,
+		y = 0,
+	},
 	pools = {
 		CommonDeeds = true,
 	},
@@ -565,6 +584,11 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 2.5, ease = 2 },
+	},
+	atlas = "avenues",
+	pos = {
+		x = 3,
+		y = 0,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -618,6 +642,11 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 3, ease = 0.5 },
+	},
+	atlas = "avenues",
+	pos = {
+		x = 4,
+		y = 0,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -676,6 +705,11 @@ SMODS.Consumable({
 	pools = {
 		UncommonDeeds = true,
 	},
+	atlas = "avenues",
+	pos = {
+		x = 5,
+		y = 0,
+	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
@@ -729,6 +763,11 @@ SMODS.Consumable({
 	pools = {
 		UncommonDeeds = true,
 	},
+	atlas = "avenues",
+	pos = {
+		x = 6,
+		y = 0,
+	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
@@ -781,6 +820,11 @@ SMODS.Consumable({
 	},
 	pools = {
 		UncommonDeeds = true,
+	},
+	atlas = "avenues",
+	pos = {
+		x = 7,
+		y = 0,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -841,6 +885,11 @@ SMODS.Consumable({
 	config = {
 		extra = { payout = 5, ease = 4 },
 	},
+	atlas = "avenues",
+	pos = {
+		x = 8,
+		y = 0,
+	},
 	pools = {
 		UncommonDeeds = true,
 	},
@@ -896,6 +945,11 @@ SMODS.Consumable({
 	},
 	pools = {
 		RareDeeds = true,
+	},
+	atlas = "avenues",
+	pos = {
+		x = 0,
+		y = 1,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -958,6 +1012,11 @@ SMODS.Consumable({
 	},
 	pools = {
 		RareDeeds = true,
+	},
+	atlas = "avenues",
+	pos = {
+		x = 1,
+		y = 1,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -1048,6 +1107,11 @@ SMODS.Consumable({
 	pools = {
 		RareDeeds = true,
 	},
+	atlas = "avenues",
+	pos = {
+		x = 2,
+		y = 1,
+	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
@@ -1112,6 +1176,11 @@ SMODS.Consumable({
 	pools = {
 		RareDeeds = true,
 	},
+	atlas = "avenues",
+	pos = {
+		x = 3,
+		y = 1,
+	},
 	keep_on_use = function(self, card)
 		return true
 	end,
@@ -1172,6 +1241,11 @@ SMODS.Consumable({
 	pools = {
 		RareDeeds = true,
 	},
+	atlas = "avenues",
+	pos = {
+		x = 4,
+		y = 1,
+	},
 	keep_on_use = function(self, card)
 		return true
 	end,
@@ -1218,6 +1292,11 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 8, ease = 4 },
+	},
+	atlas = "avenues",
+	pos = {
+		x = 5,
+		y = 1,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -1277,8 +1356,14 @@ SMODS.Consumable({
 		return {
 			vars = { jud.payout, jud.ease },
 		}
-	end,	pools = {
+	end,
+	pools = {
 		LegendaryDeeds = true,
+	},
+	atlas = "avenues",
+	pos = {
+		x = 6,
+		y = 1,
 	},
 	cost = 5,
 	keep_on_use = function(self, card)
@@ -1323,8 +1408,14 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 9, ease = 2 },
-	},	pools = {
+	},
+	pools = {
 		LegendaryDeeds = true,
+	},
+	atlas = "avenues",
+	pos = {
+		x = 7,
+		y = 1,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -1384,6 +1475,11 @@ SMODS.Consumable({
 		Railroads = true,
 		CommonDeeds = true,
 	},
+	atlas = "avenues",
+	pos = {
+		x = 5,
+		y = 2,
+	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
@@ -1441,6 +1537,11 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 1.7, ease = 1 },
+	},
+	atlas = "avenues",
+	pos = {
+		x = 6,
+		y = 2,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -1505,6 +1606,11 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 1.7, ease = 1 },
+	},
+	atlas = "avenues",
+	pos = {
+		x = 7,
+		y = 2,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -1578,6 +1684,11 @@ SMODS.Consumable({
 			vars = { jud.payout, jud.ease },
 		}
 	end,
+	atlas = "avenues",
+	pos = {
+		x = 8,
+		y = 2,
+	},
 	pools = {
 		Utilities = true,
 		CommonDeeds = true,
@@ -1598,7 +1709,7 @@ SMODS.Consumable({
 	use = function(self, card, area, copier)
 		local jud = card.ability.extra
 		for i = 1, #G.hand.highlighted do
-				G.hand.highlighted[i]:set_ability(G.P_CENTERS[SMODS.poll_enhancement({ guaranteed = true })])
+			G.hand.highlighted[i]:set_ability(G.P_CENTERS[SMODS.poll_enhancement({ guaranteed = true })])
 		end
 		local jud = card.ability.extra
 		G.E_MANAGER:add_event(Event({
@@ -1637,6 +1748,10 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 1.7, ease = 5 },
+	},atlas = "avenues",
+	pos = {
+		x = 0,
+		y = 3,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -1699,6 +1814,10 @@ SMODS.Consumable({
 	set = "titledeeds",
 	config = {
 		extra = { payout = 1.7, ease = nil },
+	},atlas = "avenues",
+	pos = {
+		x = 1,
+		y = 3,
 	},
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra

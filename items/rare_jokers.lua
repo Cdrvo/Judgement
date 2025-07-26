@@ -445,6 +445,6 @@ SMODS.Joker({
 		end
 	end,
 	set_badges = function(self, card, badges)
-		badges[#badges + 1] = create_badge("Art by: Revo", G.C.RARITY[3], G.C.BLACK, 0.8)
+		badges[#badges + 1] = create_badge("Art by: Wombat Country", G.C.RARITY[3], G.C.BLACK, 0.8)
 	end,
 })

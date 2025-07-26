@@ -352,7 +352,8 @@ SMODS.Consumable({
 		if context.individual and context.cardarea == G.play then
 			if #context.scoring_hand > 1 then
 				if context.other_card ~= context.scoring_hand[1] then
-					if context.other_card:get_id() == context.scoring_hand[1]:get_id() then
+					local a, b = context.other_card:get_id(),context.scoring_hand[1]:get_id()
+					if a == b then
 						return {
 							xchips = jud.xchips,
 						}

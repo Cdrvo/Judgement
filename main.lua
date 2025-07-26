@@ -84,11 +84,15 @@ end
 
 local oldaddroundevalrow = add_round_eval_row
 function add_round_eval_row(config)
+if config.dollars == nil then
+	sendWarnMessage("Potential Crash","Judgement")
+else
 	if G.GAME.jud_cashout > 0 then
 		config.dollars = config.dollars * G.GAME.jud_cashout * G.GAME.jud_crypto
 	else
 		config.dollars = config.dollars * G.GAME.jud_crypto
 	end
+end
 	return oldaddroundevalrow(config)
 end
 

@@ -88,6 +88,13 @@ SMODS.Atlas({
 	py = 42,
 })
 
+SMODS.Atlas({
+	key = "avenues",
+	path = "deeds.png",
+	px = 75,
+	py = 99,
+})
+
 function Judgement.suitcheck(suit, area)
 	local suitcheck = 0
 	if G.playing_cards then
@@ -179,11 +186,11 @@ function Judgement.total_limit(mod, silent)
 end
 
 function Judgement.defeat()
-	G.GAME.chips = G.GAME.blind.chips
-	G.STATE = G.STATES.HAND_PLAYED
-	G.STATE_COMPLETE = true
-	end_round()
-end
+		G.GAME.chips = G.GAME.blind.chips
+		G.STATE = G.STATES.HAND_PLAYED
+		G.STATE_COMPLETE = true
+		end_round()
+	end
 
 function Judgement.find_lowest(area, reverse)
 	if reverse then
@@ -286,9 +293,9 @@ function Judgement.playing_card(area, rank, suit, enhancement, edition, stickers
 		acard:set_ability(enhancement)
 	end
 	if stickers ~= nil then
-	for i = 1, #stickers do
-		SMODS.Stickers[stickers[i]]:apply(acard, true)
-	end
+		for i = 1, #stickers do
+			SMODS.Stickers[stickers[i]]:apply(acard, true)
+		end
 	end
 	if seal ~= nil then
 		acard:set_seal(seal)
@@ -329,13 +336,12 @@ function Judgement.facepool()
 end
 
 function Judgement.factorial(mod)
-  if to_big(mod) <= to_big(0) then
-    return 1
-  else
-    return mod * Judgement.factorial(mod-1)
-  end
+	if to_big(mod) <= to_big(0) then
+		return 1
+	else
+		return mod * Judgement.factorial(mod - 1)
+	end
 end
-
 
 SMODS.ObjectType({
 	key = "CommonDeeds",
@@ -392,5 +398,5 @@ Judgement.C = {
 	CHANCE = HEX("E1C16E"),
 	COMMUNITY = HEX("DAA520"),
 	DEEDS = HEX("C70039"),
-	UNOC = HEX("ff0000")
+	UNOC = HEX("ff0000"),
 }

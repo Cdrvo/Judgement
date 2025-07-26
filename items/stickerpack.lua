@@ -206,34 +206,6 @@ SMODS.Consumable({
 	key = "funcpack",
 	set = "stickerpacks",
 	config = {
-		extra = { cards = 2 },
-	},
-	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		local jud = card.ability.extra
-		return {
-			vars = { jud.cards },
-		}
-	end,
-	can_use = function(self, card)
-		local jud = card.ability.extra
-		if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
-			return true
-		end
-		return false
-	end,
-	use = function(self, card, area, copier)
-		for i = 1, #G.jokers.highlighted do
-			G.jokers.highlighted[i]:juice_up()
-			SMODS.Stickers["cry_function_sticker"]:apply(G.jokers.highlighted[i], true)
-		end
-	end,
-})
-
-SMODS.Consumable({
-	key = "funcpack",
-	set = "stickerpacks",
-	config = {
 		extra = { cards = 1 },
 	},
 	cost = 5,
