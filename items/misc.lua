@@ -95,6 +95,21 @@ SMODS.Atlas({
 	py = 99,
 })
 
+SMODS.Atlas({
+	key = "stickers",
+	path = "stickers.png",
+	px = 75,
+	py = 99,
+})
+
+SMODS.Atlas({
+	key = "poststamps",
+	path = "poststamps.png",
+	px = 75,
+	py = 99,
+})
+
+
 function Judgement.suitcheck(suit, area)
 	local suitcheck = 0
 	if G.playing_cards then

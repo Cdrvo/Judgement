@@ -5,6 +5,7 @@ SMODS.Sticker({
 		x = 0,
 		y = 0,
 	},
+	atlas = "stickers",
 	sets = {
 		Joker = true,
 	},
@@ -596,9 +597,10 @@ SMODS.Sticker({
 	key = "u",
 	badge_colour = HEX("8b0000"),
 	pos = {
-		x = 0,
+		x = 2,
 		y = 0,
 	},
+		atlas = "stickers",
 	config = {
 		dollars = 4,
 	},
@@ -624,7 +626,7 @@ SMODS.Sticker({
 	key = "n",
 	badge_colour = HEX("8b0000"),
 	pos = {
-		x = 0,
+		x = 3,
 		y = 0,
 	},
 	config = {
@@ -633,6 +635,7 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+		atlas = "stickers",
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.dollars } }
 	end,
@@ -656,7 +659,7 @@ SMODS.Sticker({
 	key = "o",
 	badge_colour = HEX("8b0000"),
 	pos = {
-		x = 0,
+		x = 4,
 		y = 0,
 	},
 	config = {
@@ -665,6 +668,7 @@ SMODS.Sticker({
 	sets = {
 		uno = true,
 	},
+		atlas = "stickers",
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.dollars } }
 	end,
@@ -688,7 +692,7 @@ SMODS.Sticker({
 	key = "ex",
 	badge_colour = HEX("8b0000"),
 	pos = {
-		x = 0,
+		x = 5,
 		y = 0,
 	},
 	config = {
@@ -696,7 +700,8 @@ SMODS.Sticker({
 	},
 	sets = {
 		uno = true,
-	},
+	},	
+		atlas = "stickers",
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.dollars } }
 	end,
@@ -721,12 +726,13 @@ SMODS.Sticker({
 	key = "wildjackpot",
 	badge_colour = HEX("8b0000"),
 	pos = {
-		x = 0,
+		x = 1,
 		y = 0,
 	},
 	sets = {
 		uno = true,
 	},
+		atlas = "stickers",
 	loc_vars = function(self, info_queue)
 		return { vars = { self.config.dollars,self.config.odds } }
 	end,
