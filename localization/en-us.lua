@@ -116,7 +116,7 @@ return {
 				name = "Globophobia",
 				text = {
 					"{C:attention}Doubles{} the sell value of held Jokers",
-					"{C:red}Self=destructs{} if more than {C:money}$#1#{} is earned",
+					"{C:red}Self-destructs{} if more than {C:money}$#1#{} is earned",
 					"through selling Jokers in one shop or round",
 				},
 			},
@@ -198,10 +198,10 @@ return {
 			j_jud_enochlophobia = {
 				name = "Enochlophobia",
 				text = {
-					"Gains {X:dark_edition,C:white}^#2#{} Mult for each empty {C:attention}Joker slot{}",
-					"and {X:dark_edition,C:white}^#3#{} Mult for each played {C:attention}High Card{}",
+					"Gains {X:dark_edition,C:white}^#1#{} Mult for each empty {C:attention}Joker slot{}",
+					"and {X:dark_edition,C:white}^#2#{} Mult for each played {C:attention}High Card{}",
 					"{C:red}Self-destructs{} whenever more than {C:attention}#1#{} card is scored",
-					"{C:inactive}[Currently {}{X:dark_edition,C:white}^#4#{} {C:inactive}Mult]{}",
+					"{C:inactive}[Currently {}{X:dark_edition,C:white}^#3#{} {C:inactive}Mult]{}",
 				},
 			},
 			j_jud_necromantic = {
@@ -220,12 +220,12 @@ return {
 			},
 			j_jud_necrophobia = {
 				name = "Necrophobia",
-               text={
-                    "Multiplies all {C:attention}listed",
-                    "{C:green,E:1,S:1.1}probabilities{} by #1#.",
+				text = {
+					"Multiplies all {C:attention}listed",
+					"{C:green,E:1,S:1.1}probabilities{} by #1#.",
 					"{C:red}Self-Destructs{} when a card is destryed",
-                    "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}0.3 in 3{C:inactive})",
-                },
+					"{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}0.3 in 3{C:inactive})",
+				},
 			},
 			j_jud_scopophobia = {
 				name = "Scopophobia",
@@ -605,6 +605,30 @@ return {
 					"be taken",
 				},
 			},
+			p_jud_unop1 = {
+				name = "Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}3 {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_unop2 = {
+				name = "Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}3 {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_unop3 = {
+				name = "Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}3 {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
 			p_jud_unopj = {
 				name = "Jumbo Uno Pack",
 				text = {
@@ -613,7 +637,23 @@ return {
 					"be taken",
 				},
 			},
+			p_jud_unopj2 = {
+				name = "Jumbo Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
 			p_jud_unopm = {
+				name = "Mega Uno Pack",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2# {C:FF0000}Uno{} cards to",
+					"be taken",
+				},
+			},
+			p_jud_unopm2 = {
 				name = "Mega Uno Pack",
 				text = {
 					"Choose {C:attention}#1#{} of up to",
@@ -739,7 +779,9 @@ return {
 			c_jud_wormhole = {
 				name = "Worm Hole",
 				text = {
-					"{C:green}#1# in #2#{} chance to upgrade", "your {C:attention}Most Played Hand{} by n!", "where n is its current level",
+					"{C:green}#1# in #2#{} chance to upgrade",
+					"your {C:attention}Most Played Hand{} by n!",
+					"where n is its current level",
 				},
 			},
 			c_jud_ufo = {
@@ -873,7 +915,7 @@ return {
 					"When {C:attention}Blind{} is selected, it gains",
 					"{X:attention,C:white}X#1#{} score requirement.",
 					"{C:green}#2# in #3#{} Chance to apply {C:dark_edition}Negative{}",
-					"to a random joker"
+					"to a random joker",
 				},
 			},
 			c_jud_greenpill = {
@@ -2548,7 +2590,7 @@ return {
 			v_jud_console = {
 				name = "Uno Console",
 				text = {
-					"{C:green}#1# in #2#{} chance to duplicate used {C:attention}Uno cards{}",
+					"{C:green}1 in 3{} chance to duplicate used {C:attention}Uno cards{}",
 				},
 			},
 		},

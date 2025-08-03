@@ -82,10 +82,11 @@ function Card:remove()
 	end
 end
 
+
 local oldaddroundevalrow = add_round_eval_row
 function add_round_eval_row(config)
 if config.dollars == nil then
-	sendWarnMessage("Potential Crash","Judgement")
+	sendWarnMessage("Couldn't multiply payout. Potentially caused by Paya's Terrible Additions","Judgement")
 else
 	if G.GAME.jud_cashout > 0 then
 		config.dollars = config.dollars * G.GAME.jud_cashout * G.GAME.jud_crypto

@@ -99,14 +99,28 @@ SMODS.Atlas({
 	key = "stickers",
 	path = "stickers.png",
 	px = 75,
-	py = 99,
+	py = 95,
 })
 
 SMODS.Atlas({
 	key = "poststamps",
 	path = "poststamps.png",
 	px = 75,
-	py = 99,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "cryptics",
+	path = "cryptics.png",
+	px = 65,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "boosters",
+	path = "boosters.png",
+	px = 71,
+	py = 95,
 })
 
 

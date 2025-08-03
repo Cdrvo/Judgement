@@ -7,6 +7,7 @@ SMODS.Joker({
 		},
 	},
 	rarity = 1,
+	atlas = "commons",
 	blueprint_compat = false,
 	discovered = false,
 	pos = {
@@ -24,6 +25,9 @@ SMODS.Joker({
 			card.ability.extra.edition = true
 			card:set_edition(poll_edition(pseudorandom("useless"), nil, true, true))
 		end
+	end,
+					set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: lfmoth", G.C.RARITY[1], G.C.BLACK, 0.8)
 	end,
 })
 
