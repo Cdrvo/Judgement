@@ -110,7 +110,7 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
-	key = "cryptics",
+	key = "cryptic",
 	path = "cryptics.png",
 	px = 65,
 	py = 95,
