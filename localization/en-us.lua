@@ -125,6 +125,7 @@ return {
 				text = {
 					"{C:blue}+#1#{} hand size and {C:red}+#2# discard{}",
 					"{C:green}#3# in #4#{} chance to {C:red}self-destruct{}",
+				
 				},
 			},
 			j_jud_on = {
