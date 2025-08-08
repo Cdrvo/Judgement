@@ -2105,8 +2105,8 @@ return {
 			c_jud_doctorfree = {
 				name = "Doctor's fees",
 				text = {
-					"{C:blue}+#1#{} Hand",
-					"{C:money}-$#2#{}",
+					"{C:blue}+#2#{} Hand",
+					"{C:money}-$#1#{}",
 				},
 			},
 			c_jud_sale = {
@@ -2150,8 +2150,8 @@ return {
 			c_jud_lifeinsurance = {
 				name = "Life insurance matures",
 				text = {
-					"{C:blue}+#1#{} Hand",
-					"{C:money}+$#2#{}",
+					"{C:blue}+#2#{} Hand",
+					"{C:money}+$#1#{}",
 				},
 			},
 			c_jud_hospitalfees = {
@@ -2177,8 +2177,8 @@ return {
 			c_jud_streetrepair = {
 				name = "Street Repairs",
 				text = {
-					"{C:attention}+#1#{} consumable slots",
-					"{C:money}-$#2#{} for each consumable slot",
+					"{C:attention}+#2#{} consumable slots",
+					"{C:money}-$#1#{} for each consumable slot",
 				},
 			},
 			c_jud_secondplace = {
@@ -2190,8 +2190,8 @@ return {
 			c_jud_inherit = {
 				name = "You inherit $100",
 				text = {
-					"{C:attention}+#1#{} card selection limit",
-					"{C:money}+$#2#{}",
+					"{C:attention}+#2#{} card selection limit",
+					"{C:money}+$#1#{}",
 				},
 			},
 		},
