@@ -99,7 +99,7 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		SMODS.add_card({
-			set = "Utility",
+			set = "Utilities",
 			area = G.jokers,
 		})
 	end,
