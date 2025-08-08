@@ -92,6 +92,7 @@ SMODS.Joker({
 		},
 	},
 	rarity = 4,
+	atlas = "leg",
 	blueprint_compat = true,
 	discovered = false,
 	pos = {
@@ -100,7 +101,7 @@ SMODS.Joker({
 	},
 	soul_pos = {
 		x = 1,
-		y = 0,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -120,6 +121,9 @@ SMODS.Joker({
 				card:start_dissolve(nil, 1.6)
 			end
 		end
+	end,
+			set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: thingifithinker", G.C.RARITY[4], G.C.BLACK, 0.8)
 	end,
 })
 

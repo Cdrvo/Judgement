@@ -65,13 +65,14 @@ SMODS.Joker({
 	rarity = "cry_exotic",
 	blueprint_compat = true,
 	discovered = false,
+	atlas = "exotics",
 	pos = {
-		x = 1,
+		x = 2,
 		y = 0,
 	},
 	soul_pos = {
-		x = 1,
-		y = 0,
+		x = 2,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -92,6 +93,9 @@ SMODS.Joker({
 				card = card,
 			}
 		end
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY.cry_exotic, G.C.BLACK, 0.8)
 	end,
 })
 

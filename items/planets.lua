@@ -1,7 +1,8 @@
 SMODS.Consumable({
 	key = "shootingstar",
 	set = "Planet",
-
+	atlas = "jplanet",
+	pos = {x=1,y=0},
 	config = { level = 1 ,extra = {odds = 5}},
 	loc_vars = function(self, info_queue, card)
 		return {
@@ -91,7 +92,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "smertrios",
 	set = "Planet",
-
+	atlas = "jplanet",
+	pos = {x=0,y=1},
 	config = { hand_type = "jud_blackjack", softlock = true },
 	loc_vars = function(self, info_queue, center)
 		return {

@@ -367,7 +367,7 @@ SMODS.Consumable({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = { jud.create, jud.seconds / 60, jud.max, jud.current },
+			vars = { jud.create, jud.max, jud.current },
 		}
 	end,
 	cost = 5,

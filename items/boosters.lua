@@ -35,7 +35,11 @@ SMODS.Booster({
 
 SMODS.Booster({
 	key = "unop",
+	atlas = "boosters",
 	pos = { x = 0, y = 0 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	config = { extra = 3, choose = 1 },
 	group_key = "k_jud_unopk",
 	cost = 4,
@@ -56,9 +60,117 @@ SMODS.Booster({
 })
 
 SMODS.Booster({
+	key = "unop1",
+	pos = { x = 1, y = 0 },
+	atlas = "boosters",
+	config = { extra = 3, choose = 1 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
+	group_key = "k_jud_unopk",
+	cost = 4,
+	weight = 0.06,
+	select_card = "consumeables",
+	create_card = function(self, card, i)
+		return SMODS.create_card({
+			set = "uno",
+			skip_materialize = true,
+		})
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Booster({
+	key = "unop2",
+	pos = { x = 2, y = 0 },
+	atlas = "boosters",
+	config = { extra = 3, choose = 1 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
+	group_key = "k_jud_unopk",
+	cost = 4,
+	weight = 0.06,
+	select_card = "consumeables",
+	create_card = function(self, card, i)
+		return SMODS.create_card({
+			set = "uno",
+			skip_materialize = true,
+		})
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Booster({
+	key = "unop3",
+	pos = { x = 3, y = 0 },
+	atlas = "boosters",
+	config = { extra = 3, choose = 1 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
+	group_key = "k_jud_unopk",
+	cost = 4,
+	weight = 0.06,
+	select_card = "consumeables",
+	create_card = function(self, card, i)
+		return SMODS.create_card({
+			set = "uno",
+			skip_materialize = true,
+		})
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Booster({
 	key = "unopj",
-	pos = { x = 0, y = 0 },
+	pos = { x = 4, y = 0 },
+	atlas = "boosters",
 	config = { extra = 5, choose = 1 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
+	group_key = "k_jud_unopk",
+	cost = 4,
+	weight = 0.06,
+	select_card = "consumeables",
+	create_card = function(self, card, i)
+		return SMODS.create_card({
+			set = "uno",
+			skip_materialize = true,
+		})
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Booster({
+	key = "unopj2",
+	pos = { x = 5, y = 0 },
+	atlas = "boosters",
+	config = { extra = 5, choose = 1 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	group_key = "k_jud_unopk",
 	cost = 4,
 	weight = 0.06,
@@ -79,8 +191,38 @@ SMODS.Booster({
 
 SMODS.Booster({
 	key = "unopm",
-	pos = { x = 0, y = 0 },
+	pos = { x = 6, y = 0 },
+	atlas = "boosters",
 	config = { extra = 5, choose = 2 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
+	group_key = "k_jud_deedspk",
+	cost = 4,
+	weight = 0.06,
+	select_card = "consumeables",
+	create_card = function(self, card, i)
+		return SMODS.create_card({
+			set = "uno",
+			skip_materialize = true,
+		})
+	end,
+	in_pool = function(self, wawa, wawa2)
+		if G.GAME.flipped == false or G.GAME.used_vouchers["v_jud_flip"] == true then
+			return true
+		end
+		return false
+	end,
+})
+
+SMODS.Booster({
+	key = "unopm2",
+	pos = { x = 7, y = 0 },
+	atlas = "boosters",
+	config = { extra = 5, choose = 2 },
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: superb_thing", Judgement.C.UNOC, G.C.BLACK, 0.8)
+	end,
 	group_key = "k_jud_deedspk",
 	cost = 4,
 	weight = 0.06,
@@ -172,29 +314,29 @@ SMODS.Booster({
 				skip_materialize = true,
 			})
 		elseif ccd == "3" then
-		if addc < 0.5 then
-			return SMODS.create_card({
-				set = "CommonDeeds",
-				skip_materialize = true,
-			})
-		elseif addc > 0.5 and addc <= 0.8 then
-			return SMODS.create_card({
-				set = "UncommonDeeds",
-				skip_materialize = true,
-			})
-		elseif addc > 0.8 and addc <= 0.99 then
-			return SMODS.create_card({
-				set = "RareDeeds",
-				skip_materialize = true,
-			})
-		elseif addc > 0.99 then
-			return SMODS.create_card({
-				set = "LegendaryDeeds",
-				skip_materialize = true,
-			})
+			if addc < 0.5 then
+				return SMODS.create_card({
+					set = "CommonDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.5 and addc <= 0.8 then
+				return SMODS.create_card({
+					set = "UncommonDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.8 and addc <= 0.99 then
+				return SMODS.create_card({
+					set = "RareDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.99 then
+				return SMODS.create_card({
+					set = "LegendaryDeeds",
+					skip_materialize = true,
+				})
+			end
 		end
-	end
-end
+	end,
 })
 
 SMODS.Booster({
@@ -220,29 +362,29 @@ SMODS.Booster({
 				skip_materialize = true,
 			})
 		elseif ccd == "3" then
-		if addc < 0.5 then
-			return SMODS.create_card({
-				set = "CommonDeeds",
-				skip_materialize = true,
-			})
-		elseif addc > 0.5 and addc <= 0.8 then
-			return SMODS.create_card({
-				set = "UncommonDeeds",
-				skip_materialize = true,
-			})
-		elseif addc > 0.8 and addc <= 0.99 then
-			return SMODS.create_card({
-				set = "RareDeeds",
-				skip_materialize = true,
-			})
-		elseif addc > 0.99 then
-			return SMODS.create_card({
-				set = "LegendaryDeeds",
-				skip_materialize = true,
-			})
+			if addc < 0.5 then
+				return SMODS.create_card({
+					set = "CommonDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.5 and addc <= 0.8 then
+				return SMODS.create_card({
+					set = "UncommonDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.8 and addc <= 0.99 then
+				return SMODS.create_card({
+					set = "RareDeeds",
+					skip_materialize = true,
+				})
+			elseif addc > 0.99 then
+				return SMODS.create_card({
+					set = "LegendaryDeeds",
+					skip_materialize = true,
+				})
+			end
 		end
-	end
-end
+	end,
 })
 
 -- Runes

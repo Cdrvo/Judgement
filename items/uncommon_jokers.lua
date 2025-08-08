@@ -42,6 +42,7 @@ SMODS.Joker({
 			xchips = 1.2,
 		},
 	},
+	atlas = "uncj",
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
@@ -67,6 +68,9 @@ SMODS.Joker({
 				}
 			end
 		end
+	end,
+					set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: localfeliform", G.C.RARITY[2], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -154,12 +158,13 @@ SMODS.Joker({
 			odds = 2,
 		},
 	},
+	atlas = "uncj",
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
 	pos = {
-		x = 1,
-		y = 0,
+		x = 0,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -179,6 +184,9 @@ SMODS.Joker({
 				G.jud_pill:emplace(pill)
 			end
 		end
+	end,
+		set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: Wombat Country", G.C.RARITY[2], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -285,7 +293,7 @@ SMODS.Joker({
 SMODS.Joker({
 	key = "globophobia",
 	config = {
-		extra = { max = 0 },
+		extra = { max = 0,max_max = 15 },
 	},
 	rarity = 2,
 	blueprint_compat = false,
@@ -298,12 +306,12 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {card.ability.extra.max_max},
 		}
 	end,
 	update = function(self, card, context)
 		local jud = card.ability.extra
-		if jud.max >= 15 and not card.destroyed then
+		if jud.max >= jud.max_max and not card.destroyed then
 			SMODS.destroy_cards(card)
 			card.destroyed = true
 		end

@@ -146,6 +146,8 @@ Judgement.Post({
 	key = "cerise",
 	badge_colour = G.C.CHIPS,
 	config = { odds = 3 },
+	atlas = "poststamps",
+	pos = { x = 0, y = 0 },
 	loc_vars = function(self, info_queue)
 		local numerator, denominator =
 			SMODS.get_probability_vars(self, (G.GAME.probabilities.normal or 1), self.config.odds, "jud_cerise")
@@ -167,9 +169,11 @@ Judgement.Post({
 Judgement.Post({
 	key = "perse",
 	badge_colour = G.C.CHIPS,
-	config = {max = 4},
+	config = { max = 4 },
+		atlas = "poststamps",
+	pos = { x = 1, y = 0 },
 	loc_vars = function(self, info_queue)
-		return { vars = {self.config.max+1 } }
+		return { vars = { self.config.max + 1 } }
 	end,
 	calculate = function(self, card, context)
 		if context.discard and #context.full_hand >= 4 then
@@ -189,9 +193,11 @@ Judgement.Post({
 Judgement.Post({
 	key = "aureate",
 	badge_colour = G.C.CHIPS,
-	config = {max = 1},
-		loc_vars = function(self, info_queue)
-		return { vars = {self.config.max } }
+		atlas = "poststamps",
+	pos = { x = 2, y = 0 },
+	config = { max = 1 },
+	loc_vars = function(self, info_queue)
+		return { vars = { self.config.max } }
 	end,
 	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
@@ -206,6 +212,8 @@ Judgement.Post({
 	key = "navy",
 	badge_colour = G.C.CHIPS,
 	config = {},
+		atlas = "poststamps",
+	pos = { x = 3, y = 0 },
 	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and context.cardarea == G.hand then
 			SMODS.add_card({
@@ -219,6 +227,8 @@ Judgement.Post({
 	key = "emerald",
 	badge_colour = G.C.CHIPS,
 	config = { odds = 2 },
+		atlas = "poststamps",
+	pos = { x = 4, y = 0 },
 	loc_vars = function(self, info_queue)
 		local numerator, denominator =
 			SMODS.get_probability_vars(self, (G.GAME.probabilities.normal or 1), self.config.odds, "jud_emerald")
@@ -251,6 +261,8 @@ Judgement.Post({
 			SMODS.get_probability_vars(self, (G.GAME.probabilities.normal or 1), self.config.odds, "jud_ultramarine")
 		return { vars = { numerator, denominator } }
 	end,
+		atlas = "poststamps",
+	pos = { x = 5, y = 0 },
 	calculate = function(self, card, context)
 		if context.final_scoring_step and context.cardarea == G.play then
 			print(context.scoring_name)
@@ -289,8 +301,8 @@ Judgement.Post({
 	key = "majestic",
 	badge_colour = G.C.CHIPS,
 	config = {},
-	loc_vars = function(self, info_queue)
-	end,
-	calculate = function(self, card, context)
-	end,
+		atlas = "poststamps",
+	pos = { x = 6, y = 0 },
+	loc_vars = function(self, info_queue) end,
+	calculate = function(self, card, context) end,
 })

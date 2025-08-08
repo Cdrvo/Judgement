@@ -150,6 +150,8 @@ G.FUNCS.pull_card = function(e)
 end
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "bigfoot",
 	set = "cryptic",
 	hidden = true,
@@ -188,6 +190,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "nessie",
 	set = "cryptic",
 	hidden = true,
@@ -232,6 +236,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "chupacabra",
 	set = "cryptic",
 	hidden = true,
@@ -248,6 +254,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "lizard",
 	set = "cryptic",
 	hidden = true,
@@ -264,6 +272,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "ogopogo",
 	set = "cryptic",
 	hidden = true,
@@ -325,6 +335,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "mothman",
 	set = "cryptic",
 	hidden = true,
@@ -336,6 +348,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "mothership",
 	set = "cryptic",
 	hidden = true,
@@ -386,6 +400,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "rod",
 	set = "cryptic",
 	hidden = true,
@@ -436,6 +452,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "jersey",
 	set = "cryptic",
 	hidden = true,
@@ -472,6 +490,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "amomongo",
 	set = "cryptic",
 	hidden = true,
@@ -506,6 +526,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "notdeer",
 	set = "cryptic",
 	hidden = true,
@@ -520,6 +542,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "allghoi",
 	set = "cryptic",
 	hidden = true,
@@ -534,6 +558,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "mapinguari",
 	set = "cryptic",
 	hidden = true,
@@ -549,6 +575,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "megaladon",
 	set = "cryptic",
 	hidden = true,
@@ -576,6 +604,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "fairy",
 	set = "cryptic",
 	hidden = true,
@@ -599,6 +629,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "yeti",
 	set = "cryptic",
 	hidden = true,
@@ -641,6 +673,8 @@ SMODS.Consumable({
 })
 
 SMODS.Consumable({
+	atlas = "cryptic",
+	pos = { x = 0, y = 0 },
 	key = "babayaga",
 	set = "cryptic",
 	hidden = true,
