@@ -1817,8 +1817,13 @@ return {
 		},
 
 		Stake = {},
-		Tag = {},
-		Tarot = {
+		Tag = {
+			tag_jud_packtag = {
+				name = "Jumbp Boon Tag",
+				text ={"Creates a free jumbo","boon pack"}
+			}
+		},
+		Tarot = {	
 			c_jud_famine = {
 				name = "The Famine",
 				text = {
