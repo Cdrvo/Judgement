@@ -2126,8 +2126,8 @@ return {
 			c_jud_holiday = {
 				name = "Holiday",
 				text = {
-					"{C:red}+#1#{} Discard",
-					"{C:money}+#2#{}",
+					"{C:red}+#2#{} Discard",
+					"{C:money}+#1#{}",
 				},
 			},
 			c_jud_taxrefund = {
