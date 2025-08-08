@@ -248,7 +248,7 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		for i, card in pairs(G.hand.highlighted) do
-			SMODS.destroy_card(card)
+			SMODS.destroy_cards(card)
 		end
 	end,
 })

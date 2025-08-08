@@ -342,7 +342,7 @@ return {
 				name = "Thermophobia",
 				text = {
 					"{X:attention,C:white}X#1#{} Blind size",
-					"Set {C:FF00FF}Score{} to {C:attention}#2#{} after scoring",
+					"Set {C:FF00FF}Score{} to {C:attention}0{} after scoring",
 					"{C:red}Self-destructs{} if you overscore",
 				},
 			},
