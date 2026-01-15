@@ -81,16 +81,18 @@ SMODS.Voucher({
 	redeem = function(self, card) end,
 })
 
-SMODS.Voucher({
-	key = "dice",
-	unlocked = true,
-	pos = {
-		x = 0,
-		y = 1,
-	},
-	cost = 10,
-	redeem = function(self, card) end,
-})
+if next(SMODS.find_mod("Cryptid")) then
+	SMODS.Voucher({
+		key = "dice",
+		unlocked = true,
+		pos = {
+			x = 0,
+			y = 1,
+		},
+		cost = 10,
+		redeem = function(self, card) end,
+	})
+end
 
 SMODS.Voucher({
 	key = "console",

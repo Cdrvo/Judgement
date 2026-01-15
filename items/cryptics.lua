@@ -287,7 +287,7 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		for i = 1, 2 do
-			local chand = Cryptid.get_random_hand(nil, "ogopogo" .. G.GAME.round_resets.ante)
+			local chand = Judgement.random_hand()
 			local _hand, _tally = nil, -1
 			local uplevel = 0
 			for k, v in ipairs(G.handlist) do

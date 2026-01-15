@@ -372,6 +372,20 @@ function Judgement.factorial(mod)
 	end
 end
 
+function Judgement.random_hand(hidden)
+	local hand
+	local hands = {}
+	while true do
+		for k, v in pairs(G.handlist) do
+			if G.GAME.hands[v].visible or hidden then
+				hands[#hands + 1] = v
+			end
+		end
+	end
+	hand = pseudorandom_element(hands, pseudoseed("jud_random_hand"))
+	return hand
+end
+
 SMODS.ObjectType({
 	key = "CommonDeeds",
 	cards = {},
@@ -429,3 +443,50 @@ Judgement.C = {
 	DEEDS = HEX("C70039"),
 	UNOC = HEX("ff0000"),
 }
+
+
+if not SMODS.Rarities["cry_epic"] then
+	SMODS.Rarity({
+	key = "epic",
+	loc_txt = {},
+	badge_colour = HEX("ef0098"),
+	default_weight = 0.003,
+	pools = { ["Joker"] = true },
+	get_weight = function(self, weight, object_type)
+		if Cryptid_config then
+			if Cryptid_config["Epic Jokers"] then
+				return 0.003
+			else
+				return 0
+			end
+		else
+			return 0.003
+		end
+	end,
+})
+end
+
+if not SMODS.Rarities["cry_exotic"] then
+	SMODS.Rarity({
+		key = "exotic",
+		loc_txt = {},
+		badge_colour = HEX("708b91"),	
+		default_weight = 0.00005,
+		pools = { ["Joker"] = true },
+		get_weight = function(self, weight, object_type)
+			if next(SMODS.find_mod("Cryptid")) then
+				return 0
+			else
+				return 0.00005
+			end
+		end,
+	})
+end
+
+if not SMODS.Rarities["cry_cursed"] then
+	SMODS.Rarity({
+		key = "cursed",
+		loc_txt = {},
+		badge_colour = HEX("474931"),
+	})
+end

@@ -1099,7 +1099,7 @@ return {
 				name = "Fairy",
 				text = {
 					"{C:green}#1# in #2#{} chance to create",
-					"a {C:legendary,E:1}The Soul{} or {C:cry_exotic,E:1}Gateway{}",
+					"a {C:legendary,E:1}The Soul{} or {C:jud_exotic,E:1}Gateway{}",
 				},
 			},
 			c_jud_yeti = {
@@ -1876,7 +1876,7 @@ return {
 				name = "Ansuz",
 				text = {
 					"{C:green}#1# in #2#{} chance to create a",
-					"{C:legendary,E:1}The Soul{} or {C:cry_exotic,E:1}Gateway{}",
+					"{C:legendary,E:1}The Soul{} or {C:jud_exotic,E:1}Gateway{}",
 					"after selecting a Blind",
 					"Lasts for {C:attention}#1# Ante{}",
 				},
@@ -2634,6 +2634,11 @@ return {
 			k_stickerpacks = "Sticker Pack",
 			b_stickerpacks_cards = "Sticker Packs",
 			lab_jud_posts = "Post Stamps",
+
+
+			k_jud_epic = "Epic",
+			k_jud_exotic = "Exotic",
+			k_jud_cursed = "Cursed",
 		},
 		high_scores = {},
 		labels = {
@@ -2666,6 +2671,10 @@ return {
 			jud_o = "O",
 			jud_ex = "!",
 			jud_wildjackpot = "Wild Jackpot",
+
+			jud_epic = "Epic",
+			jud_exotic = "Exotic",
+			jud_cursed = "Cursed",
 		},
 		poker_hand_descriptions = {},
 		poker_hands = {},

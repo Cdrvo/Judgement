@@ -13,7 +13,7 @@ SMODS.PokerHand({
 	},
 	loc_txt = {
 		name = "Blackjack",
-		description = { "bj" },
+		description = { "Cards that add up to 21" },
 	},
 	evaluate = function(parts, hand)
         local start = 0

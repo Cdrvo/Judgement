@@ -662,7 +662,7 @@ SMODS.Consumable({
 		return true
 	end,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local jud = card.ability.extra
@@ -779,7 +779,7 @@ SMODS.Consumable({
 		return true
 	end,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local jud = card.ability.extra
@@ -837,7 +837,7 @@ SMODS.Consumable({
 		return true
 	end,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local jud = card.ability.extra
@@ -1433,7 +1433,7 @@ SMODS.Consumable({
 	use = function(self, card, area, copier)
 		local jud = card.ability.extra
 		for i = 1, jud.ease do
-			SMODS.add_card({ rarity = "cry_epic", set = "Joker" })
+			SMODS.add_card({ rarity = (Judgement.prefix .. "_epic"), set = "Joker" })
 		end
 		G.E_MANAGER:add_event(Event({
 			trigger = "before",

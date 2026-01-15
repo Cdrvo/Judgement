@@ -4,6 +4,12 @@ to_big = to_big or function(x)
 	return x
 end
 
+if next(SMODS.find_mod("Cryptid")) then
+	Judgement.prefix = "cry"
+else
+	Judgement.prefix = "jud"
+end
+
 SMODS.load_file("items/misc.lua")()
 SMODS.load_file("items/common_jokers.lua")()
 SMODS.load_file("items/uncommon_jokers.lua")()
@@ -102,7 +108,7 @@ function set_consumeable_usage(card)
 	if card.config.center.set == "Spectral" then
 		if pseudorandom("spectral") < 1 / G.GAME.jud_curse then
 			G.GAME.jud_curse = 100
-			SMODS.add_card({ set = "Joker", rarity = "cry_cursed", area = G.jokers })
+			SMODS.add_card({ set = "Joker", rarity = (Judgement.prefix .. "_cursed"), area = G.jokers })
 		else
 			G.GAME.jud_curse = G.GAME.jud_curse - 5
 		end
@@ -160,6 +166,8 @@ end
 
 local gcp = get_current_pool
 function get_current_pool(_type, _rarity, _legendary, _append, override_equilibrium_effect)
+
+	-- taken from cryptid
 	if
 		(#SMODS.find_card("c_jud_thurisaz") >= 1)
 		and not G.GAME.modifiers.cry_equilibrium
@@ -175,23 +183,23 @@ function get_current_pool(_type, _rarity, _legendary, _append, override_equilibr
 			and _type ~= "Stake"
 		then
 			-- we're regenerating the pool every time because of banned keys but it's fine tbh
-			P_CRY_ITEMS = {}
+			local items = {}
 			local valid_pools = { "Joker", "Consumeables", "Voucher", "Booster" }
 			for _, id in ipairs(valid_pools) do
 				for k, v in pairs(G.P_CENTER_POOLS[id]) do
 					if
 						v.unlocked == true
-						and not Cryptid.no(v, "doe", k)
-						and not (G.GAME.banned_keys[v.key] or G.GAME.cry_banished_keys[v.key])
+						and not v.no_doe 
+						and not (G.GAME.banned_keys[v.key] or (G.GAME.cry_banished_keys and not G.GAME.cry_banished_keys[v.key]))
 					then
-						P_CRY_ITEMS[#P_CRY_ITEMS + 1] = v.key
+						items[#items + 1] = v.key
 					end
 				end
 			end
-			if #P_CRY_ITEMS <= 0 then
-				P_CRY_ITEMS[#P_CRY_ITEMS + 1] = "v_blank"
+			if #items <= 0 then
+				items[#items + 1] = "v_blank"
 			end
-			return P_CRY_ITEMS, "anva_directer" .. G.GAME.round_resets.ante
+			return items, "anva_directer" .. G.GAME.round_resets.ante
 		end
 	end
 	return gcp(_type, _rarity, _legendary, _append)
@@ -313,9 +321,45 @@ function loc_colour(_c, _default)
 		loc_old()
 	end
 	G.ARGS.LOC_COLOURS.jud_uno = Judgement.C.UNOC
+	G.ARGS.LOC_COLOURS.jud_exotic = G.C.RARITY.jud_exotic or G.C.RARITY.cry_exotic
+	G.ARGS.LOC_COLOURS.jud_epic = G.C.RARITY.jud_epic or G.C.RARITY.cry_epic
+	G.ARGS.LOC_COLOURS.jud_cursed = G.C.RARITY.jud_cursed or G.C.RARITY.cry_cursed
+	
 
 	return loc_old(_c, _default)
 end
+
+if SMODS and SMODS.calculate_individual_effect and not next(SMODS.find_mod("Cryptid")) then
+	local calcinvold = SMODS.calculate_individual_effect
+	function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
+		local ret = calcinvold(effect, scored_card, key, amount, from_edition)
+		if ret then
+			return ret
+		end
+
+
+		-- Emult with no cryptid
+
+		if
+			(key == "emult" or key == "e_mult" or key == "Emult" or key == "E_mult")
+			and amount ~= 0
+		then
+			if effect.card then
+				juice_card(effect.card)
+			end
+			mult = mod_chips(mult^amount)
+			update_hand_text({ delay = 0 }, { chips = hand_chips, mult = mult })
+			card_eval_status_text(scored_card, "extra", nil, nil, nil, { message = amount .. "^Mult" , colour = G.C.DARK_EDITION})
+			return true
+		end
+
+
+	end
+	for _, v in ipairs({ "emult","e_mult","Emult","E_mult"  }) do
+		table.insert(SMODS.calculation_keys, v)
+	end
+end
+
 
 local vanilla = {}
 local igo = Game.init_game_object

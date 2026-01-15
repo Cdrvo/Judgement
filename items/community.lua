@@ -240,7 +240,7 @@ SMODS.Consumable({
 	end,
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return (G.GAME and G.GAME.blind and G.GAME.blind.in_blind)
 	end,
 	use = function(self, card, area, copier)
 		ease_dollars(-card.ability.extra.give)
