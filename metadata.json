@@ -9,6 +9,6 @@
 	"priority": 0,
 	"badge_text_colour": "ae7700",
 	"badge_colour": "6700bd",
-	"version": "0.0.0",
-	"dependencies": ["Steamodded (>=1.0.0~BETA-0615a)","Cryptid (>=0.5.9)"]
+	"version": "0.0.1~prerelease",
+	"dependencies": ["Steamodded (>=1.0.0~BETA-0615a)"]
 }

@@ -1766,7 +1766,7 @@ SMODS.Consumable({
 	config = { blindreq = 0.9 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		for i = 1, Judgement.suitcheck("Hearts", G.playing_cards) do
@@ -1817,7 +1817,7 @@ SMODS.Consumable({
 	config = { blindreq = 0.9 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		for i = 1, Judgement.suitcheck("Diamonds", G.playing_cards) do
@@ -1867,7 +1867,7 @@ SMODS.Consumable({
 	},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		for i = 1, Judgement.suitcheck("Clubs", G.playing_cards) do
@@ -1917,7 +1917,7 @@ SMODS.Consumable({
 	config = { blindreq = 0.9 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		for i = 1, Judgement.suitcheck("Spades", G.playing_cards) do
@@ -1966,7 +1966,7 @@ SMODS.Consumable({
 	config = { add = 1 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local _cards = {}
@@ -2019,7 +2019,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local _cards = {}
@@ -2072,7 +2072,7 @@ SMODS.Consumable({
 	},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local _cards = {}
@@ -2125,7 +2125,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local _cards = {}
@@ -2536,7 +2536,7 @@ SMODS.Consumable({
 	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -2581,7 +2581,7 @@ SMODS.Consumable({
 	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -2626,7 +2626,7 @@ SMODS.Consumable({
 	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -2671,7 +2671,7 @@ SMODS.Consumable({
 	config = { max = 1 },
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -2708,7 +2708,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)
@@ -2750,7 +2750,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)
@@ -2792,7 +2792,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)
@@ -2834,7 +2834,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)
@@ -3877,7 +3877,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -3909,7 +3909,7 @@ SMODS.Consumable({
 	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -3941,7 +3941,7 @@ SMODS.Consumable({
 	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -3973,7 +3973,7 @@ SMODS.Consumable({
 	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 	use = function(self, card, area, copier)
 		local add = 0
@@ -4004,7 +4004,7 @@ SMODS.Consumable({
 	config = {},
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)
@@ -4039,7 +4039,7 @@ SMODS.Consumable({
 	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)
@@ -4074,7 +4074,7 @@ SMODS.Consumable({
 	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)
@@ -4109,7 +4109,7 @@ SMODS.Consumable({
 	no_collection = true,
 	cost = 5,
 	can_use = function(self, card)
-		return Cryptid.safe_get(G.GAME, "blind", "in_blind")
+		return G.GAME and G.GAME.blind and G.GAME.blind.in_blind
 	end,
 
 	use = function(self, card, area, copier)

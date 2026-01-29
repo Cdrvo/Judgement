@@ -342,7 +342,7 @@ return {
 				name = "Thermophobia",
 				text = {
 					"{X:attention,C:white}X#1#{} Blind size",
-					"Set {C:FF00FF}Score{} to {C:attention}#2#{} after scoring",
+					"Set {C:FF00FF}Score{} to {C:attention}0{} after scoring",
 					"{C:red}Self-destructs{} if you overscore",
 				},
 			},
@@ -1099,7 +1099,7 @@ return {
 				name = "Fairy",
 				text = {
 					"{C:green}#1# in #2#{} chance to create",
-					"a {C:legendary,E:1}The Soul{} or {C:cry_exotic,E:1}Gateway{}",
+					"a {C:legendary,E:1}The Soul{} or {C:jud_exotic,E:1}Gateway{}",
 				},
 			},
 			c_jud_yeti = {
@@ -1817,8 +1817,13 @@ return {
 		},
 
 		Stake = {},
-		Tag = {},
-		Tarot = {
+		Tag = {
+			tag_jud_packtag = {
+				name = "Jumbp Boon Tag",
+				text ={"Creates a free jumbo","boon pack"}
+			}
+		},
+		Tarot = {	
 			c_jud_famine = {
 				name = "The Famine",
 				text = {
@@ -1871,7 +1876,7 @@ return {
 				name = "Ansuz",
 				text = {
 					"{C:green}#1# in #2#{} chance to create a",
-					"{C:legendary,E:1}The Soul{} or {C:cry_exotic,E:1}Gateway{}",
+					"{C:legendary,E:1}The Soul{} or {C:jud_exotic,E:1}Gateway{}",
 					"after selecting a Blind",
 					"Lasts for {C:attention}#1# Ante{}",
 				},
@@ -2100,8 +2105,8 @@ return {
 			c_jud_doctorfree = {
 				name = "Doctor's fees",
 				text = {
-					"{C:blue}+#1#{} Hand",
-					"{C:money}-$#2#{}",
+					"{C:blue}+#2#{} Hand",
+					"{C:money}-$#1#{}",
 				},
 			},
 			c_jud_sale = {
@@ -2145,8 +2150,8 @@ return {
 			c_jud_lifeinsurance = {
 				name = "Life insurance matures",
 				text = {
-					"{C:blue}+#1#{} Hand",
-					"{C:money}+$#2#{}",
+					"{C:blue}+#2#{} Hand",
+					"{C:money}+$#1#{}",
 				},
 			},
 			c_jud_hospitalfees = {
@@ -2172,8 +2177,8 @@ return {
 			c_jud_streetrepair = {
 				name = "Street Repairs",
 				text = {
-					"{C:attention}+#1#{} consumable slots",
-					"{C:money}-$#2#{} for each consumable slot",
+					"{C:attention}+#2#{} consumable slots",
+					"{C:money}-$#1#{} for each consumable slot",
 				},
 			},
 			c_jud_secondplace = {
@@ -2185,8 +2190,8 @@ return {
 			c_jud_inherit = {
 				name = "You inherit $100",
 				text = {
-					"{C:attention}+#1#{} card selection limit",
-					"{C:money}+$#2#{}",
+					"{C:attention}+#2#{} card selection limit",
+					"{C:money}+$#1#{}",
 				},
 			},
 		},
@@ -2629,6 +2634,11 @@ return {
 			k_stickerpacks = "Sticker Pack",
 			b_stickerpacks_cards = "Sticker Packs",
 			lab_jud_posts = "Post Stamps",
+
+
+			k_jud_epic = "Epic",
+			k_jud_exotic = "Exotic",
+			k_jud_cursed = "Cursed",
 		},
 		high_scores = {},
 		labels = {
@@ -2661,6 +2671,10 @@ return {
 			jud_o = "O",
 			jud_ex = "!",
 			jud_wildjackpot = "Wild Jackpot",
+
+			jud_epic = "Epic",
+			jud_exotic = "Exotic",
+			jud_cursed = "Cursed",
 		},
 		poker_hand_descriptions = {},
 		poker_hands = {},

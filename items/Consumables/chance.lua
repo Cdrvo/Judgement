@@ -99,7 +99,7 @@ SMODS.Consumable({
 	end,
 	use = function(self, card, area, copier)
 		SMODS.add_card({
-			set = "Utility",
+			set = "Utilities",
 			area = G.jokers,
 		})
 	end,
@@ -376,7 +376,7 @@ end
 
 G.FUNCS.can_end_b = function(e)
 	local card = e.config.ref_table
-	if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
+	if G.GAME and G.GAME.blind and G.GAME.blind.in_blind then
 		e.config.colour = G.C.RED
 		e.config.button = "ending_blind"
 	else

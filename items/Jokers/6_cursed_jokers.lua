@@ -17,7 +17,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
 		return {
-			vars = {},
+			vars = {jud.blindreq},
 		}
 	end,
 	calculate = function(self, card, context)

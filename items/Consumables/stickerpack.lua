@@ -118,173 +118,177 @@ SMODS.Consumable({
 	end,
 })
 
-SMODS.Consumable({
-	key = "bananapack",
-	set = "stickerpacks",
-	config = {
-		extra = { cards = 2 },
-	},
-	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		local jud = card.ability.extra
-		return {
-			vars = { jud.cards },
-		}
-	end,
-	can_use = function(self, card)
-		local jud = card.ability.extra
-		if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
-			return true
-		end
-		return false
-	end,
-	use = function(self, card, area, copier)
-		for i = 1, #G.jokers.highlighted do
-			G.jokers.highlighted[i]:juice_up()
-			SMODS.Stickers["banana"]:apply(G.jokers.highlighted[i], true)
-		end
-	end,
-})
+if next(SMODS.find_mod("Cryptid")) then
 
-SMODS.Consumable({
-	key = "flickeringpack",
-	set = "stickerpacks",
-	config = {
-		extra = { cards = 2 },
-	},
-	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		local jud = card.ability.extra
-		return {
-			vars = { jud.cards },
-		}
-	end,
-	can_use = function(self, card)
-		local jud = card.ability.extra
-		if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
-			return true
-		end
-		return false
-	end,
-	use = function(self, card, area, copier)
-		for i = 1, #G.jokers.highlighted do
-			G.jokers.highlighted[i]:juice_up()
-			SMODS.Stickers["cry_flickering"]:apply(G.jokers.highlighted[i], true)
-		end
-	end,
-})
+	SMODS.Consumable({
+		key = "bananapack",
+		set = "stickerpacks",
+		config = {
+			extra = { cards = 2 },
+		},
+		cost = 5,
+		loc_vars = function(self, info_queue, card)
+			local jud = card.ability.extra
+			return {
+				vars = { jud.cards },
+			}
+		end,
+		can_use = function(self, card)
+			local jud = card.ability.extra
+			if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
+				return true
+			end
+			return false
+		end,
+		use = function(self, card, area, copier)
+			for i = 1, #G.jokers.highlighted do
+				G.jokers.highlighted[i]:juice_up()
+				SMODS.Stickers["banana"]:apply(G.jokers.highlighted[i], true)
+			end
+		end,
+	})
 
-SMODS.Consumable({
-	key = "riggedpack",
-	set = "stickerpacks",
-	config = {
-		extra = { cards = 2 },
-	},
-	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		local jud = card.ability.extra
-		return {
-			vars = { jud.cards },
-		}
-	end,
-	can_use = function(self, card)
-		local jud = card.ability.extra
-		if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
-			return true
-		end
-		return false
-	end,
-	use = function(self, card, area, copier)
-		for i = 1, #G.jokers.highlighted do
-			G.jokers.highlighted[i]:juice_up()
-			SMODS.Stickers["cry_rigged"]:apply(G.jokers.highlighted[i], true)
-		end
-	end,
-})
+	SMODS.Consumable({
+		key = "flickeringpack",
+		set = "stickerpacks",
+		config = {
+			extra = { cards = 2 },
+		},
+		cost = 5,
+		loc_vars = function(self, info_queue, card)
+			local jud = card.ability.extra
+			return {
+				vars = { jud.cards },
+			}
+		end,
+		can_use = function(self, card)
+			local jud = card.ability.extra
+			if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
+				return true
+			end
+			return false
+		end,
+		use = function(self, card, area, copier)
+			for i = 1, #G.jokers.highlighted do
+				G.jokers.highlighted[i]:juice_up()
+				SMODS.Stickers["cry_flickering"]:apply(G.jokers.highlighted[i], true)
+			end
+		end,
+	})
 
-SMODS.Consumable({
-	key = "funcpack",
-	set = "stickerpacks",
-	config = {
-		extra = { cards = 1 },
-	},
-	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		local jud = card.ability.extra
-		return {
-			vars = { jud.cards },
-		}
-	end,
-	can_use = function(self, card)
-		local jud = card.ability.extra
-		if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
-			return true
-		end
-		return false
-	end,
-	use = function(self, card, area, copier)
-		for i = 1, #G.jokers.highlighted do
-			G.jokers.highlighted[i]:juice_up()
-			SMODS.Stickers["cry_function_sticker"]:apply(G.jokers.highlighted[i], true)
-		end
-	end,
-})
+	SMODS.Consumable({
+		key = "riggedpack",
+		set = "stickerpacks",
+		config = {
+			extra = { cards = 2 },
+		},
+		cost = 5,
+		loc_vars = function(self, info_queue, card)
+			local jud = card.ability.extra
+			return {
+				vars = { jud.cards },
+			}
+		end,
+		can_use = function(self, card)
+			local jud = card.ability.extra
+			if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
+				return true
+			end
+			return false
+		end,
+		use = function(self, card, area, copier)
+			for i = 1, #G.jokers.highlighted do
+				G.jokers.highlighted[i]:juice_up()
+				SMODS.Stickers["cry_rigged"]:apply(G.jokers.highlighted[i], true)
+			end
+		end,
+	})
 
-SMODS.Consumable({
-	key = "globalpack",
-	set = "stickerpacks",
-	config = {
-		extra = { cards = 2 },
-	},
-	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		local jud = card.ability.extra
-		return {
-			vars = { jud.cards },
-		}
-	end,
-	can_use = function(self, card)
-		local jud = card.ability.extra
-		if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
-			return true
-		end
-		return false
-	end,
-	use = function(self, card, area, copier)
-		for i = 1, #G.jokers.highlighted do
-			G.jokers.highlighted[i]:juice_up()
-			SMODS.Stickers["cry_global_sticker"]:apply(G.jokers.highlighted[i], true)
-		end
-	end,
-})
+	SMODS.Consumable({
+		key = "funcpack",
+		set = "stickerpacks",
+		config = {
+			extra = { cards = 1 },
+		},
+		cost = 5,
+		loc_vars = function(self, info_queue, card)
+			local jud = card.ability.extra
+			return {
+				vars = { jud.cards },
+			}
+		end,
+		can_use = function(self, card)
+			local jud = card.ability.extra
+			if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
+				return true
+			end
+			return false
+		end,
+		use = function(self, card, area, copier)
+			for i = 1, #G.jokers.highlighted do
+				G.jokers.highlighted[i]:juice_up()
+				SMODS.Stickers["cry_function_sticker"]:apply(G.jokers.highlighted[i], true)
+			end
+		end,
+	})
 
-SMODS.Consumable({
-	key = "absolutepack",
-	set = "stickerpacks",
-	config = {
-		extra = { cards = 1 },
-	},
-	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		local jud = card.ability.extra
-		return {
-			vars = { jud.cards },
-		}
-	end,
-	can_use = function(self, card)
-		local jud = card.ability.extra
-		if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
-			return true
-		end
-		return false
-	end,
-	use = function(self, card, area, copier)
-		for i = 1, #G.jokers.highlighted do
-			G.jokers.highlighted[i]:juice_up()
-			SMODS.Stickers["cry_absolute"]:apply(G.jokers.highlighted[i], true)
-		end
-	end,
-})
+	SMODS.Consumable({
+		key = "globalpack",
+		set = "stickerpacks",
+		config = {
+			extra = { cards = 2 },
+		},
+		cost = 5,
+		loc_vars = function(self, info_queue, card)
+			local jud = card.ability.extra
+			return {
+				vars = { jud.cards },
+			}
+		end,
+		can_use = function(self, card)
+			local jud = card.ability.extra
+			if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
+				return true
+			end
+			return false
+		end,
+		use = function(self, card, area, copier)
+			for i = 1, #G.jokers.highlighted do
+				G.jokers.highlighted[i]:juice_up()
+				SMODS.Stickers["cry_global_sticker"]:apply(G.jokers.highlighted[i], true)
+			end
+		end,
+	})
+
+	SMODS.Consumable({
+		key = "absolutepack",
+		set = "stickerpacks",
+		config = {
+			extra = { cards = 1 },
+		},
+		cost = 5,
+		loc_vars = function(self, info_queue, card)
+			local jud = card.ability.extra
+			return {
+				vars = { jud.cards },
+			}
+		end,
+		can_use = function(self, card)
+			local jud = card.ability.extra
+			if #G.jokers.highlighted > 0 and #G.jokers.highlighted <= jud.cards then
+				return true
+			end
+			return false
+		end,
+		use = function(self, card, area, copier)
+			for i = 1, #G.jokers.highlighted do
+				G.jokers.highlighted[i]:juice_up()
+				SMODS.Stickers["cry_absolute"]:apply(G.jokers.highlighted[i], true)
+			end
+		end,
+	})
+
+end
 
 SMODS.Consumable({
 	key = "alldrawonepack",

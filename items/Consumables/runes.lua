@@ -254,46 +254,48 @@ SMODS.Consumable({
 	end,
 })
 
-SMODS.Consumable({
-	key = "ansuz",
-	set = "runes",
-	atlas = "runes",
-	pos = {
-		x = 1,
-		y = 0,
-	},
-	config = {
-		extra = {
-			odds = 20,
+if next(SMODS.find_mod("Cryptid")) then
+	SMODS.Consumable({
+		key = "ansuz",
+		set = "runes",
+		atlas = "runes",
+		pos = {
+			x = 1,
+			y = 0,
 		},
-	},
-	loc_vars = function(self, info_queue, card)
-		local numerator, denominator =
-			SMODS.get_probability_vars(card, (G.GAME.probabilities.normal or 1), card.ability.extra.odds, "ansuz")
-		return { vars = { numerator, denominator } }
-	end,
-	cost = 5,
-	set_ability = function(self, card, initial, delay_sprites)
-		card:set_edition("e_negative", true, true)
-	end,
-	calculate = function(self, card, context)
-		local jud = card.ability.extra
-		if context.setting_blind then
-			if SMODS.pseudorandom_probability(card, "ansuz", G.GAME.probabilities.normal, card.ability.extra.odds) then
-				local s = { "c_cry_gateaway", "c_soul" }
-				SMODS.add_card({
-					key = pseudorandom_element(s),
-				})
+		config = {
+			extra = {
+				odds = 20,
+			},
+		},
+		loc_vars = function(self, info_queue, card)
+			local numerator, denominator =
+				SMODS.get_probability_vars(card, (G.GAME.probabilities.normal or 1), card.ability.extra.odds, "ansuz")
+			return { vars = { numerator, denominator } }
+		end,
+		cost = 5,
+		set_ability = function(self, card, initial, delay_sprites)
+			card:set_edition("e_negative", true, true)
+		end,
+		calculate = function(self, card, context)
+			local jud = card.ability.extra
+			if context.setting_blind then
+				if SMODS.pseudorandom_probability(card, "ansuz", G.GAME.probabilities.normal, card.ability.extra.odds) then
+					local s = { "c_cry_gateaway", "c_soul" }
+					SMODS.add_card({
+						key = pseudorandom_element(s),
+					})
+				end
 			end
-		end
-		if context.end_of_round and context.main_eval and G.GAME.blind.boss then
-			SMODS.destroy_cards(card)
-		end
-	end,
-	set_badges = function(self, card, badges)
-		badges[#badges + 1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8)
-	end,
-})
+			if context.end_of_round and context.main_eval and G.GAME.blind.boss then
+				SMODS.destroy_cards(card)
+			end
+		end,
+		set_badges = function(self, card, badges)
+			badges[#badges + 1] = create_badge("Art by: Tatteredlurker", G.C.PURPLE, G.C.BLACK, 0.8)
+		end,
+	})
+end
 
 SMODS.Consumable({
 	key = "raidho",

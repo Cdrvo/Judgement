@@ -276,11 +276,11 @@ SMODS.Consumable({
 			end
 		end
 		card.ability.extra.defaults = card.ability.extra.defaults or {}
-		card.ability.extra.defaults["cry_epic"] = G.GAME[("cry_epic"):lower() .. "_mod"]
-		G.GAME[("cry_epic"):lower() .. "_mod"] = 10
+		card.ability.extra.defaults[Judgement.prefix .. "_epic"] = G.GAME[(Judgement.prefix .. "_epic"):lower() .. "_mod"]
+		G.GAME[(Judgement.prefix .. "_epic"):lower() .. "_mod"] = 10
 	end,
 	remove_from_deck = function(self, card, from_debuff)
-		G.GAME[("cry_epic"):lower() .. "_mod"] = card.ability.extra.defaults["cry_epic"]
+		G.GAME[(Judgement.prefix .. "_epic"):lower() .. "_mod"] = card.ability.extra.defaults[Judgement.prefix .. "_epic"]
 	end,
 })
 

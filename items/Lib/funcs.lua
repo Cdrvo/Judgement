@@ -1,129 +1,3 @@
-SMODS.Atlas({
-	key = "modicon",
-	path = "jud_icon.png",
-	px = 34,
-	py = 34,
-})
-
-SMODS.Atlas({
-	key = "exotics",
-	path = "exotics.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "enh",
-	path = "enhancements.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "runes",
-	path = "runes.png",
-	px = 65,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "unoc",
-	path = "unocards.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "leg",
-	path = "legendary.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "jepic",
-	path = "epics.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "uncj",
-	path = "uncommons.png",
-	px = 71,
-	py = 95,
-})
-SMODS.Atlas({
-	key = "rares",
-	path = "rares.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "cursj",
-	path = "cursed.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "commons",
-	path = "commons.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "jplanet",
-	path = "planets.png",
-	px = 71,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "boons",
-	path = "boons.png",
-	px = 42,
-	py = 42,
-})
-
-SMODS.Atlas({
-	key = "avenues",
-	path = "deeds.png",
-	px = 75,
-	py = 99,
-})
-
-SMODS.Atlas({
-	key = "stickers",
-	path = "stickers.png",
-	px = 75,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "poststamps",
-	path = "poststamps.png",
-	px = 75,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "cryptic",
-	path = "cryptics.png",
-	px = 65,
-	py = 95,
-})
-
-SMODS.Atlas({
-	key = "boosters",
-	path = "boosters.png",
-	px = 71,
-	py = 95,
-})
-
-
 function Judgement.suitcheck(suit, area)
 	local suitcheck = 0
 	if G.playing_cards then
@@ -372,60 +246,16 @@ function Judgement.factorial(mod)
 	end
 end
 
-SMODS.ObjectType({
-	key = "CommonDeeds",
-	cards = {},
-})
-SMODS.ObjectType({
-	key = "UncommonDeeds",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "RareDeeds",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "LegendaryDeeds",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "Utilities",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "Railroads",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "UnoRed",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "UnoYellow",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "UnoBlue",
-	cards = {},
-})
-
-SMODS.ObjectType({
-	key = "UnoGreen",
-	cards = {},
-})
-
-Judgement.C = {
-	BOONSB = HEX("a6f7f3"),
-	SPACK = HEX("81307d"),
-	CHANCE = HEX("E1C16E"),
-	COMMUNITY = HEX("DAA520"),
-	DEEDS = HEX("C70039"),
-	UNOC = HEX("ff0000"),
-}
+function Judgement.random_hand(hidden)
+	local hand
+	local hands = {}
+	while true do
+		for k, v in pairs(G.handlist) do
+			if G.GAME.hands[v].visible or hidden then
+				hands[#hands + 1] = v
+			end
+		end
+	end
+	hand = pseudorandom_element(hands, pseudoseed("jud_random_hand"))
+	return hand
+end

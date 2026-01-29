@@ -1,0 +1,24 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/game_object.lua"]'
+pattern = 'if self.taken_ownership and self.rarity_original and self.rarity_original ~= self.rarity then'
+position = "before"
+payload = '''
+   if string.find(self.key, "j_jud_") then
+        if self.rarity == "cry_epic" and not SMODS.Rarities["cry_epic"] then
+                self.rarity = "jud_epic"
+        end
+            if self.rarity == "cry_exotic" and not SMODS.Rarities["cry_exotic"] then
+                self.rarity = "jud_exotic"
+        end
+            if self.rarity == "cry_cursed" and not SMODS.Rarities["cry_cursed"] then
+                self.rarity = "jud_cursed"
+        end
+   end
+'''
+match_indent = true

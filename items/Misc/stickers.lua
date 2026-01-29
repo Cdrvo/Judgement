@@ -322,7 +322,7 @@ SMODS.Sticker({
 				ease_dollars(-jud.dollars)
 			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
-			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
+			if G.GAME and G.GAME.blind and G.GAME.blind.in_blind then
 				for i = 1, Judgement.suitcheck("Hearts", G.playing_cards) do
 					G.GAME.blind.chips = G.GAME.blind.chips * self.config.blindreq
 					G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -365,7 +365,7 @@ SMODS.Sticker({
 			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _cards = {}
-			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
+			if G.GAME and G.GAME.blind and G.GAME.blind.in_blind then
 				for i = 1, Judgement.suitcheck("Diamonds", G.playing_cards) do
 					G.GAME.blind.chips = G.GAME.blind.chips * self.config.blindreq
 					G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -408,7 +408,7 @@ SMODS.Sticker({
 			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _cards = {}
-			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
+			if G.GAME and G.GAME.blind and G.GAME.blind.in_blind then
 				for i = 1, Judgement.suitcheck("Clubs", G.playing_cards) do
 					G.GAME.blind.chips = G.GAME.blind.chips * self.config.blindreq
 					G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -451,7 +451,7 @@ SMODS.Sticker({
 			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
 			local _cards = {}
-			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
+			if G.GAME and G.GAME.blind and G.GAME.blind.in_blind then
 				for i = 1, Judgement.suitcheck("Spades", G.playing_cards) do
 					G.GAME.blind.chips = G.GAME.blind.chips * self.config.blindreq
 					G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -532,7 +532,7 @@ SMODS.Sticker({
 				ease_dollars(-jud.dollars)
 			end
 			SMODS.calculate_context({ flex_destroyed = true, destroyedflex = self, destroyedflexcard = card })
-			if Cryptid.safe_get(G.GAME, "blind", "in_blind") then
+			if G.GAME and G.GAME.blind and G.GAME.blind.in_blind then
 				for i = 1, jud.ammount do
 					local ccard = Judgement.find_lowest(G.hand.cards, true)
 					copy_card(ccard)

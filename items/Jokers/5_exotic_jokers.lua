@@ -53,7 +53,7 @@ SMODS.Joker({
 		end
 	end,
 	set_badges = function(self, card, badges)
-		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY.cry_exotic, G.C.BLACK, 0.8)
+		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY[Judgement.prefix .. "_exotic"], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -95,7 +95,7 @@ SMODS.Joker({
 		end
 	end,
 	set_badges = function(self, card, badges)
-		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY.cry_exotic, G.C.BLACK, 0.8)
+		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY[Judgement.prefix .. "_exotic"], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -138,6 +138,6 @@ SMODS.Joker({
 		end
 	end,
 	set_badges = function(self, card, badges)
-		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY.cry_exotic, G.C.BLACK, 0.8)
+		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY[Judgement.prefix .. "_exotic"], G.C.BLACK, 0.8)
 	end,
 })
