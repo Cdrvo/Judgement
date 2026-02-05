@@ -57,7 +57,7 @@ function set_consumeable_usage(card)
 	if card.config.center.set == "Spectral" then
 		if pseudorandom("spectral") < 1 / G.GAME.jud_curse then
 			G.GAME.jud_curse = 100
-			SMODS.add_card({ set = "Joker", rarity = (Judgement.prefix .. "_cursed"), area = G.jokers })
+			SMODS.add_card({ set = "Joker", rarity = (Judgement.prefix_extra .. "_cursed"), area = G.jokers })
 		else
 			G.GAME.jud_curse = G.GAME.jud_curse - 5
 		end

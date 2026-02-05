@@ -9,10 +9,11 @@ to_big = to_big or function(x)
 end
 
 if next(SMODS.find_mod("Cryptid")) then
-	Judgement.prefix = "cry"
+	Judgement.prefix_extra = "cry"
 else
-	Judgement.prefix = "jud"
+	Judgement.prefix_extra = "jud"
 end
+print(Judgement.prefix, Judgement.prefix_extra)
 
 SMODS.current_mod.optional_features = function()
 	return {

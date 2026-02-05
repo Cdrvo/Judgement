@@ -2183,8 +2183,8 @@ return {
 			c_jud_doctorfree = {
 				name = "Doctor's fees",
 				text = {
-					"{C:blue}+#2#{} Hand",
-					"{C:money}-$#1#{}",
+					"{C:blue}-#2#{} Hands",
+					"{C:money}+$#1#{}",
 				},
 			},
 			c_jud_sale = {
