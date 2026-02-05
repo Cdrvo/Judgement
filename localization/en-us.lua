@@ -208,7 +208,8 @@ return {
 			j_jud_necromantic = {
 				name = "Necromantic Joker",
 				text = {
-					"{C:green}1 in #1#{} chance to copy sold or destroyed cards or Jokers",
+					"{C:green}#1# in #2#{} chance to",
+					"copy sold or destroyed cards",
 				},
 			},
 			j_jud_crypto = {
