@@ -248,7 +248,7 @@ return {
 				name = "Glass Sliper",
 				text = {
 					"{C:attention}#1#{} random card in hand gains a random",
-					"{C:edition}edition{} whenever a {C:attention}scored{} card is destroyed",
+					"{C:dark_edition}edition{} whenever a {C:attention}scored{} card is destroyed",
 				},
 			},
 			j_jud_diplopia = {
@@ -832,7 +832,7 @@ return {
 		},
 		Planet = {
 			c_jud_smertrios = {
-				name = "Smertiros",
+				name = "Smertrios",
 				text = {
 					"[lvl.#2#] Level up",
 					"{C:attention}Blackjack",
@@ -1138,13 +1138,13 @@ return {
 				name = "Jersey Devil",
 				text = {
 					"Gives {C:attention}#1#{} selected",
-					"cards random {C:edition}editions{}",
+					"cards random {C:dark_edition}editions{}",
 				},
 			},
 			c_jud_amomongo = {
 				name = "Amomongo",
 				text = {
-					"Upgrade the {C:edition}editions{}",
+					"Upgrade the {C:dark_edition}editions{}",
 					"of {C:attention}#1#{} selected cards",
 				},
 			},
@@ -1184,7 +1184,7 @@ return {
 			c_jud_yeti = {
 				name = "Yeti",
 				text = {
-					"Applies {C:edition}Jolly{} on",
+					"Applies {C:dark_edition}Jolly{} on",
 					"selected Joker",
 				},
 			},
@@ -1214,7 +1214,7 @@ return {
 			c_jud_unowild_custom = {
 				name = "Wild Customizable",
 				text = {
-					"Creates {C:attention}#1# {C:edition}polychrome {C:attention}glass{}",
+					"Creates {C:attention}#1# {C:dark_edition}polychrome {C:attention}glass{}",
 					"{C:attention}King{} of a random suit with a {C:red}Red seal{}",
 				},
 			},
@@ -1964,7 +1964,7 @@ return {
 				name = "Raidho",
 				text = {
 					"{C:attention}Held cards{} without editions gain",
-					"random {C:edition}editions{} until end",
+					"random {C:dark_edition}editions{} until end",
 					"of round",
 				},
 			},

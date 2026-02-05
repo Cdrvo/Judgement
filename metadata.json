@@ -7,8 +7,8 @@
 	"prefix": "jud",
 	"main_file": "main.lua",
 	"priority": 0,
-	"badge_text_colour": "ae7700",
-	"badge_colour": "6700bd",
+	"badge_text_colour": "a17722",
+	"badge_colour": "4f6367",
 	"version": "0.0.1~prerelease",
 	"dependencies": ["Steamodded (>=1.0.0~BETA-0615a)"]
 }
