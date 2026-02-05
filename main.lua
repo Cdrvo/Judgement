@@ -2,6 +2,8 @@ Judgement = SMODS.current_mod
 JudgementPath = SMODS.current_mod.path
 JudgementConfig = SMODS.current_mod.config or {}
 
+SMDOS = SMODS -- kill me
+
 to_big = to_big or function(x)
 	return x
 end
