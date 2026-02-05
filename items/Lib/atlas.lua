@@ -122,3 +122,45 @@ SMODS.Atlas({
 	px = 71,
 	py = 95,
 })
+
+SMODS.Atlas({
+	key = "chance",
+	path = "chance.png",
+	px = 71,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "community",
+	path = "community.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.Atlas({
+	key = "wip",
+	path = "wip.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.Atlas({
+	key = "borders",
+	path = "borders.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.Atlas({
+	key = "seals",
+	path = "seals.png",
+	px = 71,
+	py = 95
+})
+
+SMODS.Atlas({
+	key = "tags",
+	path = "tags.png",
+	px = 34,
+	py = 34,
+})

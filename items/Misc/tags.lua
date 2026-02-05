@@ -1,6 +1,7 @@
 SMODS.Tag{
     key = 'packtag',
-    pos = { x = 2, y = 0},
+    atlas = "tags",
+    pos = { x = 0, y = 0},
     apply = function(self, tag, context)
         if context.type == "new_blind_choice" then
             tag:yep('+', G.C.SECONDARY_SET.Spectral,function() 

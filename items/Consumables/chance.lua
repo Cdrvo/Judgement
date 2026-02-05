@@ -9,6 +9,8 @@ SMODS.ConsumableType({
 SMODS.Consumable({
 	key = "advancego",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=0,y=0},
 	config = {
 		extra = { give = 200 },
 	},
@@ -31,6 +33,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "advanceill",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=1,y=0},
 	config = {
 		extra = { give = 200 },
 	},
@@ -57,6 +61,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "advancecharles",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=4,y=0},
 	config = {
 		extra = { give = 200 },
 	},
@@ -83,6 +89,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "nearestutility",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=5,y=0},
 	config = {
 		extra = { give = 200 },
 	},
@@ -108,6 +116,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "nearestraildroad",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=2,y=0},
 	config = {
 		extra = { give = 200 },
 	},
@@ -133,6 +143,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "bankfifty",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=6,y=0},
 	config = {
 		extra = { give = 50 },
 	},
@@ -151,228 +163,6 @@ SMODS.Consumable({
 		ease_dollars(card.ability.extra.give)
 	end,
 })
-
-
---pleae kill me
-local card_highlighted_ref12123 = Card.highlight
-function Card:highlight(is_highlighted)
-	self.highlighted = is_highlighted
-	if self.highlighted and string.find(self.ability.name, "c_jud_freejail") and self.area == G.consumeables then
-		if self.children.use_button then
-			self.children.use_button:remove()
-			self.children.use_button = nil
-		end
-
-		self.children.use_button = UIBox({
-			definition = Judgement.create_sell_and_switch_buttons111(self, {
-				sell = true,
-				use = true,
-			}),
-			config = {
-				align = "cr",
-				offset = {
-					x = -0.4,
-					y = 0,
-				},
-				parent = self,
-			},
-		})
-	else
-		card_highlighted_ref12123(self, is_highlighted)
-	end
-end
-
-Judgement.create_sell_and_switch_buttons111 = function(card, args)
-	local args = args or {}
-	local sell = nil
-	local use = nil
-
-	if args.sell then
-		sell = {
-			n = G.UIT.C,
-			config = {
-				align = "cr",
-			},
-			nodes = {
-				{
-					n = G.UIT.C,
-					config = {
-						ref_table = card,
-						align = "cr",
-						padding = 0.1,
-						r = 0.08,
-						minw = 1.25,
-						hover = true,
-						shadow = true,
-						colour = G.C.UI.BACKGROUND_INACTIVE,
-						one_press = true,
-						button = "sell_card",
-						func = "can_sell_card",
-					},
-					nodes = {
-						{
-							n = G.UIT.B,
-							config = {
-								w = 0.1,
-								h = 0.6,
-							},
-						},
-						{
-							n = G.UIT.C,
-							config = {
-								align = "tm",
-							},
-							nodes = {
-								{
-									n = G.UIT.R,
-									config = {
-										align = "cm",
-										maxw = 1.25,
-									},
-									nodes = {
-										{
-											n = G.UIT.T,
-											config = {
-												text = localize("b_sell"),
-												colour = G.C.UI.TEXT_LIGHT,
-												scale = 0.4,
-												shadow = true,
-											},
-										},
-									},
-								},
-								{
-									n = G.UIT.R,
-									config = {
-										align = "cm",
-									},
-									nodes = {
-										{
-											n = G.UIT.T,
-											config = {
-												text = localize("$"),
-												colour = G.C.WHITE,
-												scale = 0.4,
-												shadow = true,
-											},
-										},
-										{
-											n = G.UIT.T,
-											config = {
-												ref_table = card,
-												ref_value = "sell_cost_label",
-												colour = G.C.WHITE,
-												scale = 0.55,
-												shadow = true,
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		}
-	end
-
-	if args.use then
-		use = {
-			n = G.UIT.C,
-			config = {
-				align = "cr",
-			},
-			nodes = {
-				{
-					n = G.UIT.C,
-					config = {
-						ref_table = card,
-						align = "cr",
-						maxw = 1.25,
-						padding = 0.1,
-						r = 0.08,
-						minw = 1.25,
-						minh = 0,
-						hover = true,
-						shadow = true,
-						colour = G.C.RED,
-						button = "use_card",
-						func = "can_end_b",
-					},
-					nodes = {
-						{
-							n = G.UIT.B,
-							config = {
-								w = 0.1,
-								h = 0.6,
-							},
-						},
-						{
-							n = G.UIT.C,
-							config = {
-								align = "tm",
-							},
-							nodes = {
-								{
-									n = G.UIT.R,
-									config = {
-										align = "cm",
-										maxw = 1.25,
-									},
-									nodes = {
-										{
-											n = G.UIT.T,
-											config = {
-												text = localize("b_use"),
-												colour = G.C.UI.TEXT_LIGHT,
-												scale = 0.57,
-												shadow = true,
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		}
-	end
-
-	return {
-		n = G.UIT.ROOT,
-		config = {
-			align = "cr",
-			padding = 0,
-			colour = G.C.CLEAR,
-		},
-		nodes = {
-			{
-				n = G.UIT.C,
-				config = {
-					padding = 0.15,
-					align = "cl",
-				},
-				nodes = {
-					sell and {
-						n = G.UIT.R,
-						config = {
-							align = "cl",
-						},
-						nodes = { sell },
-					} or nil,
-					use and {
-						n = G.UIT.R,
-						config = {
-							align = "cl",
-						},
-						nodes = { use },
-					} or nil,
-				},
-			},
-		},
-	}
-end
 
 G.FUNCS.can_end_b = function(e)
 	local card = e.config.ref_table
@@ -394,6 +184,8 @@ end
 SMODS.Consumable({
 	key = "freejail",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=9,y=0},
 	config = {
 		extra = {
 		},
@@ -413,6 +205,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "threespace",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=10,y=0},
 	config = {
 		extra = { remove = 1 },
 	},
@@ -435,6 +229,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "gojail",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=11,y=0},
 	config = {
 		extra = { give = 3 },
 	},
@@ -461,6 +257,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "advancereading",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=3,y=0},
 	config = {
 		extra = { give = 200 },
 	},
@@ -487,6 +285,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "paytax",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=12,y=0},
 	config = {
 		extra = { give = 1, removem = 15 },
 	},
@@ -512,6 +312,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "electedchairman",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=8,y=0},
 	config = {
 		extra = { give = 50 },
 	},
@@ -535,6 +337,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "loanmatures",
 	set = "monopoly",
+	atlas = "chance",
+	pos = {x=7,y=0},
 	config = {
 		extra = { give = 150 },
 	},
@@ -553,6 +357,8 @@ SMODS.Consumable({
 		ease_dollars(card.ability.extra.give)
 		SMODS.add_card({
 			set = "monopoly",
+			atlas = "chance",
+			pos = {x=0,y=0},
 		})
 	end,
 })

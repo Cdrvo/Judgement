@@ -6,8 +6,8 @@ return {
 			e_jud_reverse = {
 				name = "Reverse Holographic",
 				text = {
-					"{X:mult,C:white}X#1#{} Mult",
-					"{X:mult,C:white}X#2#{} Mult for every other",
+					"{X:mult,C:white}X#2#{} Mult",
+					"{X:mult,C:white}X#1#{} Mult for every other",
 					"{C:attention}Reverse Holographic{} Joker and Card",
 				},
 			},
@@ -17,7 +17,7 @@ return {
 					"{C:mult}+#1#{} Mult",
 					"{C:chips}+#1#{} chips",
 					"{C:money}+$#2#{}",
-					"{C:green}#3# in #4#{} chance to",
+					"{C:green}#4# in #3#{} chance to",
 					"{C:red}self-destruct{}",
 				},
 			},
@@ -379,6 +379,78 @@ return {
 					"applied to it",
 				},
 			},
+		},
+	
+        Border = {
+            border_jud_bonus = {
+                name = "Bonus Border",
+                text = {
+                    "{C:chips}+#1#{} Chips",
+					"if scored"
+                }
+            },
+			border_jud_mult = {
+                name = "Mult Border",
+                text = {
+                    "{C:mult}+#1#{} Mult",
+					"if scored"
+                }
+            },
+			border_jud_stone = {
+                name = "Stone Border",
+                text = {
+                    "{C:chips}+#1#{} Chips",
+					"Always scores"
+                }
+            },
+			border_jud_glass = {
+                name = "Glass Border",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+					"if scored"
+                }
+            },
+			border_jud_steel = {
+                name = "Steel Border",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+					"if held in hand",
+					"during scoring"
+                }
+            },
+			border_jud_gold = {
+                name = "Gold Border",
+                text = {
+                    "{C:money}+$#1#{} if",
+					"held in hand",
+					"during scoring"
+                }
+            },
+			border_jud_smudged = {
+                name = "Smudged Border",
+                text = {
+                    "Also counts as", 
+					"{C:attention}#1#"
+                }
+            },
+			border_jud_smudged_alt = {
+                name = "Smudged Border",
+                text = {
+                    "Also counts as Spades if Clubs,",
+					"Hearts if Diamonds, Diamonds if Hearts",
+					"and Spades if Clubs"
+                }
+            },
+			border_jud_lucky = {
+                name = "Lucky Border",
+                text = {
+                    "{C:green}#1# in #2#{} chance",
+					"for {C:mult}+#4#{} Mult",
+                    "{C:green}#1# in #3#{} chance",
+					"for {C:money}+$#5#{}",
+                }
+            },
+			
 		},
 		Other = {
 			jud_royal_seal = {
@@ -750,6 +822,12 @@ return {
 					"be taken",
 				},
 			},
+			jud_no_rank = {
+				text = {
+					"{C:chips}+#1#{} Chips",
+					"no rank or suit"
+				}
+			}
 		},
 		Planet = {
 			c_jud_smertrios = {
@@ -1819,7 +1897,7 @@ return {
 		Stake = {},
 		Tag = {
 			tag_jud_packtag = {
-				name = "Jumbp Boon Tag",
+				name = "Jumbo Boon Tag",
 				text ={"Creates a free jumbo","boon pack"}
 			}
 		},
@@ -2634,6 +2712,7 @@ return {
 			k_stickerpacks = "Sticker Pack",
 			b_stickerpacks_cards = "Sticker Packs",
 			lab_jud_posts = "Post Stamps",
+			lab_jud_borders = "Borders",
 
 
 			k_jud_epic = "Epic",
@@ -2675,6 +2754,15 @@ return {
 			jud_epic = "Epic",
 			jud_exotic = "Exotic",
 			jud_cursed = "Cursed",
+
+			border_jud_bonus = "Bonus Border",
+			border_jud_mult = "Mult Border",
+			border_jud_smudged = "Smudged Border",
+			border_jud_glass = "Glass Border",
+			border_jud_steel = "Steel Border",
+			border_jud_stone = "Stone Border",
+			border_jud_gold = "Gold Border",
+			border_jud_lucky = "Lucky Border"
 		},
 		poker_hand_descriptions = {},
 		poker_hands = {},

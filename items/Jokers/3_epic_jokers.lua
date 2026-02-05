@@ -6,6 +6,7 @@ SMODS.Joker({
 		},
 	},
 	rarity = "cry_epic",
+	atlas = "jepic",
 	blueprint_compat = true,
 	discovered = false,
 	pos = {
@@ -25,6 +26,9 @@ SMODS.Joker({
 			local card2 = pseudorandom_element(G.playing_cards, pseudoseed("glassliper"))
 			card2:set_edition(poll_edition(pseudorandom("glassliper"), nil, true, true))
 		end
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: FirstTry", G.C.RARITY[Judgement.prefix .. "_epic"], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -76,10 +80,8 @@ SMODS.Joker({
 	rarity = "cry_epic",
 	blueprint_compat = true,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=0,y=1},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra

@@ -249,13 +249,61 @@ end
 function Judgement.random_hand(hidden)
 	local hand
 	local hands = {}
-	while true do
-		for k, v in pairs(G.handlist) do
-			if G.GAME.hands[v].visible or hidden then
-				hands[#hands + 1] = v
-			end
+	for k, v in pairs(G.handlist) do
+		if G.GAME.hands[v].visible or hidden then
+			hands[#hands + 1] = v
 		end
 	end
 	hand = pseudorandom_element(hands, pseudoseed("jud_random_hand"))
 	return hand
+end
+
+function Judgement.has_room(area)
+	if area then
+		if area.cards and #area.cards < area.config.card_limit then
+			return true
+		end
+	end
+	return false
+end
+
+function Judgement.vanilla_cards(legendaries)
+	local tab = {}
+	for k, v in pairs(get_current_pool("Joker")) do
+		if G.P_CENTERS[v] and not G.P_CENTERS[v].mod then
+			tab[#tab+1] = v
+		end
+	end
+	return tab
+end
+
+function Judgement.smeared_border(card, suit)
+    if not card and card.ability and card.ability.border_jud_smudged then
+        return false
+    end
+
+    if ((card.base.suit == 'Hearts' or card.base.suit == 'Diamonds') and (suit == 'Hearts' or suit == 'Diamonds')) and card.ability.border_jud_smudged then
+        return true
+    elseif (card.base.suit == 'Spades' or card.base.suit == 'Clubs') and (suit == 'Spades' or suit == 'Clubs') and card.ability.border_jud_smudged then
+        return true
+    end
+    return false
+end
+
+function Card:jud_has_enhancement()
+	for k, v in pairs(G.P_CENTER_POOLS.Enhanced) do
+		if v.name == self.ability.name or v.key == self.ability.name then
+			return true
+		end
+	end
+	return false
+end
+
+function Card:jud_enhancement()
+	for k, v in pairs(G.P_CENTER_POOLS.Enhanced) do
+		if v.name == self.ability.name or v.key == self.ability.name then
+			return v.key
+		end
+	end
+	return nil
 end

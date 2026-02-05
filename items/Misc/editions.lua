@@ -40,9 +40,14 @@ SMODS.Edition({
 	end,
 })
 
+SMODS.Shader({
+	key = "fake",
+	path = "fake.fs",
+})
+
 SMODS.Edition({
 	key = "fake",
-	shader = false,
+	shader = "fake",
 	config = {
 		mult = 1,
 		chips = 1,
