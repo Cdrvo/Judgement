@@ -100,18 +100,6 @@ G.FUNCS.your_collection_jud_posts = function()
 	})
 end
 
-SMODS.current_mod.custom_collection_tabs = function()
-	return {
-		UIBox_button({
-			button = "your_collection_jud_posts",
-			id = "your_collection_jud_posts",
-			label = { localize("lab_jud_posts") },
-			minw = 5,
-			minh = 1,
-		}),
-	}
-end
-
 local function wrap_without_poststamps(func)
 	local removed = {}
 	for k, v in pairs(SMODS.Stickers) do

@@ -184,14 +184,20 @@ SMODS.Consumable({
 	set = "Spectral",
 	hidden = true,
 	soul_set = "titledeeds",
+	soul_rate = 0.001,
 	config = {
-        payout = 9.5
+		extra = {
+        	payout = 9.5
+		},
     },
 	loc_vars = function(self, info_queue)
 		return { vars = {self.config.ante} }
 	end,
-	can_use = function(self, card)
+	keep_on_use = function(self,card)
 		return true
+	end,
+	can_use = function(self,card)
+		return Judgement.has_room(G.jokers)
 	end,
 	use = function(self, card, area, copier)
 		local jud = card.ability.extra
@@ -217,35 +223,6 @@ SMODS.Consumable({
 				return true
 			end,
 		}))
-	end,
-	add_to_deck = function(self, card, from_debuff)
-		local jud = card.ability.extra
-		G.GAME.jud_cashout = G.GAME.jud_cashout + jud.payout
-	end,
-	remove_from_deck = function(self, card, from_debuff)
-		local jud = card.ability.extra
-		G.GAME.jud_cashout = G.GAME.jud_cashout - jud.payout
-	end,
-})
-
-SMODS.Consumable({
-	key = "parkplace",
-	set = "Spectral",
-	hidden = true,
-	soul_set = "titledeeds",
-	soul_rate = 0.001,
-	config = {
-        payout = 50
-    },
-	loc_vars = function(self, info_queue)
-		return { vars = {self.config.ante} }
-	end,
-	can_use = function(self, card)
-		return true
-	end,
-	use = function(self, card, area, copier)
-		local jud = card.ability.extra
-		SMODS.destroy_cards(card)
 	end,
 	add_to_deck = function(self, card, from_debuff)
 		local jud = card.ability.extra

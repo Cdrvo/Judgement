@@ -8,13 +8,14 @@ SMODS.Joker({
 	rarity = 4,
 	blueprint_compat = true,
 	discovered = false,
+	atlas = "leg",
 	pos = {
-		x = 1,
+		x = 5,
 		y = 0,
 	},
 	soul_pos = {
-		x = 1,
-		y = 0,
+		x = 5,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -33,7 +34,7 @@ SMODS.Joker({
 			local event
 			event = Event({
 				blockable = false,
-				blocking = false,
+				blocking = false,	
 				pause_force = true,
 				no_delete = true,
 				trigger = "after",
@@ -47,6 +48,9 @@ SMODS.Joker({
 			G.E_MANAGER:add_event(event)
 		end
 	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: TheOfficialFem", G.C.RARITY[4], G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Joker({
@@ -59,13 +63,14 @@ SMODS.Joker({
 	rarity = 4,
 	blueprint_compat = true,
 	discovered = false,
+	atlas = "leg",
 	pos = {
-		x = 1,
+		x = 4,
 		y = 0,
 	},
 	soul_pos = {
-		x = 1,
-		y = 0,
+		x = 4,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -81,6 +86,9 @@ SMODS.Joker({
 				Judgement.random_joker(G.jokers.cards):set_edition({ negative = true }, true)
 			end
 		end
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: TheOfficialFem", G.C.RARITY[4], G.C.BLACK, 0.8)
 	end,
 })
 
@@ -122,7 +130,7 @@ SMODS.Joker({
 			end
 		end
 	end,
-			set_badges = function(self, card, badges)
+	set_badges = function(self, card, badges)
 		badges[#badges + 1] = create_badge("Art by: thingifithinker", G.C.RARITY[4], G.C.BLACK, 0.8)
 	end,
 })
@@ -178,12 +186,13 @@ SMODS.Joker({
 	rarity = 4,
 	blueprint_compat = true,
 	discovered = false,
+	atlas = "wip",
 	pos = {
-		x = 1,
+		x = 3,
 		y = 0,
 	},
 	soul_pos = {
-		x = 1,
+		x = 4,
 		y = 0,
 	},
 	cost = 5,
@@ -222,13 +231,14 @@ SMODS.Joker({
 	rarity = 4,
 	blueprint_compat = true,
 	discovered = false,
+	atlas = "leg",
 	pos = {
-		x = 1,
+		x = 3,
 		y = 0,
 	},
 	soul_pos = {
-		x = 1,
-		y = 0,
+		x = 3,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -248,6 +258,9 @@ SMODS.Joker({
 		local jud = card.ability.extra
 		Judgement.total_limit(-jud.remove)
 	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: TheOfficialFem", G.C.RARITY[4], G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Joker({
@@ -260,13 +273,14 @@ SMODS.Joker({
 	rarity = 4,
 	blueprint_compat = true,
 	discovered = false,
+	atlas = "leg",
 	pos = {
-		x = 1,
+		x = 2,
 		y = 0,
 	},
 	soul_pos = {
-		x = 1,
-		y = 0,
+		x = 2,
+		y = 1,
 	},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
@@ -289,5 +303,8 @@ SMODS.Joker({
 				table.remove(allcons, 1)
 			end
 		end
+	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: TheOfficialFem", G.C.RARITY[4], G.C.BLACK, 0.8)
 	end,
 })

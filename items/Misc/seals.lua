@@ -1,5 +1,7 @@
 SMODS.Seal({
 	key = "royal",
+	atlas = "seals",
+	pos = {x=0,y=0},
 	discovered = true,
 	badge_colour = HEX("00FF00"),
 	rarity = 3,

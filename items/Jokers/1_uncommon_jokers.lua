@@ -5,17 +5,11 @@ SMODS.Joker({
 			odds = 4,
 		},
 	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 0,
-		y = 0,
-	},
-	soul_pos = {
-		x = 1,
-		y = 0,
-	},
 	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		return {
@@ -69,7 +63,7 @@ SMODS.Joker({
 			end
 		end
 	end,
-					set_badges = function(self, card, badges)
+	set_badges = function(self, card, badges)
 		badges[#badges + 1] = create_badge("Art by: localfeliform", G.C.RARITY[2], G.C.BLACK, 0.8)
 	end,
 })
@@ -85,10 +79,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -124,10 +116,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=2,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -198,10 +188,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -265,10 +253,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -298,10 +284,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 0,
-		y = 0,
-	},
+	atlas = "uncj",
+	pos = {x=2,y=1},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -335,6 +319,9 @@ SMODS.Joker({
 			jud.max = 0
 		end
 	end,
+	set_badges = function(self, card, badges)
+		badges[#badges + 1] = create_badge("Art by: GeorgeTheRat", G.C.RARITY[2], G.C.BLACK, 0.8)
+	end,
 })
 
 SMODS.Joker({
@@ -349,10 +336,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "uncj",
+	pos = {x=1,y=1},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -384,10 +369,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -425,10 +408,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 1,
-	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -460,10 +441,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra
@@ -494,10 +473,8 @@ SMODS.Joker({
 	rarity = 2,
 	blueprint_compat = false,
 	discovered = false,
-	pos = {
-		x = 1,
-		y = 0,
-	},
+	atlas = "wip",
+	pos = {x=1,y=0},
 	cost = 5,
 	loc_vars = function(self, info_queue, card)
 		local jud = card.ability.extra

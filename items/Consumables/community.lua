@@ -9,6 +9,8 @@ SMODS.ConsumableType({
 SMODS.Consumable({
 	key = "advancegoc",
 	set = "community",
+	atlas = "community",
+	pos = {x=0,y=1},
 	config = {
 		extra = {give = 200},
 	},
@@ -31,6 +33,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "bankerror",
 	set = "community",
+	atlas = "community",
+	pos = {x=1,y=1},
 	config = {
 		extra = {give = 200},
 	},	loc_vars = function(self, info_queue, card)
@@ -52,6 +56,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "doctorfree",
 	set = "community",
+	atlas = "community",
+	pos = {x=1,y=2},
 	config = {
 		extra = {give = 50,hands = 2},
 	},	loc_vars = function(self, info_queue, card)
@@ -75,6 +81,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "sale",
 	set = "community",
+	atlas = "community",
+	pos = {x=3,y=3},
 	config = {
 		extra = {give = 50},
 	},	loc_vars = function(self, info_queue, card)
@@ -96,6 +104,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "gojailm",
 	set = "community",
+	atlas = "community",
+	pos = {x=1,y=2},
 	config = {
 		extra = {give = 3},
 	},	loc_vars = function(self, info_queue, card)
@@ -117,6 +127,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "grandopera",
 	set = "community",
+	atlas = "community",
+	pos = {x=2,y=3},
 	config = {
 		extra = {give = 50},
 	},	loc_vars = function(self, info_queue, card)
@@ -138,6 +150,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "holiday",
 	set = "community",
+	atlas = "community",
+	pos = {x=0,y=0},
 	config = {
 		extra = {give = 100,discards = 2},
 	},	loc_vars = function(self, info_queue, card)
@@ -161,6 +175,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "taxrefund",
 	set = "community",
+	atlas = "community",
+	pos = {x=3,y=0},
 	config = {
 		extra = {give = 20},
 	},	loc_vars = function(self, info_queue, card)
@@ -182,6 +198,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "bday",
 	set = "community",
+	atlas = "community",
+	pos = {x=2,y=1},
 	config = {
 		extra = {give = ((os.date("*t").day)/2)},
 	},	loc_vars = function(self, info_queue, card)
@@ -203,6 +221,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "lifeinsurance",
 	set = "community",
+	atlas = "community",
+	pos = {x=1,y=3},
 	config = {
 		extra = {give = 100,hand = 1},
 	},	loc_vars = function(self, info_queue, card)
@@ -226,6 +246,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "hospitalfees",
 	set = "community",
+	atlas = "community",
+	pos = {x=1,y=0},
 	config = {
 		extra = {
 			give = 100
@@ -251,6 +273,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "schoolfee",
 	set = "community",
+	atlas = "community",
+	pos = {x=2,y=2},
 	config = {
 		extra = {add = 1,money = 50},
 	},	loc_vars = function(self, info_queue, card)
@@ -274,6 +298,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "consultancy",
 	set = "community",
+	atlas = "community",
+	pos = {x=3,y=1},
 	config = {
 		extra = {give = 25},
 	},	loc_vars = function(self, info_queue, card)
@@ -295,6 +321,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "streetrepair",
 	set = "community",
+	atlas = "community",
+	pos = {x=0,y=3},
 	config = {
 		extra = {add = 2,remove = 40},
 	},	loc_vars = function(self, info_queue, card)
@@ -318,6 +346,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "secondplace",
 	set = "community",
+	atlas = "community",
+	pos = {x=3,y=2},
 	config = {
 		extra = {give = 10},
 	},	loc_vars = function(self, info_queue, card)
@@ -339,6 +369,8 @@ SMODS.Consumable({
 SMODS.Consumable({
 	key = "inherit",
 	set = "community",
+	atlas = "community",
+	pos = {x=2,y=0},
 	config = {
 		extra = {give = 100,limit = 1},
 	},	loc_vars = function(self, info_queue, card)
