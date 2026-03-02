@@ -33,7 +33,7 @@ SMODS.Joker({
 	key = "megalophobia",
 	config = {
 		extra = {
-			xchips = 1.2,
+			xchips = 1.4,
 		},
 	},
 	atlas = "uncj",
